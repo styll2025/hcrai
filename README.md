@@ -19,13 +19,19 @@ assets/
 
 ## Known gaps / placeholder links
 
-These `<a>` links point to sections or pages that don't exist yet — decide whether they need real destinations before launch:
+The homepage now links out to several pages that don't exist yet in this repo. Nothing will 404 until these are actually deployed as separate files, but they need to be built before launch:
 
-- `#assessment` (nav CTA "Take the Assessment") — no assessment tool/page built yet
+- `about.html`
+- `research-and-insights.html`
+- `behavioural-risk.html` (also used for the "Take the Assessment" CTA)
+- `contact.html`
+- `terms.html`
+- `privacy-policy.html`
+
+Also still unresolved:
+
 - `#report` ("View Report") — no report page/PDF linked yet
-- `#terms`, `#privacy` (footer) — no Terms & Conditions or Privacy Policy pages yet
 - `#linkedin` (footer icon) — not pointing to an actual LinkedIn profile/page URL
-- Nav item "Behavioural Risk" links to `#risk`, an in-page anchor — fine if that's intentional, but confirm it shouldn't be a separate page
 
 The case study link (`Read the Case Study`) already points to a live absolute URL on hcrai.com, so no change needed there unless that page doesn't exist yet either.
 
@@ -33,3 +39,4 @@ The case study link (`Read the Case Study`) already points to a live absolute UR
 
 - Original file had 2 images embedded as uncompressed PNG (11MB total); converted to JPEG (quality 85–88) for an ~11MB → ~530KB reduction with no visible quality loss.
 - Fonts (Baloo 2, Inter) are self-hosted as woff2 rather than pulled from Google Fonts at runtime — no external font requests on page load.
+- Your latest upload added responsive/mobile behavior (a hamburger menu, resizing layouts) built on the design tool's internal preview runtime, which only works inside that tool's own bundler — not on a plain static host. I reimplemented the same responsive behavior using standard CSS custom properties + media queries (breakpoints at 860px and 1200px, matching your original logic) and a small vanilla-JS snippet for the mobile menu toggle. No framework or build step required; it's plain HTML/CSS/JS.

@@ -410,14 +410,141 @@
     }
     ::selection { background: #D7E85B; color: #14181A; }
   </style>
+<style>
+    :root {
+      --containerPad: 18px 40px;
+      --navDisplay: flex;
+      --navCtaDisplay: inline-block;
+      --hamburgerDisplay: none;
+      --heroPad: 48px 40px 100px;
+      --heroCols: 1.05fr 1fr;
+      --heroMinHeight: 620px;
+      --heroImgHeight: 100%;
+      --heroContentPad: 64px 56px;
+      --h1Size: 48px;
+      --factorPad: 72px 64px;
+      --factorCols: 1.15fr 0.85fr;
+      --factorStatBorder: 1px solid rgba(255,255,255,0.12);
+      --factorStatPadLeft: 64px;
+      --factorStatPadTop: 0px;
+      --h2Size38: 38px;
+      --statSize: 108px;
+      --assessPad: 100px 40px;
+      --assessMargin: 100px 0;
+      --assessCols: 1fr 1fr;
+      --assessGap: 72px;
+      --servicesCols: 1fr 1fr 1fr;
+      --servicesPad: 90px 44px;
+      --caseCols: 1fr 1fr;
+      --caseGap: 64px;
+      --caseSectionPad: 100px 40px;
+      --caseSectionMargin: 100px 0;
+      --h2Size36: 36px;
+      --approachPad: 60px 40px 60px;
+      --approachTitleSize: 42px;
+      --approachCols: 1fr 1fr 1fr 1fr;
+      --approachGap: 40px;
+      --ctaPad: 64px 56px;
+      --ctaMargin: 100px auto 0;
+      --ctaAlign: center;
+      --h2Size32: 32px;
+      --affiliationsMargin: 100px auto 0;
+      --footerCols: 1.4fr 1fr 1fr;
+      --footerPad: 72px 40px;
+      --footerGap: 40px;
+      --footerMarginTop: 80px;
+    }
+
+    /* Narrow desktop / tablet landscape */
+    @media (max-width: 1199px) {
+      :root {
+        --h1Size: 40px;
+        --approachCols: 1fr 1fr;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 859px) {
+      :root {
+        --containerPad: 18px 20px;
+        --navDisplay: none;
+        --navCtaDisplay: none;
+        --hamburgerDisplay: flex;
+        --heroPad: 20px 20px 48px;
+        --heroCols: 1fr;
+        --heroMinHeight: auto;
+        --heroImgHeight: 280px;
+        --heroContentPad: 36px 24px;
+        --h1Size: 30px;
+        --factorPad: 36px 24px;
+        --factorCols: 1fr;
+        --factorStatBorder: none;
+        --factorStatPadLeft: 0px;
+        --factorStatPadTop: 32px;
+        --h2Size38: 26px;
+        --statSize: 56px;
+        --assessPad: 56px 20px;
+        --assessMargin: 56px 0;
+        --assessCols: 1fr;
+        --assessGap: 32px;
+        --servicesCols: 1fr;
+        --servicesPad: 48px 24px;
+        --caseCols: 1fr;
+        --caseGap: 32px;
+        --caseSectionPad: 56px 20px;
+        --caseSectionMargin: 56px 0;
+        --h2Size36: 26px;
+        --approachPad: 48px 20px 40px;
+        --approachTitleSize: 30px;
+        --approachCols: 1fr;
+        --approachGap: 28px;
+        --ctaPad: 36px 24px;
+        --ctaMargin: 56px auto 0;
+        --ctaAlign: flex-start;
+        --h2Size32: 26px;
+        --affiliationsMargin: 56px auto 0;
+        --footerCols: 1fr;
+        --footerPad: 48px 20px;
+        --footerGap: 32px;
+        --footerMarginTop: 48px;
+      }
+    }
+
+    /* Mobile hamburger menu */
+    .mobile-menu {
+      display: none;
+    }
+    .mobile-menu.is-open {
+      display: flex;
+    }
+    @media (min-width: 860px) {
+      .mobile-menu {
+        display: none !important;
+      }
+    }
+
+    /* Three-services middle card border swaps side on mobile */
+    .service-card-middle {
+      border-left: 1px solid rgba(20,24,26,0.08);
+      border-right: 1px solid rgba(20,24,26,0.08);
+    }
+    @media (max-width: 859px) {
+      .service-card-middle {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgba(20,24,26,0.08);
+        border-bottom: 1px solid rgba(20,24,26,0.08);
+      }
+    }
+</style>
 </head>
 <body>
 <div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
 
   <!-- NAV -->
   <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
-    <div style="max-width: 1360px; margin: 0 auto; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px;">
-      <div style="display: flex; align-items: center; gap: 12px;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
         <svg width="34" height="34" viewBox="0 0 34 34" style="flex-shrink: 0;">
           <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
           <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
@@ -428,32 +555,42 @@
           <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
           <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
         </div>
-      </div>
+      </a>
 
-      <nav style="display: flex; align-items: center; gap: 36px;">
-        <a href="#about" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
-        <a href="#insights" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Research &amp; Insights</a>
-        <div style="display: flex; align-items: center; gap: 4px; cursor: pointer;">
-          <a href="#risk" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
-          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#14181A" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </div>
-        <a href="#contact" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
       </nav>
 
-      <a href="#consult" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Schedule a Consultation</a>
+      <a href="#consult" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Schedule a Consultation</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="#consult" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Schedule a Consultation</a>
     </div>
   </header>
 
   <!-- HERO -->
-  <section style="position: relative; max-width: 1360px; margin: 0 auto; padding: 48px 40px 100px;">
-    <div style="position: relative; border-radius: 28px; overflow: hidden; min-height: 620px; display: grid; grid-template-columns: 1.05fr 1fr; align-items: stretch;">
-      <div style="position: relative;">
+  <section style="position: relative; max-width: 1360px; margin: 0 auto; padding: var(--heroPad);">
+    <div style="position: relative; border-radius: 28px; overflow: hidden; min-height: var(--heroMinHeight); display: grid; grid-template-columns: var(--heroCols); align-items: stretch;">
+      <div style="position: relative; height: var(--heroImgHeight);">
         <img src="assets/images/hero-father-daughter.jpg" alt="Father and daughter playing with a home robot" style="width: 100%; height: 100%; object-fit: cover; object-position: 65% 55%;">
       </div>
 
-      <div style="background: #F5F5F4; padding: 64px 56px; display: flex; flex-direction: column; justify-content: center; gap: 24px; animation: riseIn 0.7s ease both;">
+      <div style="background: #F5F5F4; padding: var(--heroContentPad); display: flex; flex-direction: column; justify-content: center; gap: 24px; animation: riseIn 0.7s ease both;">
         <div style="display: inline-flex; align-items: center; gap: 8px; background: #D7E85B; color: #14181A; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; padding: 7px 14px; border-radius: 100px; width: fit-content;">AI Ethics and Governance</div>
-        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.1; margin: 0; letter-spacing: -0.5px;">Building and governing AI around human behaviour</h1>
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h1Size); line-height: 1.1; margin: 0; letter-spacing: -0.5px;">Building and governing AI around human behaviour</h1>
         <p style="font-size: 19px; color: #4A473E; margin: 0; line-height: 1.5;">Behavioural science, applied to AI decisions.</p>
         <div style="display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap;">
           <a href="#consult" style="background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 12px; text-decoration: none;">Schedule a Consultation</a>
@@ -463,30 +600,30 @@
   </section>
 
   <!-- THE HUMAN FACTOR -->
-  <section id="insights" style="max-width: 1360px; margin: 40px auto 120px; padding: 0 40px;">
-    <div style="background: #14181A; border-radius: 28px; padding: 72px 64px; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center;">
+  <section id="insights" style="max-width: 1360px; margin: 40px auto 0; padding: 0 40px;">
+    <div style="background: #14181A; border-radius: 28px; padding: var(--factorPad); display: grid; grid-template-columns: var(--factorCols); gap: 40px; align-items: center;">
       <div>
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #D7E85B; margin-bottom: 14px;">The Human Factor</div>
-        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.15; margin: 0 0 20px; color: #fff;">Assessing behavioural risk in AI systems</h2>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size38); line-height: 1.15; margin: 0 0 20px; color: #fff;">Assessing behavioural risk in AI systems</h2>
         <p style="font-size: 17px; color: #C7C4B7; line-height: 1.65; margin: 0 0 16px;">Explore findings from a study of <strong style="color: #fff;">314 practitioners</strong> assessing behavioural risks in deployed AI systems.</p>
         <p style="font-size: 17px; color: #C7C4B7; line-height: 1.65; margin: 0 0 32px;">Discover where AI governance is strong, where operational controls are falling short, the human factors driving organisational risk, and the actions that can strengthen responsible AI adoption.</p>
         <a href="#report" style="display: inline-block; background: #D7E85B; color: #14181A; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 30px; border-radius: 12px; text-decoration: none;">View Report</a>
       </div>
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-left: 1px solid rgba(255,255,255,0.12); padding-left: 64px;">
-        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 108px; line-height: 1; color: #D7E85B;">314</div>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-left: var(--factorStatBorder); padding-left: var(--factorStatPadLeft); padding-top: var(--factorStatPadTop);">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: var(--statSize); line-height: 1; color: #D7E85B;">314</div>
         <div style="font-size: 16px; color: #C7C4B7; margin-top: 12px; max-width: 220px;">practitioners surveyed on behavioural risk in deployed AI systems</div>
       </div>
     </div>
   </section>
 
   <!-- ASSESS YOUR OWN AI SYSTEM -->
-  <section id="risk" style="background: #F5F5F4; padding: 100px 40px;">
-    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;">
+  <section id="risk" style="background: #F5F5F4; padding: var(--assessPad); margin: var(--assessMargin);">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--assessCols); gap: var(--assessGap); align-items: center;">
       <div>
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Assess Your Own AI System</div>
-        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.15; margin: 0 0 24px;">Identify potential behavioural risks in your AI system</h2>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size38); line-height: 1.15; margin: 0 0 24px;">Identify potential behavioural risks in your AI system</h2>
         <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0 0 32px; max-width: 460px;">The Behavioural AI Risk Assessment is free to take. Evaluate a system in around ten minutes and see your risk profile immediately.</p>
-        <a href="#assessment" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none;">Take the Assessment</a>
+        <a href="behavioural-risk.html" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none;">Take the Assessment</a>
       </div>
       <div style="border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;">
         <img src="assets/images/analysts-office.jpg" alt="Analysts working at desks in a bright office" style="width: 100%; height: 100%; object-fit: cover;">
@@ -495,22 +632,22 @@
   </section>
 
   <!-- THREE SERVICES BAND -->
-  <section style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
-    <div style="background: #14181A; color: #fff; padding: 90px 44px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;">
+  <section style="display: grid; grid-template-columns: var(--servicesCols);">
+    <div style="background: #14181A; color: #fff; padding: var(--servicesPad); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;">
       <div style="width: 44px; height: 44px; border-radius: 12px; background: #D7E85B; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
         <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="none" stroke="#14181A" stroke-width="2"></circle><circle cx="11" cy="11" r="3" fill="#14181A"></circle></svg>
       </div>
       <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; color: #D7E85B; margin: 0;">Behavioural Impact Assessment</h3>
       <p style="font-size: 15.5px; color: #E4E2D8; line-height: 1.6; margin: 0; max-width: 300px;">Evaluate how users interact with your AI system. Understand how it shapes trust, behaviour and decision making.</p>
     </div>
-    <div style="background: #FFFFFF; color: #14181A; padding: 90px 44px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; border-left: 1px solid rgba(20,24,26,0.08); border-right: 1px solid rgba(20,24,26,0.08);">
+    <div class="service-card-middle" style="background: #FFFFFF; color: #14181A; padding: var(--servicesPad); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;">
       <div style="width: 44px; height: 44px; border-radius: 12px; background: #14181A; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
         <svg width="22" height="22" viewBox="0 0 22 22"><rect x="3" y="3" width="7" height="7" rx="2" fill="#D7E85B"></rect><rect x="12" y="12" width="7" height="7" rx="2" fill="#D7E85B"></rect></svg>
       </div>
       <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; margin: 0;">Human-AI Interaction Design</h3>
       <p style="font-size: 15.5px; color: #4A473E; line-height: 1.6; margin: 0; max-width: 300px;">Design AI and agentic systems that solve real human and business problems.</p>
     </div>
-    <div style="background: #14181A; color: #fff; padding: 90px 44px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;">
+    <div style="background: #14181A; color: #fff; padding: var(--servicesPad); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;">
       <div style="width: 44px; height: 44px; border-radius: 12px; background: #D7E85B; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
         <svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 L19 6 V12 C19 17 15.5 19.5 11 21 C6.5 19.5 3 17 3 12 V6 Z" fill="none" stroke="#14181A" stroke-width="2" stroke-linejoin="round"></path></svg>
       </div>
@@ -520,14 +657,14 @@
   </section>
 
   <!-- CASE STUDY -->
-  <section style="max-width: 1360px; margin: 120px auto 0; padding: 0 40px;">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+  <section style="background: #F5F5F4; padding: var(--caseSectionPad); margin: var(--caseSectionMargin);">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--caseCols); gap: var(--caseGap); align-items: center;">
       <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(20,24,26,0.15);">
         <img src="assets/images/unomundi-app-screenshot.jpg" alt="Unomundi children's edtech app screenshot" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
       <div>
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Case Study</div>
-        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; margin: 0 0 20px;">Responsible AI in child-focused edtech: lessons from Unomundi</h2>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size36); line-height: 1.15; margin: 0 0 20px;">Responsible AI in child-focused edtech: lessons from Unomundi</h2>
         <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0 0 32px; max-width: 480px;">How we integrate child psychology, ethics and governance to ensure a developmentally appropriate, AI-powered learning experience for children.</p>
         <a href="https://www.hcrai.com/responsible-ai-in-child-focused-edtech-lessons-from-unomundi" target="_blank" rel="noopener" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none;">Read the Case Study</a>
       </div>
@@ -535,82 +672,79 @@
   </section>
 
   <!-- OUR APPROACH -->
-  <section id="about" style="max-width: 1360px; margin: 0 auto; padding: 120px 40px 60px;">
+  <section id="about" style="max-width: 1360px; margin: 0 auto; padding: var(--approachPad);">
     <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Our Approach</div>
-    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1; margin: 0 0 20px;">Assessing Behavioural Risk</h2>
-    <p style="font-size: 18px; color: #4A473E; line-height: 1.6; margin: 0 0 64px; max-width: 780px;">We take a holistic approach to assessing behavioural risk in AI, considering the organisational context, human factors, governance, and operational controls.</p>
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--approachTitleSize); line-height: 1.1; margin: 0 0 20px;">Assessing Behavioural Risk</h2>
+    <p style="font-size: 18px; color: #4A473E; line-height: 1.6; margin: 0 0 48px; max-width: 780px;">We take a holistic approach to assessing behavioural risk in AI, considering the organisational context, human factors, governance, and operational controls.</p>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-bottom: 40px; align-items: stretch;">
+    <div style="display: grid; grid-template-columns: var(--approachCols); gap: var(--approachGap); align-items: stretch;">
       <div style="display: flex; flex-direction: column;">
-        <div style="background: #D7E85B; padding: 20px 28px; border-radius: 14px 14px 0 0;">
-          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; margin: 0; color: #14181A;">Context</h3>
+        <div style="background: #D7E85B; padding: 13px 22px; border-radius: 12px 12px 0 0;">
+          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0; color: #14181A;">Context</h3>
         </div>
-        <ul style="list-style: none; margin: 0; padding: 28px; background: #fff; border: 1px solid rgba(20,24,26,0.08); border-top: none; border-radius: 0 0 14px 14px; display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: space-evenly;">
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Use case &amp; field of application</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Audience (general public, enterprise, vulnerable people, minors, etc.)</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Type of AI (predictive, conversational, agentic)</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Risk tier &amp; classification (e.g. EU AI Act prohibited / high / limited)</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Decision stakes, autonomy level &amp; reversibility</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Data sources, provenance &amp; lawful basis</li>
+        <ul style="list-style: none; margin: 0; padding: 20px 22px; background: #fff; border: 1px solid rgba(20,24,26,0.08); border-top: none; border-radius: 0 0 12px 12px; display: flex; flex-direction: column; gap: 9px; flex: 1; justify-content: flex-start;">
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Use case &amp; field of application</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Audience (general public, enterprise, vulnerable people, minors, etc.)</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Type of AI (predictive, conversational, agentic)</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Risk tier &amp; classification (e.g. EU AI Act prohibited / high / limited)</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Decision stakes, autonomy level &amp; reversibility</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Data sources, provenance &amp; lawful basis</li>
         </ul>
       </div>
       <div style="display: flex; flex-direction: column;">
-        <div style="background: #14181A; padding: 20px 28px; border-radius: 14px 14px 0 0;">
-          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; margin: 0; color: #fff;">Behaviour</h3>
+        <div style="background: #14181A; padding: 13px 22px; border-radius: 12px 12px 0 0;">
+          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0; color: #fff;">Behaviour</h3>
         </div>
-        <ul style="list-style: none; margin: 0; padding: 28px; background: #fff; border: 1px solid rgba(20,24,26,0.08); border-top: none; border-radius: 0 0 14px 14px; display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: space-evenly;">
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Trust</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Adoption</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Potential for misinterpretation</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Delegation of judgement</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Behavioural change</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Different unintended outcomes for certain groups</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Psychological harm</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Over-reliance &amp; automation bias / deskilling</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Manipulation or deceptive influence on choices</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: stretch;">
-      <div style="display: flex; flex-direction: column;">
-        <div style="background: #14181A; padding: 20px 28px; border-radius: 14px 14px 0 0;">
-          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; margin: 0; color: #fff;">Governance</h3>
-        </div>
-        <ul style="list-style: none; margin: 0; padding: 28px; background: #fff; border: 1px solid rgba(20,24,26,0.08); border-top: none; border-radius: 0 0 14px 14px; display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: space-evenly;">
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Clear accountability of AI actions</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Escalation paths</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Incident tracking</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Change approval process</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Policies</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Data protection obligations</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Alignment with broader &amp; field-related regulatory frameworks</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Bias &amp; fairness audits</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Documentation (DPIA / conformity assessment, model cards)</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #8FA829; font-weight: 700;">•</span>Defined roles &amp; responsibilities + periodic review</li>
+        <ul style="list-style: none; margin: 0; padding: 20px 22px; background: #fff; border: 1px solid rgba(20,24,26,0.08); border-top: none; border-radius: 0 0 12px 12px; display: flex; flex-direction: column; gap: 9px; flex: 1; justify-content: flex-start;">
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Trust</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Adoption</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Potential for misinterpretation</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Delegation of judgement</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Behavioural change</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Different unintended outcomes for certain groups</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Psychological harm</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Over-reliance &amp; automation bias / deskilling</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Manipulation or deceptive influence on choices</li>
         </ul>
       </div>
       <div style="display: flex; flex-direction: column;">
-        <div style="background: #EAEAEA; padding: 20px 28px; border-radius: 14px 14px 0 0;">
-          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; margin: 0; color: #14181A;">Controls</h3>
+        <div style="background: #EAEAEA; padding: 13px 22px; border-radius: 12px 12px 0 0;">
+          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0; color: #14181A;">Governance</h3>
         </div>
-        <ul style="list-style: none; margin: 0; padding: 28px; background: #fff; border: 1px solid rgba(20,24,26,0.08); border-top: none; border-radius: 0 0 14px 14px; display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: space-evenly;">
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Transparency &amp; explainability (uncertainty, limitations, risks made clear)</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Human oversight &amp; intervention; high-risk actions are never fully automatic</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Reversibility: easy to undo / correct actions, with safe fallback</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Tested in real conditions, including red-teaming before launch</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Ongoing testing and monitoring after launch</li>
-          <li style="display: flex; gap: 10px; font-size: 16px; color: #2C2A24; line-height: 1.5;"><span style="color: #14181A; font-weight: 700;">•</span>Contestability: users can challenge or appeal a decision</li>
+        <ul style="list-style: none; margin: 0; padding: 20px 22px; background: #fff; border: 1px solid rgba(20,24,26,0.08); border-top: none; border-radius: 0 0 12px 12px; display: flex; flex-direction: column; gap: 9px; flex: 1; justify-content: flex-start;">
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Clear accountability of AI actions</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Escalation paths</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Incident tracking</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Change approval process</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Policies</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Data protection obligations</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Alignment with broader &amp; field-related regulatory frameworks</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Bias &amp; fairness audits</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Documentation (DPIA / conformity assessment, model cards)</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Defined roles &amp; responsibilities + periodic review</li>
+        </ul>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <div style="background: #14181A; padding: 13px 22px; border-radius: 12px 12px 0 0;">
+          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0; color: #fff;">Controls</h3>
+        </div>
+        <ul style="list-style: none; margin: 0; padding: 20px 22px; background: #fff; border: 1px solid rgba(20,24,26,0.08); border-top: none; border-radius: 0 0 12px 12px; display: flex; flex-direction: column; gap: 9px; flex: 1; justify-content: flex-start;">
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Transparency &amp; explainability (uncertainty, limitations, risks made clear)</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Human oversight &amp; intervention; high-risk actions are never fully automatic</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Reversibility: easy to undo / correct actions, with safe fallback</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Tested in real conditions, including red-teaming before launch</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Ongoing testing and monitoring after launch</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Contestability: users can challenge or appeal a decision</li>
         </ul>
       </div>
     </div>
   </section>
 
   <!-- CLOSING CTA -->
-  <section id="consult" style="max-width: 1360px; margin: 100px auto 0; padding: 0 40px;">
-    <div style="background: #14181A; border-radius: 28px; padding: 64px 56px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+  <section id="consult" style="max-width: 1360px; margin: var(--ctaMargin); padding: 0 40px;">
+    <div style="background: #14181A; border-radius: 28px; padding: var(--ctaPad); display: flex; align-items: var(--ctaAlign); justify-content: space-between; gap: 32px; flex-wrap: wrap;">
       <div style="max-width: 560px;">
-        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #fff; margin: 0 0 12px; line-height: 1.2;">Ready to see where your AI stands?</h2>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size32); color: #fff; margin: 0 0 12px; line-height: 1.2;">Ready to see where your AI stands?</h2>
         <p style="font-size: 16px; color: #C7C4B7; margin: 0; line-height: 1.6;">Talk to our team about behavioural risk, governance, and responsible AI adoption.</p>
       </div>
       <a href="#contact" style="background: #D7E85B; color: #14181A; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 18px 32px; border-radius: 12px; text-decoration: none; white-space: nowrap;">Schedule a Consultation</a>
@@ -618,7 +752,7 @@
   </section>
 
   <!-- FOUNDER AFFILIATIONS -->
-  <section style="max-width: 1360px; margin: 100px auto 0; padding: 0 40px;">
+  <section style="max-width: 1360px; margin: var(--affiliationsMargin); padding: 0 40px;">
     <div style="border-top: 1px solid rgba(20,24,26,0.1); padding-top: 48px; text-align: center;">
       <p style="font-size: 16px; color: #4A473E; line-height: 1.6; max-width: 720px; margin: 0 auto 24px;">Through the professional affiliations of its founder, HCRAI actively contributes to the international responsible AI community.</p>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 28px;">
@@ -636,9 +770,9 @@
   </section>
 
   <!-- FOOTER -->
-  <footer id="contact" style="margin-top: 80px;">
-    <div style="background: #F5F5F4; padding: 72px 40px;">
-      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px;">
+  <footer id="contact" style="margin-top: var(--footerMarginTop);">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
             <svg width="30" height="30" viewBox="0 0 34 34">
@@ -667,8 +801,8 @@
         <div>
           <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
           <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
-            <a href="#terms" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
-            <a href="#privacy" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
           </div>
         </div>
       </div>
@@ -677,5 +811,15 @@
   </footer>
 
 </div>
+
+  <script>
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('is-open');
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobile-menu').classList.remove('is-open');
+    }
+  </script>
+
 </body>
 </html>
