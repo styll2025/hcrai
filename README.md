@@ -1,15 +1,23 @@
 # hcrai.com
 
-Static homepage for HCRAI. No build step — plain HTML/CSS with self-hosted fonts and images.
+Static multi-page site for HCRAI. No build step — plain HTML/CSS/JS with self-hosted fonts and images, shared across pages.
 
 ## Structure
 
 ```
-index.html
+index.html          Homepage
+about.html           About / Team page
 assets/
-  images/   photos + favicon
-  fonts/    self-hosted Baloo 2 + Inter (woff2)
+  images/            photos + favicon
+  fonts/             self-hosted Baloo 2 + Inter (woff2)
+  css/
+    fonts.css        @font-face declarations (shared by every page)
+    site.css         layout variables, responsive breakpoints, mobile nav, shared section classes
+  js/
+    site.js          mobile menu toggle (vanilla JS, no dependencies)
 ```
+
+Every page links the same `assets/css/fonts.css`, `assets/css/site.css`, and `assets/js/site.js` — add new pages the same way rather than copy-pasting styles inline, so the nav/footer/responsive behavior stays consistent site-wide.
 
 ## Deploy to GitHub Pages
 
@@ -19,24 +27,27 @@ assets/
 
 ## Known gaps / placeholder links
 
-The homepage now links out to several pages that don't exist yet in this repo. Nothing will 404 until these are actually deployed as separate files, but they need to be built before launch:
+Both pages link out to several pages that don't exist yet in this repo. Nothing will 404 until these are actually deployed as separate files, but they need to be built before launch:
 
-- `about.html`
 - `research-and-insights.html`
-- `behavioural-risk.html` (also used for the "Take the Assessment" CTA)
+- `behavioural-risk.html` (also used for the homepage's "Take the Assessment" CTA)
 - `contact.html`
 - `terms.html`
 - `privacy-policy.html`
 
 Also still unresolved:
 
-- `#report` ("View Report") — no report page/PDF linked yet
-- `#linkedin` (footer icon) — not pointing to an actual LinkedIn profile/page URL
+- `#report` (homepage "View Report") — no report page/PDF linked yet
+- `#linkedin` (footer icon, both pages) — not pointing to an actual LinkedIn profile/page URL
+- `#consult` is used as an in-page anchor on both the homepage and About page (each has its own "Ready to see where your AI stands?" section with that id) — that's intentional per-page behavior, not a bug, but worth knowing if you ever merge sections.
 
-The case study link (`Read the Case Study`) already points to a live absolute URL on hcrai.com, so no change needed there unless that page doesn't exist yet either.
+The case study link on the homepage ("Read the Case Study") already points to a live absolute URL on hcrai.com, so no change needed there unless that page doesn't exist yet either.
 
 ## Notes
 
-- Original file had 2 images embedded as uncompressed PNG (11MB total); converted to JPEG (quality 85–88) for an ~11MB → ~530KB reduction with no visible quality loss.
+- Images are converted from the original uncompressed PNGs to JPEG (quality 85–90) to cut file size drastically with no visible quality loss:
+  - Homepage: ~11MB → ~530KB (2 images)
+  - About page: ~2.4MB → ~97KB (2 of 3 images; the third was already a JPEG)
 - Fonts (Baloo 2, Inter) are self-hosted as woff2 rather than pulled from Google Fonts at runtime — no external font requests on page load.
-- Your latest upload added responsive/mobile behavior (a hamburger menu, resizing layouts) built on the design tool's internal preview runtime, which only works inside that tool's own bundler — not on a plain static host. I reimplemented the same responsive behavior using standard CSS custom properties + media queries (breakpoints at 860px and 1200px, matching your original logic) and a small vanilla-JS snippet for the mobile menu toggle. No framework or build step required; it's plain HTML/CSS/JS.
+- The homepage's mobile/responsive behavior (hamburger menu, resizing layouts) was originally built using the design tool's internal preview runtime (a React-like engine with template bindings), which only works inside that tool's own bundler — not on a plain static host. I reimplemented the same behavior using standard CSS custom properties + media queries (breakpoints at 860px and 1200px matching the original logic) and a small vanilla-JS snippet for the mobile menu, now shared in `assets/css/site.css` / `assets/js/site.js`.
+- The uploaded About page didn't originally include this responsive/mobile-menu behavior (it was a fixed desktop layout only). I extended it to match the homepage's mobile treatment for consistency — nav collapses into the same hamburger menu, and the two team bio sections (Sara Portell, Yasmina El-Fassi) stack to a single column on narrow screens instead of staying frozen in a 2-column grid. If you'd rather the About page behave differently on mobile, flag it and I'll adjust.
