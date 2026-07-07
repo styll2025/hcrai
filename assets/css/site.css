@@ -1,0 +1,194 @@
+/* Shared site-wide styles: keyframes, responsive layout variables, mobile nav, reusable section classes. */
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+::selection { background: #D7E85B; color: #14181A; }
+
+:root {
+  --containerPad: 18px 40px;
+  --navDisplay: flex;
+  --navCtaDisplay: inline-block;
+  --hamburgerDisplay: none;
+
+  --heroPad: 48px 40px 100px;
+  --heroCols: 1.05fr 1fr;
+  --heroMinHeight: 620px;
+  --heroImgHeight: 100%;
+  --heroContentPad: 64px 56px;
+  --h1Size: 48px;
+  --pageHeroH1Size: 42px;
+
+  --factorPad: 72px 64px;
+  --factorCols: 1.15fr 0.85fr;
+  --factorStatBorder: 1px solid rgba(255,255,255,0.12);
+  --factorStatPadLeft: 64px;
+  --factorStatPadTop: 0px;
+  --h2Size38: 38px;
+  --statSize: 108px;
+
+  --assessPad: 100px 40px;
+  --assessMargin: 100px 0;
+  --assessCols: 1fr 1fr;
+  --assessGap: 72px;
+
+  --servicesCols: 1fr 1fr 1fr;
+  --servicesPad: 90px 44px;
+
+  --caseCols: 1fr 1fr;
+  --caseGap: 64px;
+  --caseSectionPad: 100px 40px;
+  --caseSectionMargin: 100px 0;
+  --h2Size36: 36px;
+
+  --approachPad: 60px 40px 60px;
+  --approachTitleSize: 42px;
+  --approachCols: 1fr 1fr 1fr 1fr;
+  --approachGap: 40px;
+
+  --ctaPad: 64px 56px;
+  --ctaMargin: 100px auto 0;
+  --ctaAlign: center;
+  --h2Size32: 32px;
+
+  --affiliationsMargin: 100px auto 0;
+
+  --footerCols: 1.4fr 1fr 1fr;
+  --footerPad: 72px 40px;
+  --footerGap: 40px;
+  --footerMarginTop: 80px;
+
+  --teamGap: 56px;
+  --teamPhotoPad: 56px;
+  --teamCopyPad: 0;
+}
+
+/* Narrow desktop / tablet landscape */
+@media (max-width: 1199px) {
+  :root {
+    --h1Size: 40px;
+    --approachCols: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 859px) {
+  :root {
+    --containerPad: 18px 20px;
+    --navDisplay: none;
+    --navCtaDisplay: none;
+    --hamburgerDisplay: flex;
+
+    --heroPad: 20px 20px 48px;
+    --heroCols: 1fr;
+    --heroMinHeight: auto;
+    --heroImgHeight: 280px;
+    --heroContentPad: 36px 24px;
+    --h1Size: 30px;
+    --pageHeroH1Size: 28px;
+
+    --factorPad: 36px 24px;
+    --factorCols: 1fr;
+    --factorStatBorder: none;
+    --factorStatPadLeft: 0px;
+    --factorStatPadTop: 32px;
+    --h2Size38: 26px;
+    --statSize: 56px;
+
+    --assessPad: 56px 20px;
+    --assessMargin: 56px 0;
+    --assessCols: 1fr;
+    --assessGap: 32px;
+
+    --servicesCols: 1fr;
+    --servicesPad: 48px 24px;
+
+    --caseCols: 1fr;
+    --caseGap: 32px;
+    --caseSectionPad: 56px 20px;
+    --caseSectionMargin: 56px 0;
+    --h2Size36: 26px;
+
+    --approachPad: 48px 20px 40px;
+    --approachTitleSize: 30px;
+    --approachCols: 1fr;
+    --approachGap: 28px;
+
+    --ctaPad: 36px 24px;
+    --ctaMargin: 56px auto 0;
+    --ctaAlign: flex-start;
+    --h2Size32: 26px;
+
+    --affiliationsMargin: 56px auto 0;
+
+    --footerCols: 1fr;
+    --footerPad: 48px 20px;
+    --footerGap: 32px;
+    --footerMarginTop: 48px;
+
+    --teamGap: 32px;
+    --teamPhotoPad: 32px;
+    --teamCopyPad: 32px 0 0;
+  }
+}
+
+/* Mobile hamburger menu */
+.mobile-menu {
+  display: none;
+}
+.mobile-menu.is-open {
+  display: flex;
+}
+@media (min-width: 860px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* Three-services middle card border swaps side on mobile (homepage) */
+.service-card-middle {
+  border-left: 1px solid rgba(20,24,26,0.08);
+  border-right: 1px solid rgba(20,24,26,0.08);
+}
+@media (max-width: 859px) {
+  .service-card-middle {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(20,24,26,0.08);
+    border-bottom: 1px solid rgba(20,24,26,0.08);
+  }
+}
+
+/* Team bio blocks (About page): photo + copy, alternating sides, stack on mobile */
+.team-block {
+  display: grid;
+  gap: var(--teamGap);
+  align-items: stretch;
+  border-radius: 28px;
+  overflow: hidden;
+}
+.team-block--left-copy {
+  grid-template-columns: 1.15fr 1fr;
+}
+.team-block--right-copy {
+  grid-template-columns: 1fr 1.15fr;
+}
+@media (max-width: 859px) {
+  .team-block--left-copy,
+  .team-block--right-copy {
+    grid-template-columns: 1fr;
+  }
+}
+.team-photo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--teamPhotoPad);
+}
+.team-copy {
+  padding: var(--teamCopyPad);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
