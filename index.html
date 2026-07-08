@@ -16,7 +16,7 @@
   <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
     <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
       <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
-        <svg width="34" height="34" viewBox="0 0 34 34" style="flex-shrink: 0;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
           <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
           <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
           <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
@@ -35,7 +35,7 @@
         <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
       </nav>
 
-      <a href="#consult" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Schedule a Consultation</a>
+      <a href="#consult" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
 
       <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
         <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
@@ -48,7 +48,7 @@
       <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Research &amp; Insights</a>
       <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
       <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
-      <a href="#consult" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Schedule a Consultation</a>
+      <a href="#consult" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
     </div>
   </header>
 
@@ -62,9 +62,9 @@
       <div style="background: #F5F5F4; padding: var(--heroContentPad); display: flex; flex-direction: column; justify-content: center; gap: 24px; animation: riseIn 0.7s ease both;">
         <div style="display: inline-flex; align-items: center; gap: 8px; background: #D7E85B; color: #14181A; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; padding: 7px 14px; border-radius: 100px; width: fit-content;">AI Ethics and Governance</div>
         <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h1Size); line-height: 1.1; margin: 0; letter-spacing: -0.5px;">Building and governing AI around human behaviour</h1>
-        <p style="font-size: 19px; color: #4A473E; margin: 0; line-height: 1.5;">Behavioural science, applied to AI decisions.</p>
+        <p style="font-size: 19px; color: #4A473E; margin: 0; line-height: 1.5;">Behavioural science, applied to product and AI decisions.</p>
         <div style="display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap;">
-          <a href="#consult" style="background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 12px; text-decoration: none;">Schedule a Consultation</a>
+          <a href="#consult" style="background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 12px; text-decoration: none;">Request a Discovery Call</a>
         </div>
       </div>
     </div>
@@ -76,13 +76,13 @@
       <div>
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #D7E85B; margin-bottom: 14px;">The Human Factor</div>
         <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size38); line-height: 1.15; margin: 0 0 20px; color: #fff;">Assessing behavioural risk in AI systems</h2>
-        <p style="font-size: 17px; color: #C7C4B7; line-height: 1.65; margin: 0 0 16px;">Explore findings from a study of <strong style="color: #fff;">314 practitioners</strong> assessing behavioural risks in deployed AI systems.</p>
-        <p style="font-size: 17px; color: #C7C4B7; line-height: 1.65; margin: 0 0 32px;">Discover where AI governance is strong, where operational controls are falling short, the human factors driving organisational risk, and the actions that can strengthen responsible AI adoption.</p>
+        <p style="font-size: 17px; color: #C7C4B7; line-height: 1.65; margin: 0 0 16px;">Explore findings from a study of <strong style="color: #fff;">314 practitioners</strong> who assessed the behavioural risks of AI systems using our assessment framework.</p>
+        <p style="font-size: 17px; color: #C7C4B7; line-height: 1.65; margin: 0 0 32px;">Discover where organisations report strengths in governance, where operational controls may be lacking, the human factors shaping AI risk, and opportunities to strengthen responsible AI adoption.</p>
         <a href="#report" style="display: inline-block; background: #D7E85B; color: #14181A; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 30px; border-radius: 12px; text-decoration: none;">View Report</a>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-left: var(--factorStatBorder); padding-left: var(--factorStatPadLeft); padding-top: var(--factorStatPadTop);">
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: var(--statSize); line-height: 1; color: #D7E85B;">314</div>
-        <div style="font-size: 16px; color: #C7C4B7; margin-top: 12px; max-width: 220px;">practitioners surveyed on behavioural risk in deployed AI systems</div>
+        <div style="font-size: 16px; color: #C7C4B7; margin-top: 12px; max-width: 220px;">Practitioners assessed behavioural risk in deployed AI systems.</div>
       </div>
     </div>
   </section>
@@ -91,9 +91,9 @@
   <section id="risk" style="background: #F5F5F4; padding: var(--assessPad); margin: var(--assessMargin);">
     <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--assessCols); gap: var(--assessGap); align-items: center;">
       <div>
-        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Assess Your Own AI System</div>
-        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size38); line-height: 1.15; margin: 0 0 24px;">Identify potential behavioural risks in your AI system</h2>
-        <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0 0 32px; max-width: 460px;">The Behavioural AI Risk Assessment is free to take. Evaluate a system in around ten minutes and see your risk profile immediately.</p>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Assess Your AI System</div>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size38); line-height: 1.15; margin: 0 0 24px;">Evaluate the behavioural risks of your AI system.</h2>
+        <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0 0 32px; max-width: 460px;">Our free Behavioural AI Risk Assessment takes around 10 minutes and provides an immediate behavioural risk profile with practical insights to support responsible AI.</p>
         <a href="behavioural-risk.html" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none;">Take the Assessment</a>
       </div>
       <div style="border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;">
@@ -103,27 +103,33 @@
   </section>
 
   <!-- THREE SERVICES BAND -->
+  <section>
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--focusPad);">
+      <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px; text-align: center;">Our Focus Areas</div>
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--approachTitleSize); line-height: 1.1; margin: 0; text-align: center;">How We Help</h2>
+    </div>
+  </section>
   <section style="display: grid; grid-template-columns: var(--servicesCols);">
     <div style="background: #14181A; color: #fff; padding: var(--servicesPad); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;">
       <div style="width: 44px; height: 44px; border-radius: 12px; background: #D7E85B; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
         <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="none" stroke="#14181A" stroke-width="2"></circle><circle cx="11" cy="11" r="3" fill="#14181A"></circle></svg>
       </div>
       <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; color: #D7E85B; margin: 0;">Behavioural Impact Assessment</h3>
-      <p style="font-size: 15.5px; color: #E4E2D8; line-height: 1.6; margin: 0; max-width: 300px;">Evaluate how users interact with your AI system. Understand how it shapes trust, behaviour and decision making.</p>
+      <p style="font-size: 15.5px; color: #E4E2D8; line-height: 1.6; margin: 0; max-width: 300px;">Assess how people interact with your AI system and identify behavioural risks affecting trust, decision-making, adoption, and wellbeing.</p>
     </div>
     <div class="service-card-middle" style="background: #FFFFFF; color: #14181A; padding: var(--servicesPad); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;">
       <div style="width: 44px; height: 44px; border-radius: 12px; background: #14181A; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
         <svg width="22" height="22" viewBox="0 0 22 22"><rect x="3" y="3" width="7" height="7" rx="2" fill="#D7E85B"></rect><rect x="12" y="12" width="7" height="7" rx="2" fill="#D7E85B"></rect></svg>
       </div>
       <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; margin: 0;">Human-AI Interaction Design</h3>
-      <p style="font-size: 15.5px; color: #4A473E; line-height: 1.6; margin: 0; max-width: 300px;">Design AI and agentic systems that solve real human and business problems.</p>
+      <p style="font-size: 15.5px; color: #4A473E; line-height: 1.6; margin: 0; max-width: 300px;">Design AI and agentic experiences that are intuitive, trustworthy, and aligned with human needs and business objectives.</p>
     </div>
     <div style="background: #14181A; color: #fff; padding: var(--servicesPad); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;">
       <div style="width: 44px; height: 44px; border-radius: 12px; background: #D7E85B; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
         <svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 L19 6 V12 C19 17 15.5 19.5 11 21 C6.5 19.5 3 17 3 12 V6 Z" fill="none" stroke="#14181A" stroke-width="2" stroke-linejoin="round"></path></svg>
       </div>
       <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; color: #D7E85B; margin: 0;">Safeguards, Governance &amp; Readiness</h3>
-      <p style="font-size: 15.5px; color: #E4E2D8; line-height: 1.6; margin: 0; max-width: 300px;">Define controls, product safeguards, and governance mechanisms to mitigate behavioural and compliance risks.</p>
+      <p style="font-size: 15.5px; color: #E4E2D8; line-height: 1.6; margin: 0; max-width: 300px;">Establish governance frameworks, product safeguards, and operational controls to support responsible, compliant AI deployment.</p>
     </div>
   </section>
 
@@ -136,7 +142,7 @@
       <div>
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Case Study</div>
         <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size36); line-height: 1.15; margin: 0 0 20px;">Responsible AI in child-focused edtech: lessons from Unomundi</h2>
-        <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0 0 32px; max-width: 480px;">How we integrate child psychology, ethics and governance to ensure a developmentally appropriate, AI-powered learning experience for children.</p>
+        <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0 0 32px; max-width: 480px;">Building trustworthy AI for children through developmental psychology, human–AI interaction, and ethical governance.</p>
         <a href="https://www.hcrai.com/responsible-ai-in-child-focused-edtech-lessons-from-unomundi" target="_blank" rel="noopener" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none;">Read the Case Study</a>
       </div>
     </div>
@@ -146,7 +152,7 @@
   <section id="about" style="max-width: 1360px; margin: 0 auto; padding: var(--approachPad);">
     <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Our Approach</div>
     <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--approachTitleSize); line-height: 1.1; margin: 0 0 20px;">Assessing Behavioural Risk</h2>
-    <p style="font-size: 18px; color: #4A473E; line-height: 1.6; margin: 0 0 48px; max-width: 780px;">We take a holistic approach to assessing behavioural risk in AI, considering the organisational context, human factors, governance, and operational controls.</p>
+    <p style="font-size: 18px; color: #4A473E; line-height: 1.6; margin: 0 0 48px; max-width: 780px;">We assess behavioural risk as part of the broader socio-technical system in which AI operates. Our approach evaluates not only the AI itself, but also the context in which it is deployed, its influence on human behaviour, the governance mechanisms surrounding it, and the controls needed to ensure safe, trustworthy outcomes.</p>
 
     <div style="display: grid; grid-template-columns: var(--approachCols); gap: var(--approachGap); align-items: stretch;">
       <div style="display: flex; flex-direction: column;">
@@ -160,22 +166,25 @@
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Risk tier &amp; classification (e.g. EU AI Act prohibited / high / limited)</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Decision stakes, autonomy level &amp; reversibility</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Data sources, provenance &amp; lawful basis</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>User goals &amp; tasks</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Deployment environment</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Criticality of decisions</li>
         </ul>
       </div>
       <div style="display: flex; flex-direction: column;">
         <div style="background: #14181A; padding: 13px 22px; border-radius: 12px 12px 0 0;">
-          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0; color: #fff;">Behaviour</h3>
+          <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0; color: #fff;">Behavioural Impact</h3>
         </div>
         <ul style="list-style: none; margin: 0; padding: 20px 22px; background: #fff; border: 1px solid rgba(20,24,26,0.08); border-top: none; border-radius: 0 0 12px 12px; display: flex; flex-direction: column; gap: 9px; flex: 1; justify-content: flex-start;">
-          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Trust</li>
-          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Adoption</li>
-          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Potential for misinterpretation</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Trust &amp; appropriate trust calibration</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Adoption &amp; acceptance</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Risk of misinterpretation</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Delegation of judgement</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Automation bias &amp; deskilling</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Behavioural change</li>
-          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Different unintended outcomes for certain groups</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Manipulation or undue influence</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Psychological harm</li>
-          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Over-reliance &amp; automation bias / deskilling</li>
-          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Manipulation or deceptive influence on choices</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Disproportionate impact on different user groups</li>
         </ul>
       </div>
       <div style="display: flex; flex-direction: column;">
@@ -191,8 +200,10 @@
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Data protection obligations</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Alignment with broader &amp; field-related regulatory frameworks</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Bias &amp; fairness audits</li>
-          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Documentation (DPIA / conformity assessment, model cards)</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Documentation &amp; regulatory evidence (DPIA, conformity assessments, model cards)</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Defined roles &amp; responsibilities + periodic review</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>Human accountability</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #8FA829; font-weight: 700;">•</span>AI literacy &amp; staff training</li>
         </ul>
       </div>
       <div style="display: flex; flex-direction: column;">
@@ -206,6 +217,9 @@
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Tested in real conditions, including red-teaming before launch</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Ongoing testing and monitoring after launch</li>
           <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Contestability: users can challenge or appeal a decision</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>User feedback mechanisms</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Logging &amp; auditability</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: #2C2A24; line-height: 1.45;"><span style="color: #14181A; font-weight: 700;">•</span>Fail-safe behaviour / graceful degradation</li>
         </ul>
       </div>
     </div>
@@ -215,10 +229,10 @@
   <section id="consult" style="max-width: 1360px; margin: var(--ctaMargin); padding: 0 40px;">
     <div style="background: #14181A; border-radius: 28px; padding: var(--ctaPad); display: flex; align-items: var(--ctaAlign); justify-content: space-between; gap: 32px; flex-wrap: wrap;">
       <div style="max-width: 560px;">
-        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size32); color: #fff; margin: 0 0 12px; line-height: 1.2;">Ready to see where your AI stands?</h2>
-        <p style="font-size: 16px; color: #C7C4B7; margin: 0; line-height: 1.6;">Talk to our team about behavioural risk, governance, and responsible AI adoption.</p>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size32); color: #fff; margin: 0 0 12px; line-height: 1.2;">Building AI you can trust starts with understanding behavioural risk.</h2>
+        <p style="font-size: 16px; color: #C7C4B7; margin: 0; line-height: 1.6;">Work with us to assess your AI system, understand how people interact with it, strengthen governance, and design AI that people can trust.</p>
       </div>
-      <a href="#contact" style="background: #D7E85B; color: #14181A; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 18px 32px; border-radius: 12px; text-decoration: none; white-space: nowrap;">Schedule a Consultation</a>
+      <a href="#contact" style="background: #D7E85B; color: #14181A; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 18px 32px; border-radius: 12px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
     </div>
   </section>
 
@@ -244,17 +258,17 @@
   <footer id="contact" style="margin-top: var(--footerMarginTop);">
     <div style="background: #F5F5F4; padding: var(--footerPad);">
       <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
-        <div>
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-            <svg width="30" height="30" viewBox="0 0 34 34">
-              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
-              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
-              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
-              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
-            </svg>
-            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+            <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+            <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+            <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+            <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+          </svg>
+          <div>
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+            <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
           </div>
-          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
         </div>
 
         <div>
@@ -282,8 +296,6 @@
   </footer>
 
 </div>
-
   <script src="assets/js/site.js"></script>
-
 </body>
 </html>

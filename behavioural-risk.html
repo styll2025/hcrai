@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Behavioural Risk Assessment | HCRAI</title>
+<meta name="description" content="Take HCRAI's free Behavioural AI Risk Assessment (BAIRA) to evaluate the context, behaviour, governance and controls of your AI system.">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Research &amp; Insights</a>
+        <a href="#risk" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="#consult" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="#risk" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="#consult" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="background: #FFFFFF; padding: var(--riskHeroTopPad) var(--sidePad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--riskHeroCols); gap: var(--riskHeroGap); align-items: start; padding-bottom: 40px;">
+      <div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 16px;">A structured self-assessment to evaluate behavioural risk</div>
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--riskH1Size); line-height: 1.2; margin: 0; color: #14181A;">How does your AI system impact the people who use it?</h1>
+      </div>
+      <div style="padding-top: var(--riskHeroTextPadTop);">
+        <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0;">This free assessment analyses the context, behaviour, governance and controls applied to the AI system. It gives you a structured picture of where your behavioural risk sits today and where to focus.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSESSMENT EMBED -->
+  <section id="risk" style="background: #FFFFFF; padding: 0 var(--sidePad) 24px;">
+    <div style="max-width: 1360px; margin: 0 auto; background: #F5F1E8; border-radius: 24px; overflow: hidden; padding: var(--riskEmbedPad);">
+      <iframe src="https://script.google.com/macros/s/AKfycbx-TxYVifL1rjw4rM04PquohM2MdFObETjv72hmpa8Eg3WyynY8ObWpPBgxKrq42gPnPA/exec" title="Behavioural Risk Assessment for AI Systems" width="100%" height="1400" loading="lazy" style="border: none; display: block; width: 100%; min-height: 1400px;"></iframe>
+    </div>
+  </section>
+
+  <!-- LICENSE LINE -->
+  <section style="max-width: 1360px; margin: 0 auto; padding: 12px var(--sidePad) 56px;">
+    <p style="font-size: 15px; color: #4A473E; margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+      Behavioural AI Risk Assessment (BAIRA) © 2026 by HCRAI is licensed under
+      <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener" style="color: #14181A; font-weight: 600;">CC BY-NC 4.0</a>
+      <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="none" stroke="#14181A" stroke-width="1.4"></circle><text x="12" y="16" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#14181A">CC</text></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="none" stroke="#14181A" stroke-width="1.4"></circle><text x="12" y="17" text-anchor="middle" font-size="13" font-family="sans-serif" fill="#14181A">i</text></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="none" stroke="#14181A" stroke-width="1.4"></circle><text x="12" y="16" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#14181A">$</text></svg>
+    </p>
+  </section>
+
+  <!-- THE HUMAN FACTOR -->
+  <section style="max-width: 1360px; margin: 0 auto var(--riskFactorBottomMargin); padding: 0 var(--sidePad);">
+    <div style="background: #14181A; border-radius: 28px; padding: var(--factorPad); display: grid; grid-template-columns: var(--factorCols); gap: 40px; align-items: center;">
+      <div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #D7E85B; margin-bottom: 14px;">The Human Factor</div>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--h2Size38); line-height: 1.15; margin: 0 0 20px; color: #fff;">Assessing behavioural risk in AI systems</h2>
+        <p style="font-size: 17px; color: #C7C4B7; line-height: 1.65; margin: 0 0 16px;">Explore findings from a study of <strong style="color: #fff;">314 practitioners</strong> assessing behavioural risks in deployed AI systems.</p>
+        <p style="font-size: 17px; color: #C7C4B7; line-height: 1.65; margin: 0 0 32px;">Discover where AI governance is strong, where operational controls are falling short, the human factors driving organisational risk, and the actions that can strengthen responsible AI adoption.</p>
+        <a href="#report" style="display: inline-block; background: #D7E85B; color: #14181A; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 30px; border-radius: 12px; text-decoration: none;">View Report</a>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-left: var(--factorStatBorder); padding-left: var(--factorStatPadLeft); padding-top: var(--factorStatPadTop);">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: var(--statSize); line-height: 1; color: #D7E85B;">314</div>
+        <div style="font-size: 16px; color: #C7C4B7; margin-top: 12px; max-width: 220px;">practitioners surveyed on behavioural risk in deployed AI systems</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="#linkedin" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

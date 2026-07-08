@@ -1,4 +1,5 @@
-/* Shared site-wide styles: keyframes, responsive layout variables, mobile nav, reusable section classes. */
+/* Shared site-wide styles: keyframes, responsive layout variables, mobile nav, reusable section classes.
+   Breakpoints match the design source: isMobile < 860px, isNarrow < 1200px (unless noted otherwise). */
 
 @keyframes riseIn {
   from { opacity: 0; transform: translateY(18px); }
@@ -7,18 +8,23 @@
 ::selection { background: #D7E85B; color: #14181A; }
 
 :root {
+  /* Shared across every page */
   --containerPad: 18px 40px;
   --navDisplay: flex;
   --navCtaDisplay: inline-block;
   --hamburgerDisplay: none;
+  --sidePad: 40px;
+  --footerCols: 1.4fr 1fr 1fr;
+  --footerPad: 72px 40px;
+  --footerGap: 40px;
 
+  /* Homepage */
   --heroPad: 48px 40px 100px;
   --heroCols: 1.05fr 1fr;
   --heroMinHeight: 620px;
   --heroImgHeight: 100%;
   --heroContentPad: 64px 56px;
   --h1Size: 48px;
-  --pageHeroH1Size: 42px;
 
   --factorPad: 72px 64px;
   --factorCols: 1.15fr 0.85fr;
@@ -35,6 +41,7 @@
 
   --servicesCols: 1fr 1fr 1fr;
   --servicesPad: 90px 44px;
+  --focusPad: 24px 40px 40px;
 
   --caseCols: 1fr 1fr;
   --caseGap: 64px;
@@ -53,32 +60,74 @@
   --h2Size32: 32px;
 
   --affiliationsMargin: 100px auto 0;
-
-  --footerCols: 1.4fr 1fr 1fr;
-  --footerPad: 72px 40px;
-  --footerGap: 40px;
   --footerMarginTop: 80px;
 
+  /* About page */
+  --aboutH1Size: 42px;
+  --teamLabelMargin: 64px;
+  --teamCols1: 1.15fr 1fr;
+  --teamCols2: 1fr 1.15fr;
   --teamGap: 56px;
-  --teamPhotoPad: 56px;
-  --teamCopyPad: 0;
+  --teamSectionMargin: 40px auto 100px;
+  --teamTextPad: 64px 0;
+  --teamImgOrder: 0;
+  --ctaBottomMargin: 100px;
+
+  /* Terms & Privacy Policy (shared "legal page" layout) */
+  --titlePad: 72px 40px 40px;
+  --legalH1Size: 42px;
+
+  /* Research & Insights */
+  --researchTitlePad: 100px 40px 64px;
+  --researchH1Size: 46px;
+  --gridCols: repeat(3, 1fr);
+  --gridGap: 32px;
+
+  /* Behavioural Risk */
+  --riskHeroTopPad: 72px;
+  --riskHeroCols: 1fr 1fr;
+  --riskHeroGap: 64px;
+  --riskHeroTextPadTop: 8px;
+  --riskH1Size: 40px;
+  --riskEmbedPad: 56px 56px 8px;
+  --riskFactorBottomMargin: 96px;
+
+  /* Contact */
+  --contactHeroPad: 72px 40px 0;
+  --contactH1Size: 42px;
+  --contactHeroPMargin: 64px;
+  --contactFormCols: 0.85fr 1.15fr;
+  --contactFormGap: 64px;
+  --contactPanelPad: 56px 48px;
 }
 
-/* Narrow desktop / tablet landscape */
+/* Narrow desktop / tablet landscape (< 1200px) */
 @media (max-width: 1199px) {
   :root {
     --h1Size: 40px;
     --approachCols: 1fr 1fr;
+    --aboutH1Size: 36px;
   }
 }
 
-/* Mobile */
+/* Research grid has its own narrow breakpoint at 1100px */
+@media (max-width: 1099px) {
+  :root {
+    --gridCols: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (< 860px) */
 @media (max-width: 859px) {
   :root {
     --containerPad: 18px 20px;
     --navDisplay: none;
     --navCtaDisplay: none;
     --hamburgerDisplay: flex;
+    --sidePad: 20px;
+    --footerCols: 1fr;
+    --footerPad: 48px 20px;
+    --footerGap: 32px;
 
     --heroPad: 20px 20px 48px;
     --heroCols: 1fr;
@@ -86,7 +135,6 @@
     --heroImgHeight: 280px;
     --heroContentPad: 36px 24px;
     --h1Size: 30px;
-    --pageHeroH1Size: 28px;
 
     --factorPad: 36px 24px;
     --factorCols: 1fr;
@@ -103,6 +151,7 @@
 
     --servicesCols: 1fr;
     --servicesPad: 48px 24px;
+    --focusPad: 16px 20px 24px;
 
     --caseCols: 1fr;
     --caseGap: 32px;
@@ -121,15 +170,40 @@
     --h2Size32: 26px;
 
     --affiliationsMargin: 56px auto 0;
-
-    --footerCols: 1fr;
-    --footerPad: 48px 20px;
-    --footerGap: 32px;
     --footerMarginTop: 48px;
 
-    --teamGap: 32px;
-    --teamPhotoPad: 32px;
-    --teamCopyPad: 32px 0 0;
+    --aboutH1Size: 30px;
+    --teamLabelMargin: 32px;
+    --teamCols1: 1fr;
+    --teamCols2: 1fr;
+    --teamGap: 28px;
+    --teamSectionMargin: 32px auto 56px;
+    --teamTextPad: 0;
+    --teamImgOrder: -1;
+    --ctaBottomMargin: 56px;
+
+    --titlePad: 32px 20px 32px;
+    --legalH1Size: 30px;
+
+    --researchTitlePad: 56px 20px 40px;
+    --researchH1Size: 32px;
+    --gridCols: 1fr;
+    --gridGap: 24px;
+
+    --riskHeroTopPad: 32px;
+    --riskHeroCols: 1fr;
+    --riskHeroGap: 20px;
+    --riskHeroTextPadTop: 0px;
+    --riskH1Size: 28px;
+    --riskEmbedPad: 24px 20px 8px;
+    --riskFactorBottomMargin: 56px;
+
+    --contactHeroPad: 32px 20px 0;
+    --contactH1Size: 28px;
+    --contactHeroPMargin: 40px;
+    --contactFormCols: 1fr;
+    --contactFormGap: 24px;
+    --contactPanelPad: 32px 24px;
   }
 }
 
@@ -160,7 +234,7 @@
   }
 }
 
-/* Team bio blocks (About page): photo + copy, alternating sides, stack on mobile */
+/* Team bio blocks (About page): photo + copy, alternating sides, stack + reorder photo-first on mobile */
 .team-block {
   display: grid;
   gap: var(--teamGap);
@@ -169,26 +243,32 @@
   overflow: hidden;
 }
 .team-block--left-copy {
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: var(--teamCols1);
 }
 .team-block--right-copy {
-  grid-template-columns: 1fr 1.15fr;
-}
-@media (max-width: 859px) {
-  .team-block--left-copy,
-  .team-block--right-copy {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: var(--teamCols2);
 }
 .team-photo-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--teamPhotoPad);
+  padding: 56px;
+  order: var(--teamImgOrder);
 }
 .team-copy {
-  padding: var(--teamCopyPad);
+  padding: var(--teamTextPad);
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* Contact page: success message vs form toggle (vanilla JS, no framework) */
+.contact-success {
+  display: none;
+}
+.contact-success.is-visible {
+  display: flex;
+}
+.contact-form.is-hidden {
+  display: none;
 }
