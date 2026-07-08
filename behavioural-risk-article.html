@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Human Layer: Behavioural Risk in AI Systems | HCRAI</title>
+<meta name="description" content="HCRAI's first Behavioural AI Risk Assessment study, based on responses from 314 AI practitioners: where governance is strong, where operational controls fall short.">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- BACK LINK -->
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--raBackPad);">
+    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Research &amp; Insights
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F2F2F0; padding: var(--raHeroPad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--raHeroCols); gap: 24px; align-items: stretch;">
+      <div style="background: #fff; border-radius: 20px; padding: var(--raHeroCardPad); display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--raH1Size); line-height: 1.15; margin: 0;">The Human Layer: Behavioural Risk in AI Systems</h1>
+        <span style="font-size: 15px; color: #6B6558;">Sara Portell • June 20, 2026</span>
+        <div>
+          <div id="share-label" style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Share this article</div>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="shareArticle('The Human Layer: Behavioural Risk in AI Systems')" aria-label="Share" style="width: 36px; height: 36px; border-radius: 50%; background: #14181A; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="6" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="18" cy="19" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><path d="M8.6 10.7l6.8-3.9M8.6 13.3l6.8 3.9" stroke="#fff" stroke-width="1.8"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; min-height: 260px;">
+        <img src="assets/images/research-brain-lightbulbs.png" alt="Illustration of a brain flanked by lightbulbs, symbolising ideas and questions" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--raArticleTopPad) var(--sidePad) 0;">
+
+    <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 16px;">Behavioural AI Risk Assessment — Wave 1 Findings • June 2026</div>
+
+    <p style="font-size: 20px; line-height: 1.6; margin: 0 0 24px; font-weight: 600;">The organisations deepest into AI adoption reported the strongest governance on paper and the weakest operational controls in practice.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 36px;">That is the central finding of HCRAI's first Behavioural AI Risk Assessment study, based on responses from 314 AI practitioners, involved in the design, development and management of AI systems in their organisations.</p>
+
+    <a href="behavioural-risk.html" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px; padding: 13px 28px; border-radius: 12px; text-decoration: none; margin-bottom: 56px;">View Report</a>
+
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--raH2Size); line-height: 1.2; margin: 0 0 32px;">Four findings stand out</h2>
+
+    <div style="display: grid; grid-template-columns: var(--raFindingsCols); gap: 20px; margin-bottom: 56px;">
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 30px 28px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 14px;">01</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px;">43 points</div>
+        <p style="font-size: 15.5px; color: #4A473E; line-height: 1.65; margin: 0;">The gap between governance maturity (74/100) and operational controls (31/100) in organisations with established AI adoption.</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 30px 28px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 14px;">02</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px;">Opposite directions</div>
+        <p style="font-size: 15.5px; color: #4A473E; line-height: 1.65; margin: 0;">At each successive stage of adoption maturity, governance grows stronger and operational safeguards grow weaker. Confidence is building faster than the safeguards meant to back it up.</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 30px 28px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 14px;">03</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px;">Invisible risk</div>
+        <p style="font-size: 15.5px; color: #4A473E; line-height: 1.65; margin: 0;">Behavioural risk does not appear in dashboards or audit trails, and governance maturity does not reduce it. Organisations with exemplary governance report the same risk profile as those with almost none.</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 30px 28px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 14px;">04</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px;">1 in 3</div>
+        <p style="font-size: 15.5px; color: #4A473E; line-height: 1.65; margin: 0;">AI systems sit in the two highest risk bands, High or Critical. Most are already live or in real-world pilot.</p>
+      </div>
+    </div>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">Underneath these findings sits a more fundamental problem. An organisation can have policies, accountability structures, audit trails, incident and escalation processes, and still not see its users over-relying on outputs, misreading confidence, or being shaped or harmed by repeated interaction.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 48px;">Incident processes detect events, and behavioural risk rarely presents as an event. It accumulates, and by the time it surfaces as a reportable incident, it is usually under a model error or performance issue. The record captures the symptom, but the behavioural cause stays invisible.</p>
+
+    <blockquote style="margin: 0 0 48px; padding: 36px var(--sidePad); background: #D7E85B; border-radius: 20px;">
+      <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--raQuoteSize); line-height: 1.35; color: #14181A; margin: 0 0 16px;">Governance frameworks describe what organisations intend. Behaviour reveals how AI systems shape people.</p>
+      <p style="font-size: 15.5px; color: #4A4E1F; line-height: 1.6; margin: 0;">This study suggests the two have become disconnected and that the disconnect is wider with deeper AI adoption.</p>
+    </blockquote>
+
+    <a href="behavioural-risk.html" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px; padding: 13px 28px; border-radius: 12px; text-decoration: none; margin-bottom: 64px;">View Report</a>
+
+  </article>
+
+  <!-- ASSESS CTA -->
+  <section style="max-width: 1360px; margin: 0 auto var(--raFactorBottomMargin); padding: 0 var(--sidePad);">
+    <div style="background: #E7E7E4; border-radius: 28px; padding: var(--raFactorPad); display: grid; grid-template-columns: var(--raFactorCols); gap: 40px; align-items: center;">
+      <div>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--raH2Size38); line-height: 1.15; margin: 0 0 16px;">Assess your own AI systems</h2>
+        <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0;">The Behavioural AI Risk Assessment is free to take. Evaluate a system in around ten minutes and see your risk profile immediately.</p>
+      </div>
+      <div style="display: flex; justify-content: var(--raCtaJustify);">
+        <a href="behavioural-risk.html" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 34px; border-radius: 12px; text-decoration: none; white-space: nowrap;">Take The Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTIFY ME -->
+  <section style="max-width: 860px; margin: 0 auto 100px; padding: 0 var(--sidePad);">
+    <div style="border-top: 1px solid rgba(20,24,26,0.1); padding-top: 40px; display: flex; flex-direction: var(--raNotifyDirection); align-items: var(--raNotifyAlign); justify-content: space-between; gap: 24px;">
+      <div>
+        <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 21px; margin: 0 0 6px;">Want to stay updated on Wave 2 findings?</h3>
+      </div>
+      <form onsubmit="handleNotifySignup(event)" style="display: flex; gap: 10px; flex-wrap: wrap; width: var(--raNotifyFormWidth);">
+        <input type="email" required placeholder="you@company.com" style="flex: 1; min-width: 200px; padding: 13px 18px; border-radius: 100px; border: 1.5px solid rgba(20,24,26,0.18); font-family: 'Inter', sans-serif; font-size: 15px; outline: none;">
+        <button type="submit" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px; padding: 13px 26px; border-radius: 100px; border: none; cursor: pointer; white-space: nowrap;">Notify Me</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="#linkedin" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

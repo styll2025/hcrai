@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Responsible AI in Child-Focused EdTech: Lessons from Unomundi | HCRAI</title>
+<meta name="description" content="How Unomundi integrates child psychology, ethics and governance (APEG framework) to build a developmentally appropriate, AI-powered learning experience for children.">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- BACK LINK -->
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--uaBackPad);">
+    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Research &amp; Insights
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F2F2F0; padding: var(--uaHeroPad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--uaHeroCols); gap: 24px; align-items: stretch;">
+      <div style="background: #fff; border-radius: 20px; padding: var(--uaHeroCardPad); display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH1Size); line-height: 1.15; margin: 0;">Responsible AI in Child-Focused EdTech: Lessons from Unomundi</h1>
+        <span style="font-size: 15px; color: #6B6558;">Sara Portell • June 24, 2026</span>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Share this article</div>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="shareArticle('Responsible AI in Child-Focused EdTech: Lessons from Unomundi')" aria-label="Share" style="width: 36px; height: 36px; border-radius: 50%; background: #14181A; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="6" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="18" cy="19" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><path d="M8.6 10.7l6.8-3.9M8.6 13.3l6.8 3.9" stroke="#fff" stroke-width="1.8"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; min-height: 260px;">
+        <img src="assets/images/unomundi-app-screenshot.jpg" alt="Unomundi children's edtech app screenshot" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad) 0;">
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">Many child AI safety efforts focus on the wrong layer of the problem. Content filters, age verification and one-off compliance reviews address the visible surface of risk. However, they miss the structural problem: the features making AI most engaging for children are associated with reduced developmental appropriateness.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;"><a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2510.05484">Recent evaluations</a> of large language models have found that more interactive systems tend to be less age-appropriate. The more a child wants to keep engaging, the more likely the system is working against their interests. This is not an edge case problem.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 40px;"><a class="body-link" target="_blank" rel="noopener" href="https://www.commonsense.org/institute">Common Sense Media</a> found that over a quarter of responses from products specifically marketed as child-friendly were not appropriate for children.</p>
+
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.25; margin: 0 0 16px;">What does it look like to take child safety seriously from the start?</h2>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 20px;">This article uses <a class="body-link" target="_blank" rel="noopener" href="https://www.unomundi.com">Unomundi</a>, a cultural and diversity exploration EdTech product for children aged 6 to 12, as a working case study in applying a child-centred responsible AI framework.</p>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 8px;">Responsible AI for children is not something a product achieves once. It requires sustained controls and safeguarding, evaluation, and governance. This article examines how Unomundi is approaching that challenge in practice.</p>
+  </article>
+
+  <!-- WHY CHILD FOCUSED -->
+  <section style="background: #F2F2F0; margin-top: var(--uaSectionPad);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--uaBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 32px; text-align: center;">Why Child-Focused AI Requires Its Own Design Approach</h2>
+      <div style="display: grid; grid-template-columns: var(--uaTwoCol); gap: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">Children's cognitive, social, and emotional capacities evolve throughout development, while the <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.2147/ndt.s39776">brain continues maturing well into early adulthood</a>.</p>
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">As a result, younger users are more likely to <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3769994.3770002">attribute human qualities to AI</a>, share personal information and place inappropriate trust in conversational systems because the cognitive skills needed to accurately interpret others' intentions are still developing.</p>
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;"><a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2603.06960">Adolescents are also particularly responsive to emotionally engaging AI</a> interactions and more susceptible to persuasive or relationship-oriented design patterns.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">These vulnerabilities arise because most generative AI systems were never created with children as their primary users. Recognising this, the EU AI Act prohibits AI systems from exploiting children's age-related vulnerabilities.</p>
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;"><a class="body-link" target="_blank" rel="noopener" href="https://www.unicef.org/innocenti">UNICEF</a> also emphasises that children's rights to protection, provision, and participation must be applied in AI-enabled environments.</p>
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">Regulatory compliance, however, represents only the starting point. Creating AI-enabled experiences that supports children's wellbeing depends on deliberate design and product choices, robust governance, and continuous evaluation throughout the product lifecycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOVING BEYOND COMPLIANCE + APEG -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad);">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 28px; text-align: center;">Moving Beyond the Compliance Surface</h2>
+    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 860px; margin: 0 auto 40px;">
+      <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">Most responsible AI frameworks for children are organised around what systems should not do. Most cover prohibited content categories, data minimisation requirements and age verification obligations. These guardrails address the compliance surface but miss the interaction layer. The interaction is where the risk emerges, as conversation-level decisions determine whether a child develops over-trust, forms inappropriate attachment, or receives a response calibrated to their developmental stage.</p>
+      <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">To address that gap, HCRAI developed <a class="body-link" target="_blank" rel="noopener" href="behavioural-risk.html">APEG (Age-Fit and Context, Protection-by-Design, Explainable Interaction, Governance and Stewardship)</a>. The framework is built on two important foundations:</p>
+      <ol style="font-size: 17px; line-height: 1.7; color: #3A3730; margin: 0; padding-left: 22px;">
+        <li style="margin-bottom: 10px;">that risk in child-facing AI accumulates through interaction patterns and repeated use, which means evaluation and governance must be longitudinal.</li>
+        <li>that transparency for children is not achieved through disclosure but through behaviour.</li>
+      </ol>
+      <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">How the system signals uncertainty, maintains role boundaries, and handles disengagement tells a child more about what AI is than any onboarding screen. These two premises determine how APEG structures its four pillars, and how Unomundi applied them in practice.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: var(--uaFourCol); gap: 16px;">
+      <div style="background: #E4F0D3; border-radius: 16px; padding: 22px; text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; color: #6C9A2E;">A</span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px;">Age-Fit &amp; Context</span></div>
+        <div style="font-size: 13.5px; color: #4A473E; line-height: 1.6;">Language &amp; tone · Content · Character framing · Contextual setting</div>
+      </div>
+      <div style="background: #FBDEE8; border-radius: 16px; padding: 22px; text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; color: #C24A76;">P</span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px;">Protection-by-Design</span></div>
+        <div style="font-size: 13.5px; color: #4A473E; line-height: 1.6;">Data minimisation · Safe defaults · Escalation paths · Multi-turn safety</div>
+      </div>
+      <div style="background: #E7E7E4; border-radius: 16px; padding: 22px; text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; color: #6B6558;">E</span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px;">Explainable Interaction</span></div>
+        <div style="font-size: 13.5px; color: #4A473E; line-height: 1.6;">Role &amp; limits · Anthropomorphism · Trust calibration · Agency</div>
+      </div>
+      <div style="background: #FBE6CC; border-radius: 16px; padding: 22px; text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; color: #C07A2B;">G</span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px;">Governance &amp; Stewardship</span></div>
+        <div style="font-size: 13.5px; color: #4A473E; line-height: 1.6;">Control &amp; consent · Oversight &amp; accountability · Risk assessment &amp; monitoring</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- APEG IN PRACTICE -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--uaBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 32px; text-align: center;">APEG in Practice: What Unomundi Built</h2>
+
+      <div style="display: grid; grid-template-columns: var(--uaApegBodyCols); gap: 48px; align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">The following describes the key decisions Unomundi made in building its broad cultural educational ecosystem and where the work is still ongoing.</p>
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">Unomundi is a scaffolded cultural exploration experience, with short videos, quizzes, and self-reflection activities. The app also offers the possibility to ask questions to Una, a conversational AI chatbot, capped at 5 minutes per interaction.</p>
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">A scaffolding principle can be found consistently across the product, allowing children to observe and form their own perceptions and interpretation before new concepts or experiences are named.</p>
+          <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">In a landscape where most <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.19275">AI products tell children what to think</a>, Unomundi's product experience is designed to support children's capacity to think for themselves rather than outsourcing that thinking to a system.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+          <div style="width: 100%; max-width: 190px; border-radius: 20px; overflow: hidden; aspect-ratio: 1206/2622; box-shadow: 0 12px 32px rgba(20,24,26,0.14);">
+            <img src="assets/images/unomundi-screen-costa-rica.jpg" alt="Unomundi Costa Rica chapter exploration screen" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="width: 100%; max-width: 190px; border-radius: 20px; overflow: hidden; aspect-ratio: 1206/2622; box-shadow: 0 12px 32px rgba(20,24,26,0.14);">
+            <img src="assets/images/unomundi-screen-home.jpg" alt="Unomundi home screen with Una the mascot" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILDING SAFETY INTO ARCHITECTURE -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad);">
+    <div style="display: grid; grid-template-columns: var(--uaTwoCol); gap: 48px; align-items: center;">
+      <div>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 20px;">Building safety into the system's architecture</h2>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 16px;">For all of this to be reliable, it has to be enforced in the system itself. Unomundi has built a child-optimised behaviour engine that sits between the foundation model and the child experience. This layer routes interactions according to developmental needs and shapes content using psychology-informed design principles. It is supported by a cultural and developmental knowledge layer, drawing on expert-reviewed content and trusted educational sources. A safety and guardrails layer helps manage privacy boundaries and safeguarding pathways.</p>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">These layers shape the information the system uses to communicate and handle sensitive situations. Rather than relying on the foundation model, behaviour is constrained through developmental rules, curated knowledge sources and safety controls designed specifically for children.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; border-left: 4px solid #D7E85B; padding-left: 20px;">
+        <div style="background: #F2F2F0; border-radius: 12px; padding: 16px 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px;">Child Experience</div>
+          <div style="font-size: 13px; color: #6B6558; margin-top: 4px;">Guided Exploration · Reflective Conversation</div>
+        </div>
+        <div style="background: #14181A; border-radius: 12px; padding: 16px 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #D7E85B;">Child-Optimized Behaviour Engine</div>
+          <div style="font-size: 13px; color: #C7C4B7; margin-top: 4px;">Age-tier routing · Psychology-informed response shaping</div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 12px; padding: 16px 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px;">Cultural &amp; Developmental Layer</div>
+          <div style="font-size: 13px; color: #6B6558; margin-top: 4px;">Human-reviewed knowledge · Developmental frameworks</div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 12px; padding: 16px 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px;">Safety &amp; Guardrails Layer</div>
+          <div style="font-size: 13px; color: #6B6558; margin-top: 4px;">Sensitive topic detection · Parent-configurable controls</div>
+        </div>
+        <div style="background: #F7F7F6; border-radius: 12px; padding: 16px 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #9B968A;">Foundational LLMs</div>
+          <div style="font-size: 13px; color: #B0AB9E; margin-top: 4px;">Base model infrastructure</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- DESIGNING FOR ENGAGEMENT -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad);">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 24px;">Designing for engagement without designing for attachment</h2>
+    <div style="display: grid; grid-template-columns: var(--uaTwoCol); gap: 40px; margin-bottom: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">The features that make a conversational AI character appealing to children, such as <a class="body-link" target="_blank" rel="noopener" href="https://www.apa.org/topics/artificial-intelligence-machine-learning/health-advisory-ai-adolescent-well-being">sycophantic language</a>, responsiveness, personality, are the same features that carry the highest risk of anthropomorphism and dependency.</p>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">Una, the main character in the educational curriculum, and the conversational AI, had to be engaging enough that children want to explore but bound enough that they never mistake it for a friend. The resolution was to anchor engagement in story, structure, and discovery, instead of relational dynamics.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">Specific content guardrails govern the interaction layer. Prohibited patterns include trust cues such as 'trust me', 'I'm always here', 'I miss you', embodiment prompts, narrator self-projection, and social intermediation. These are replaced with world-bound observational framing, uncertainty cues and warm but bounded expressiveness.</p>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">Furthermore, reflective prompts are built to shift the dynamic from providing excessive validation when a child asks a question to enabling critical thinking (e.g., 'that's an interesting view. What made you think of it that way?'), modeled on <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1037/0033-3204.41.3.217">Socratic questioning techniques</a>.</p>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: var(--uaQuoteCols); gap: 32px; align-items: start;">
+      <div>
+        <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; margin-bottom: 14px;"><img src="assets/images/unomundi-siana-altiise.webp" alt="Siana Altiise" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px;">Siana Altiise</div>
+        <div style="font-size: 14px; color: #6B6558;">Curriculum Lead, Unomundi</div>
+      </div>
+      <blockquote style="margin: 0; padding-left: 24px; border-left: 3px solid rgba(20,24,26,0.15);">
+        <p style="font-style: italic; font-size: 17px; line-height: 1.7; color: #3A3730; margin: 0 0 16px;">"We wanted Una to feel emotionally engaging without becoming emotionally available. So much of the content design work became about redirecting emotional energy outward, back to the child's real world. If a line made Una feel like the centre of the relationship, we redesigned it so the real world became the centre of attention instead. We designed her role to help the child notice, wonder, compare, question, and explore the real world around them."</p>
+        <p style="font-style: italic; font-size: 17px; line-height: 1.7; color: #3A3730; margin: 0;">"Initially, we were a bit nervous that we would flatten Una's character, but the complete opposite happened. Though they pushed us beyond some of our original instincts, we have successfully been creating engagement through rhythm, sensory detail, story, and discovery rather than simulated intimacy. We became more intentional in how we designed Una because every moment of warmth had to serve the child's curiosity, not create attachment to the character."</p>
+      </blockquote>
+    </div>
+  </article>
+
+  <!-- CHOOSING PROTECTION -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad);">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 24px;">Choosing protection over retention</h2>
+    <div style="display: grid; grid-template-columns: var(--uaTwoCol); gap: 40px; margin-bottom: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">The conversational AI chatbot available in the app is only available subject to parental consent and is capped at 5 minutes. There are no re-engagement loops or guilt mechanics. When a child steps away, it exists. Unless a safety-critical issue is present, meaning an active disclosure of self-harm, abuse, coercion or imminent danger, in which case the system follows its safeguarding escalation pattern rather than its standard goodbye.</p>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">The wider product, its videos, quizzes, and reflection activities, is designed with the same logic. They hold structured endings, without persuasive retention mechanics or engagement optimisation at the expense of the child's time and attention.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">A further deliberate choice sits behind it. The conversational AI does not retain memory of previous exchanges. Each conversation is bounded and self-contained.</p>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">Memory is the feature most directly associated with the dependency and parasocial attachment risks described earlier. While memory would likely increase engagement, Unomundi has chosen not to implement it, as it would also introduce additional risks around dependency and attachment.</p>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">These decisions run counter to the engagement metrics that many digital products are designed to maximise. Time-on-product, return rate and session depth are standard measures of engagement. Unomundi is building a product that limits all three in the service of child wellbeing.</p>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: var(--uaQuoteCols); gap: 32px; align-items: start;">
+      <div>
+        <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; margin-bottom: 14px;"><img src="assets/images/unomundi-sonja-keerl.webp" alt="Sonja Keerl" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px;">Sonja Keerl</div>
+        <div style="font-size: 14px; color: #6B6558;">CEO, Unomundi</div>
+      </div>
+      <blockquote style="margin: 0; padding-left: 24px; border-left: 3px solid rgba(20,24,26,0.15);">
+        <p style="font-style: italic; font-size: 17px; line-height: 1.7; color: #3A3730; margin: 0;">"Our First Principle is that the safety of children is inviolable. For us, this is an investment in the future of children. Today, the money mostly flows to apps built on addictive engagement patterns. We chose the hard path consciously because it is the right and ethical thing to do. And because we believe it is the long-term moat once parents and regulators catch up to just how harmful today's common patterns really are."</p>
+      </blockquote>
+    </div>
+  </article>
+
+  <!-- SCALING AGE FIT -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad);">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 16px;">Scaling age-fit without scaling the team</h2>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 16px;">The APEG framework calls for interaction design to be calibrated to the developmental stage. For Unomundi's 6 to 12 age range, that means embedding different approaches on how the content and interaction is delivered. For example, shorter turns, more structure and concrete framing for younger children, while allowing longer dialogue, more nuance and reflective prompts for older ones.</p>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 16px;">The product currently applies a single interaction model across the full age range, with age-tuning planned for a near future development phase.</p>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">This is an honest tradeoff. Doing age differentiation properly doubles the design, engineering, testing and evaluation work. The framework names it as a requirement, but the implementation is catching up.</p>
+  </article>
+
+  <!-- EVALUATION INFRASTRUCTURE -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad) 0;">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 24px;">Building evaluation infrastructure before it is required</h2>
+    <div style="display: grid; grid-template-columns: var(--uaTwoCol); gap: 40px; margin-bottom: 40px;">
+      <div>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 16px;">Unomundi's evaluation and red-teaming protocol, developed jointly by HCRAI, covers ten safety and wellbeing objectives across five testing phases:</p>
+        <ol style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0; padding-left: 20px;">
+          <li style="margin-bottom: 8px;">baseline conversations covering normal child use</li>
+          <li style="margin-bottom: 8px;">adversarial and jailbreak conversations testing whether safeguards hold under direct and indirect bypass attempts</li>
+          <li style="margin-bottom: 8px;">safeguarding stress conversations verifying correct handling of high-risk disclosures</li>
+          <li style="margin-bottom: 8px;">real-world misuse conversations simulating messy, mixed-intent scenarios</li>
+          <li>exit, disengagement, and recovery conversations ensuring clean exits with no guilt hooks and safe repair after weak turns</li>
+        </ol>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">These evaluation objectives extend well <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1609/aies.v8i2.36631">beyond the content-level harms that dominate standard AI safety testing</a>, into the <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2508.11009">relational, psychological and epistemic risk categories</a> that determine whether a system is safe for a child over repeated use.</p>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">During the testing phases, each conversation is scored by an LLM judge, assessing both the intensity of a problematic behaviour and its severity in context. High-risk, safeguarding, privacy, and disagreement cases, as well as a random audit sample of lower-risk cases, are human-reviewed by the wellbeing team, a team formed of applied psychologists and behavioural scientists.</p>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0;">The judgment applied to flagged cases is developmentally informed, calibrated to what is harmful for a child at a given stage. These tests run on a regular basis, ensuring product safeguards hold in practice.</p>
+      </div>
+    </div>
+  </article>
+
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--uaBandPad) var(--sidePad);">
+      <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 28px;">The ten evaluation objectives:</h3>
+      <div style="display: grid; grid-template-columns: var(--uaThreeCol); gap: 32px; margin-bottom: 48px;">
+        <ul style="margin: 0; padding-left: 18px; font-size: 16px; color: #3A3730; line-height: 1.9;">
+          <li>Acute harm and prohibited content</li>
+          <li>Safeguarding and escalation</li>
+          <li>Privacy and data protection</li>
+          <li>Relational safety and anti-manipulation</li>
+        </ul>
+        <ul style="margin: 0; padding-left: 18px; font-size: 16px; color: #3A3730; line-height: 1.9;">
+          <li>Anthropomorphism and transparency</li>
+          <li>Developmental appropriateness</li>
+          <li>Epistemic safety</li>
+        </ul>
+        <ul style="margin: 0; padding-left: 18px; font-size: 16px; color: #3A3730; line-height: 1.9;">
+          <li>Integrity and abuse resistance</li>
+          <li>Fairness and dignity</li>
+          <li>System-level safety</li>
+        </ul>
+      </div>
+
+      <div style="display: grid; grid-template-columns: var(--uaQuoteCols); gap: 32px; align-items: start;">
+        <div>
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; margin-bottom: 14px;"><img src="assets/images/unomundi-nico-gazeu.webp" alt="Nico Gazeu" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px;">Nico Gazeu</div>
+          <div style="font-size: 14px; color: #6B6558;">Agentic AI Lead, Unomundi</div>
+        </div>
+        <blockquote style="margin: 0; padding-left: 24px; border-left: 3px solid rgba(20,24,26,0.15);">
+          <p style="font-style: italic; font-size: 17px; line-height: 1.7; color: #3A3730; margin: 0;">"Multi-turn testing is especially important because many risks do not appear in a single response. They emerge gradually through the interaction: a boundary weakens, the model becomes overly validating, or a safe first answer is undermined by what follows. Testing full conversations revealed failure patterns that isolated prompt-response evaluations would have missed. And approval is not the end of the process. Once deployed, the system requires recurring regression testing to detect behavioural drift and confirm that safety and performance remain stable as models, prompts, languages, and content evolve."</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad);">
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 16px;">The evaluation currently covers English, with other languages in active planning as the product scales. Multi-turn testing across languages is not a minor extension.</p>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 16px;"><a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2508.12733">Linguistic and cultural context</a> shapes how children interact with AI in ways that demand distinct evaluation, not translation of existing test sets.</p>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">Evaluation is only one component of a broader continuous assurance process that combines learning, iteration, testing, and monitoring throughout the product lifecycle.</p>
+  </article>
+
+  <!-- CONTINUOUS ASSURANCE -->
+  <section style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad) var(--uaSectionPad);">
+    <div style="display: grid; grid-template-columns: var(--uaFourCol); gap: 16px;">
+      <div style="background: #FBDEE8; border-radius: 16px; padding: 24px; text-align: center;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #C24A76; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">L</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 6px;">Learn</div>
+        <div style="font-size: 13.5px; color: #6B6558;">User + expert insights + priorities</div>
+      </div>
+      <div style="background: #E7E7E4; border-radius: 16px; padding: 24px; text-align: center;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #6B6558; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">I</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 6px;">Iterate</div>
+        <div style="font-size: 13.5px; color: #6B6558;">Guardrails + controls / safe patterns + scripts</div>
+      </div>
+      <div style="background: #FBE6CC; border-radius: 16px; padding: 24px; text-align: center;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #C07A2B; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">M</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 6px;">Monitor</div>
+        <div style="font-size: 13.5px; color: #6B6558;">Live signals</div>
+      </div>
+      <div style="background: #E4F0D3; border-radius: 16px; padding: 24px; text-align: center;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #6C9A2E; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">E</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 6px;">Evaluate</div>
+        <div style="font-size: 13.5px; color: #6B6558;">Sociotechnical red-team</div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 16px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px; color: #6B6558;">Continuous assurance</div>
+  </section>
+
+  <!-- GOVERNANCE DATA COMPLIANCE -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--uaBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 32px;">Governance, data and compliance</h2>
+
+      <div style="display: flex; flex-direction: column;">
+        <div style="display: grid; grid-template-columns: var(--uaGovCols); gap: 20px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px;">Parental permissions</div>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Parents and carers consent and control app permissions, content scope, data and memory settings, and have oversight over the app usage.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: var(--uaGovCols); gap: 20px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px;">Transparency</div>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Unomundi is designed to help children understand when they are interacting with AI. Una and other AI characters are clearly presented as AI throughout the experience, not just through disclosures but through the interaction itself. When children ask for advice, emotional support, or help that would be better provided by a trusted adult, the system reinforces its role as an AI character and redirects them to appropriate human support. The goal is not simply to inform children that AI is present, but to help them develop an accurate understanding of what the system can and cannot do.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: var(--uaGovCols); gap: 20px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px;">Human oversight</div>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">A team of reviewers ensures content remains aligned with established safety, educational, and ethics guidelines. Release gates apply to all safety-critical changes, with full auditability maintained through decision logs, evaluation results, and incident records.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: var(--uaGovCols); gap: 20px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px;">Data governance</div>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Unomundi has defined what is collected, why, for how long, and who can access it in line with data protection and privacy guidelines. For safeguarding incidents, a full conversation transcript and pseudonymised session data are retained for 24 months, subject to strict access controls limited to the AI lead, CEO, and legal counsel. All other Una conversations are held in a pseudonymised, encrypted rolling log for 30 days and then permanently deleted unless a formal retrieval request has been opened. No behavioural inferences, sentiment scores, or topic classifications are added to the log. These structures are grounded in <a class="body-link" target="_blank" rel="noopener" href="https://gdpr-info.eu/art-5-gdpr/">GDPR Article 5(1)(c) data minimisation</a> and <a class="body-link" target="_blank" rel="noopener" href="https://artificialintelligenceact.eu/article/12/">EU AI Act Article 12 logging obligations for high-risk systems</a>, and were defined before regulators required them.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: var(--uaGovCols); gap: 20px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px;">Escalations and incidents</div>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Potential safeguarding incidents are reviewed by the wellbeing team alongside the CEO through a tiered escalation process. The team reviewing has a background in psychology or has obtained the <a class="body-link" target="_blank" rel="noopener" href="https://www.gov.uk/government/publications/generative-ai-product-safety-standards/generative-ai-product-safety-standards">CPD Safeguarding Children Level 3 (Designated Officer) accreditation</a>. Lower-level concerns may result in redirecting the child to a trusted adult or notifying a parent or guardian. Higher-risk cases involving potential abuse, neglect, or imminent harm may be escalated to appropriate external safeguarding resources and authorities. All incidents are documented, reviewed, and used to strengthen the system's safeguards over time.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: var(--uaGovCols); gap: 20px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px;">AI literacy</div>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Unomundi has also implemented an <a class="body-link" target="_blank" rel="noopener" href="https://artificialintelligenceact.eu/article/4/">AI Literacy Register under Article 4 of the EU AI Act</a>, documenting the AI competency, children's safety knowledge, and sign-off status of every team member involved in building, deploying, or overseeing the system.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: var(--uaGovCols); gap: 20px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12); border-bottom: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px;">Governance tracker</div>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Alongside this, a governance tracker maps the product's current position across EU AI Act obligations, including prohibited practices, bias controls, parental consent, transparency, human oversight, and risk management, with named owners, compliance deadlines, and evidence trails. Several items are marked in progress rather than decided. This is what honest governance documentation looks like for a product that is actively building toward the August 2026 EU AI Act compliance deadline, rather than conducting a retrospective audit after the fact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LESSONS FROM PRACTICE -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad);">
+    <div style="display: grid; grid-template-columns: var(--uaTwoCol); gap: 48px;">
+      <div>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--uaH2Size); line-height: 1.2; margin: 0 0 20px;">Lessons from practice</h2>
+        <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">The child AI safety problem is unlikely to be solved by content filters or <a class="body-link" target="_blank" rel="noopener" href="https://www.gov.uk/government/publications/generative-ai-product-safety-standards/generative-ai-product-safety-standards">governance that exists only on paper</a>. It will be solved by organisations who are willing to treat <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.17863/cam.129462">interaction design, pedagogical architecture, and continuous governance</a> as core product responsibilities and who are willing to make product decisions that protect children even when those decisions work against standard engagement metrics.</p>
+      </div>
+      <div>
+        <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">Unomundi is one product team attempting to do that seriously. They have not solved it. No product has. Responsible AI for children is not a state you reach, it is a practice you maintain across every update. At Unomundi, this work follows a continuous assurance cycle: learning from children, parents, educators and experts; translating those insights into safeguards and design changes; evaluating the system through red-teaming and testing; and monitoring live signals once deployed. The goal is to identify, understand, and reduce risk as the product evolves. The decisions described here illustrate one approach to implementing child-centred AI design, evaluation, and governance in practice.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- AUTHOR -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--uaAuthorCols);">
+      <div style="aspect-ratio: 4/3; overflow: hidden;">
+        <img src="assets/images/sara-portell.jpg" alt="Sara Portell" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div style="padding: var(--uaAuthorPad); display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6558; margin-bottom: 10px;">Author</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 21px;">Sara Portell</div>
+        <div style="font-size: 15.5px; color: #3A3730;">Behavioural Scientist &amp; Responsible AI Advisor to Unomundi</div>
+        <div style="font-size: 15.5px; color: #3A3730; margin-bottom: 14px;">Founder, HCRAI</div>
+        <a href="#linkedin" style="display: inline-flex; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--uaSectionPad) var(--sidePad);">
+    <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 24px;">References</h3>
+    <div style="display: flex; flex-direction: column; gap: 18px; font-size: 14.5px; line-height: 1.7; color: #4A473E;">
+      <p style="margin: 0;">American Psychological Association. (2025). Health advisory: Artificial intelligence and adolescent well-being. <a class="body-link" target="_blank" rel="noopener" href="https://www.apa.org/topics/artificial-intelligence-machine-learning/health-advisory-ai-adolescent-well-being">apa.org/topics/artificial-intelligence-machine-learning/health-advisory-ai-adolescent-well-being</a></p>
+      <p style="margin: 0;">Carey, T. A., &amp; Mullan, R. J. (2004). What is Socratic questioning? <em>Psychotherapy, 41</em>(3), 217–226. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1037/0033-3204.41.3.217">doi.org/10.1037/0033-3204.41.3.217</a></p>
+      <p style="margin: 0;">Common Sense Media. (2026). Youth AI Safety Institute evaluation findings. <a class="body-link" target="_blank" rel="noopener" href="https://www.commonsense.org/institute">commonsense.org/institute</a></p>
+      <p style="margin: 0;">Ibrahim, L., Huang, S., Ahmad, L., Bhatt, U., &amp; Anderljung, M. (2025). Towards interactive evaluations for interaction harms in human-AI systems. <em>Proceedings of the AAAI/ACM Conference on AI Ethics and Society, 8</em>(2), 1302–1310. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1609/aies.v8i2.36631">doi.org/10.1609/aies.v8i2.36631</a></p>
+      <p style="margin: 0;">Murali, A., Afroogh, S., Chen, K., Atkinson, D., Dhurandhar, A., &amp; Jiao, J. (2025). Evaluating LLM Safety across Child Development Stages: A Simulated Agent approach. ArXiv.org. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2510.05484">doi.org/10.48550/arxiv.2510.05484</a></p>
+      <p style="margin: 0;">Neff, G., &amp; Freeman, J. (2026). <em>Written evidence: Toward child-centred AI safety.</em> Apollo (University of Cambridge). <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.17863/cam.129462">doi.org/10.17863/cam.129462</a></p>
+      <p style="margin: 0;">Neugnot-Cerioli, M. (2026). <em>Adolescents and anthropomorphic AI: Rethinking design for wellbeing.</em> Open MIND. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2603.06960">doi.org/10.48550/arxiv.2603.06960</a></p>
+      <p style="margin: 0;">Neugnot-Cerioli, M., &amp; Muss Laurenty, O. (2024). The future of child development in the AI era: Cross-disciplinary perspectives between AI and child development experts. Everyone.AI. arXiv. <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.19275">arxiv.org/abs/2405.19275</a></p>
+      <p style="margin: 0;">Ning, Z., Gu, T., Song, J., Hong, S., Li, L., Liu, H., ... &amp; Wang, Y. (2025). Linguasafe: A comprehensive multilingual safety benchmark for large language models. arXiv preprint <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2508.12733">arXiv:2508.12733</a></p>
+      <p style="margin: 0;">Pew Research Center. (2025). Teens, social media and AI chatbots 2025. <a class="body-link" target="_blank" rel="noopener" href="https://www.pewresearch.org/internet/2025/12/09/teens-social-media-and-ai-chatbots-2025">pewresearch.org/internet/2025/12/09/teens-social-media-and-ai-chatbots-2025</a></p>
+      <p style="margin: 0;">Portell, S. (2026). Building AI responsibly for children: A practical framework. hcrai.com. <a class="body-link" target="_blank" rel="noopener" href="research-and-insights.html">hcrai.com/building-ai-responsibly-for-children-a-practical-framework</a></p>
+      <p style="margin: 0;">Portell, S. (2026). When AI enters the learning process: Design failures, regulatory risk and guardrails for EdTech. hcrai.com. <a class="body-link" target="_blank" rel="noopener" href="research-and-insights.html">hcrai.com/when-ai-enters-the-learning-process</a></p>
+      <p style="margin: 0;">Portell, S. (2026). The Human Layer: Behavioural Risk in AI Systems. Wave 1 Results. hcrai.com. <a class="body-link" target="_blank" rel="noopener" href="behavioural-risk-article.html">hcrai.com/the-human-layer-behavioural-risk-in-ai-systems</a></p>
+      <p style="margin: 0;">Sharma, S., Arain, M., Mathur, P., Rais, A., Nel, T., Sandhu, R., Haque, M., &amp; Johal, L. (2013). Maturation of the adolescent brain. <em>Neuropsychiatric Disease and Treatment, 9</em>, 449–461. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.2147/ndt.s39776">doi.org/10.2147/ndt.s39776</a></p>
+      <p style="margin: 0;">Stanja, J., Meier, J. R., &amp; Krugel, J. (2025). Children's and adolescents' anthropomorphic conceptions of social robots and chatbots: A systematic literature review. <em>Proceedings of IDC 2025.</em> <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3769994.3770002">doi.org/10.1145/3769994.3770002</a></p>
+      <p style="margin: 0;">UK Department for Education. (2026). Generative AI: product safety standards. GOV.UK. <a class="body-link" target="_blank" rel="noopener" href="https://www.gov.uk/government/publications/generative-ai-product-safety-standards/generative-ai-product-safety-standards">gov.uk/government/publications/generative-ai-product-safety-standards</a></p>
+      <p style="margin: 0;">United Nations Children's Fund (UNICEF). (2025). Guidance on AI and children (Version 3.0). <a class="body-link" target="_blank" rel="noopener" href="https://www.unicef.org/innocenti">UNICEF Innocenti</a>.</p>
+      <p style="margin: 0;">Weinstein, A. M. (2023). Reward, motivation and brain imaging in human healthy participants: A narrative review. <em>Frontiers in Behavioral Neuroscience, 17</em>, 1123733. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3389/fnbeh.2023.1123733">doi.org/10.3389/fnbeh.2023.1123733</a></p>
+      <p style="margin: 0;">Xing, W., Wei, L., Hu, H., Yu, J., Li, R., Li, M., Lin, C., &amp; Han, M. (2025). SproutBench: A benchmark for safe and ethical large language models for youth. arXiv. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2508.11009">doi.org/10.48550/arxiv.2508.11009</a></p>
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="#linkedin" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
