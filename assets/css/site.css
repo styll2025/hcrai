@@ -136,6 +136,42 @@
   --uaGovCols: 260px 1fr;
   --uaAuthorCols: 340px 1fr;
   --uaAuthorPad: 48px 40px 0;
+
+  /* Article: Bridging the Gap ("bg" prefix) */
+  --bgBackPad: 28px 40px 0;
+  --bgHeroPad: 48px;
+  --bgHeroCols: 1.1fr 0.9fr;
+  --bgHeroCardPad: 48px;
+  --bgH1Size: 34px;
+  --bgSectionPad: 80px;
+  --bgBandPad: 72px;
+  --bgH2Size: 30px;
+  --bgH3Size: 20px;
+  --bgQuestionSize: 24px;
+  --bgPullQuoteSize: 30px;
+  --bgPullQuoteSize2: 23px;
+  --bgBylineSize: 19px;
+  --bgIntroCols: 0.9fr 1.5fr;
+  --bgPanelCols: repeat(3, 1fr);
+  --bgQaCols: 0.85fr 1.15fr;
+  --bgQaPad: 44px 48px;
+
+  /* Article: The Yes Machine ("ym" prefix) */
+  --ymBackPad: 28px 40px 0;
+  --ymHeroPad: 48px;
+  --ymHeroCols: 1.1fr 0.9fr;
+  --ymHeroCardPad: 48px;
+  --ymH1Size: 34px;
+  --ymSectionPad: 80px;
+  --ymBandPad: 72px;
+  --ymH2Size: 30px;
+  --ymPullQuoteSize: 28px;
+  --ymIntroCols: 0.9fr 1.1fr;
+  --ymChecklistCols: repeat(2, 1fr);
+  --ymEffectCols: 260px 32px 1fr;
+  --ymArrowDisplay: flex;
+  --ymAuthorCols: 340px 1fr;
+  --ymAuthorPad: 48px 40px 0;
 }
 
 /* Narrow desktop / tablet landscape (< 1200px) */
@@ -276,6 +312,40 @@
     --uaGovCols: 1fr;
     --uaAuthorCols: 1fr;
     --uaAuthorPad: 32px 20px 0;
+
+    --bgBackPad: 20px 20px 0;
+    --bgHeroPad: 28px;
+    --bgHeroCols: 1fr;
+    --bgHeroCardPad: 28px 24px;
+    --bgH1Size: 26px;
+    --bgSectionPad: 48px;
+    --bgBandPad: 48px;
+    --bgH2Size: 24px;
+    --bgH3Size: 17px;
+    --bgQuestionSize: 20px;
+    --bgPullQuoteSize: 24px;
+    --bgPullQuoteSize2: 19px;
+    --bgBylineSize: 17px;
+    --bgIntroCols: 1fr;
+    --bgPanelCols: 1fr;
+    --bgQaCols: 1fr;
+    --bgQaPad: 28px 24px;
+
+    --ymBackPad: 20px 20px 0;
+    --ymHeroPad: 28px;
+    --ymHeroCols: 1fr;
+    --ymHeroCardPad: 28px 24px;
+    --ymH1Size: 26px;
+    --ymSectionPad: 48px;
+    --ymBandPad: 48px;
+    --ymH2Size: 24px;
+    --ymPullQuoteSize: 22px;
+    --ymIntroCols: 1fr;
+    --ymChecklistCols: 1fr;
+    --ymEffectCols: 1fr;
+    --ymArrowDisplay: none;
+    --ymAuthorCols: 1fr;
+    --ymAuthorPad: 32px 20px 0;
   }
 }
 

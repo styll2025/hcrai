@@ -11,6 +11,8 @@ research-and-insights.html       Research & Insights (article grid)
 behavioural-risk.html            Behavioural Risk Assessment (live embedded form)
 behavioural-risk-article.html    Article: The Human Layer (Behavioural Risk findings)
 unomundi-article.html            Article: Responsible AI in Child-Focused EdTech (Unomundi case study)
+bridging-the-gap-article.html    Article: Bridging the Gap (practitioner roundtable on AI governance)
+the-yes-machine-article.html     Article: The Yes Machine (sycophantic AI and developmental risk for children)
 contact.html                     Contact
 terms.html                       Terms and Conditions
 privacy-policy.html              Privacy Policy
@@ -38,20 +40,22 @@ Every page links the same `assets/css/fonts.css`, `assets/css/site.css`, and `as
 
 **"Notify Me" on the Behavioural Risk article has the same limitation.** The email signup at the bottom of `behavioural-risk-article.html` shows a "Thanks!" confirmation but doesn't actually collect or send the email anywhere — same as in the original design file. Needs a real mailing-list backend (Mailchimp, Buttondown, etc.) if you want it to work.
 
-**7 of the 9 Research & Insights article cards don't link anywhere yet.** Only "Responsible AI in Child-Focused EdTech: Lessons from Unomundi" and "The Human Layer: Behavioural Risk in AI Systems" now link to real article pages. The other 7 cards still link to `#article`, a placeholder, until those articles are built.
+**5 of the 9 Research & Insights article cards don't link anywhere yet.** "Responsible AI in Child-Focused EdTech: Lessons from Unomundi", "The Human Layer: Behavioural Risk in AI Systems", "Bridging the Gap: When AI Output Becomes Real-World Action", and "The Yes Machine: Sycophantic AI and Its Developmental Risks for Children" now link to real article pages. The other 5 cards still link to `#article`, a placeholder, until those articles are built.
 
 **"View Report" has no destination.** The `#report` link (homepage and Behavioural Risk page) and the "View Report" buttons on the Behavioural Risk article aren't pointing to an actual report page or PDF yet.
 
-**LinkedIn icon isn't wired up.** The `#linkedin` icon link (in every page's footer, the About page's two team bios, and the article author/quote bylines) isn't pointing to a real LinkedIn profile/company URL.
+**LinkedIn icon isn't wired up (mostly).** The `#linkedin` icon link in every page's footer, the About page's two team bios, and the Unomundi/Behavioural-Risk article author bylines isn't pointing to a real LinkedIn profile/company URL. Exceptions: the "Bridging the Gap" roundtable article has real, working LinkedIn links for all 6 panelists, and "The Yes Machine" article's author byline links to a real LinkedIn profile — both came populated in their source files, so no change was needed there.
 
-Everything else is fully built out and cross-linked, with a consistent nav and footer across all 9 pages.
+Everything else is fully built out and cross-linked, with a consistent nav and footer across all 11 pages.
 
 ## Notes
 
 - Images were converted from the original uploads (many were uncompressed PNG screenshots/photos) to JPEG at quality 85–90 where there was no transparency to preserve, cutting file size by roughly 90% with no visible quality loss in each case. A handful of illustrations and portrait photos with real transparency were kept as PNG or WebP (as originally supplied). Total site size is about 4.5MB across all 9 pages and their images/fonts.
 - Fonts (Baloo 2, Inter) are self-hosted as woff2 rather than pulled from Google Fonts at runtime — no external font requests on page load.
-- The responsive/mobile behavior (hamburger menu, resizing layouts) in the original design files was built using the design tool's own internal preview runtime (a React-like engine with template bindings: `{{ responsive.xxx }}`), which only works inside that tool's bundler — not on a plain static host. Every page here has that reimplemented using standard CSS custom properties + media queries and a small vanilla-JS snippet for the mobile menu, shared via `assets/css/site.css` / `assets/js/site.js`. Each page's layout variables are namespaced (e.g. `--raHeroPad` for the Behavioural Risk article, `--uaTwoCol` for the Unomundi article) so one page's numbers never leak into another's.
+- The responsive/mobile behavior (hamburger menu, resizing layouts) in the original design files was built using the design tool's own internal preview runtime (a React-like engine with template bindings: `{{ responsive.xxx }}`), which only works inside that tool's bundler — not on a plain static host. Every page here has that reimplemented using standard CSS custom properties + media queries and a small vanilla-JS snippet for the mobile menu, shared via `assets/css/site.css` / `assets/js/site.js`. Each page's layout variables are namespaced (e.g. `--raHeroPad` for the Behavioural Risk article, `--uaTwoCol` for the Unomundi article, `--bgQaCols` for Bridging the Gap, `--ymEffectCols` for The Yes Machine) so one page's numbers never leak into another's.
 - The Behavioural Risk page embeds a real, already-functioning Google Apps Script form (the BAIRA assessment) via `<iframe>` — that one works as-is, no conversion needed.
-- Both articles' "Share" buttons use the native Web Share API where available, falling back to copy-link-to-clipboard (with a "Link copied" confirmation on the Behavioural Risk article) — this part is fully functional, no backend needed.
+- All four articles' "Share" buttons use the native Web Share API where available, falling back to copy-link-to-clipboard (with a "Link copied" confirmation on the Behavioural Risk article) — this part is fully functional, no backend needed.
+- "Bridging the Gap" embeds a real YouTube video (the full roundtable recording) via `<iframe>` — works as-is.
 - CTA copy was made consistent across the site: every "Schedule a Consultation" button is now "Request a Discovery Call".
-- The Unomundi article's body links (citations, external sources) use a shared `.body-link` style now defined once in `assets/css/site.css` rather than per-page.
+- The Unomundi and The Yes Machine articles' body links (citations, external sources) use a shared `.body-link` style defined once in `assets/css/site.css` rather than per-page.
+- "The Yes Machine" article reuses the existing `research-teens-phones.jpg` illustration for its hero image, with an inline CSS hue-rotate/saturation filter applied only on that page (a colour-shifted variant of the same file, not a separate image) — matches the source design exactly.

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridging the Gap: When AI Output Becomes Real-World Action | HCRAI</title>
+<meta name="description" content="A practitioner roundtable on AI governance: when AI systems start influencing real-world decisions, where does governance actually sit?">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- BACK LINK -->
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--bgBackPad);">
+    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Research &amp; Insights
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F2F2F0; padding: var(--bgHeroPad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--bgHeroCols); gap: 24px; align-items: stretch;">
+      <div style="background: #fff; border-radius: 20px; padding: var(--bgHeroCardPad); display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH1Size); line-height: 1.15; margin: 0;">Bridging the Gap: When AI Output Becomes Real-World Action</h1>
+        <span style="font-size: 15px; color: #6B6558;">Silvia Rocha • May 4, 2026</span>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Share this article</div>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="shareArticle('Bridging the Gap: When AI Output Becomes Real-World Action')" aria-label="Share" style="width: 36px; height: 36px; border-radius: 50%; background: #14181A; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="6" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="18" cy="19" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><path d="M8.6 10.7l6.8-3.9M8.6 13.3l6.8 3.9" stroke="#fff" stroke-width="1.8"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; min-height: 260px; background: #F5F1E8;">
+        <img src="assets/images/research-ai-face-network.png" alt="Line illustration of a face merged with a network of connected nodes" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--bgSectionPad) var(--sidePad);">
+    <div style="display: grid; grid-template-columns: var(--bgIntroCols); gap: 40px;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH2Size); line-height: 1.25; margin: 0;">A practitioner roundtable on AI governance</h2>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">A few weeks ago, Japmandeep (Sunny) proposed a simple but important question to a small group of AI governance and ethics practitioners across the UK and Europe: “When AI systems start influencing real-world decisions, where does governance actually sit?”</p>
+        <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">What began as an idea quickly evolved into a rich, international roundtable, bringing together perspectives from policy, compliance, system design, behavioural science, and operational governance.</p>
+        <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0;">The central issue explored was: The real risk does not begin when AI produces an output. It begins when that output starts shaping a real-world decision. That is the point where governance must move beyond static policy and into proactive operational execution.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- MEET THE PANEL -->
+  <section style="background: #14181A; color: #fff;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--bgBandPad) var(--sidePad);">
+      <div style="display: grid; grid-template-columns: var(--bgIntroCols); gap: 40px; margin-bottom: 40px;">
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH2Size); line-height: 1.2; margin: 0;">Meet the Panel</h2>
+        <p style="font-size: 17px; line-height: 1.7; color: #fff; margin: 0;">The discussion brought together a diverse group of experts across Europe and the UK to dissect AI Ethics and Governance through multiple lenses:</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: var(--bgPanelCols); gap: 20px;">
+        <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-japmandeep-ahluwalia.webp" alt="Japmandeep (Sunny) Ahluwalia" style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block;"></div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Japmandeep (Sunny) Ahluwalia (moderator)</div>
+          <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">Founder Luxyn Ethics and Governance (LEG) and a seasoned expert in commercial leadership. More recently focusing on translating ethical and governance principles into operational “accountability triggers” once AI starts influencing real decisions.</div>
+          <a href="https://www.linkedin.com/in/japmandeep-ahluwalia-a834ab24/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4A473E" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-silvia-rocha.webp" alt="Sílvia Rocha" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Sílvia Rocha</div>
+          <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">A product veteran with 20+ years of experience building mission-critical products across Manufacturing, Healthcare, Retail, Gaming, and Enterprise Application Development. Now specializing in Ethical, Responsible AI and AI Governance.</div>
+          <a href="https://www.linkedin.com/in/rochasilvia/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4A473E" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-wouter-kleynen.webp" alt="Wouter Kleynen" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Wouter Kleynen</div>
+          <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">Co-founder of LexFriend, bringing a mathematical and engineering background to the practical application of AI Governance and EU AI Act compliance.</div>
+          <a href="https://www.linkedin.com/in/wouterkleynen/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4A473E" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-lisa-verhoeven.webp" alt="Lisa Verhoeven" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Lisa Verhoeven</div>
+          <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">A specialist in the technical design and integration of compliant AI systems within the legal domain.</div>
+          <a href="https://www.linkedin.com/in/be-extraordinary/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4A473E" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/sara-portell.jpg" alt="Sara Portell" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;"></div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Sara Portell</div>
+          <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">Founder of HCRAI, and behavioral scientist with 17+ years of experience in product strategy/UX, research and innovation at global tech companies across enterprise SaaS, eCommerce, travel, fintech, edtech, mental health/ wellbeing and HR/ talent management.</div>
+          <a href="https://www.linkedin.com/in/saraportell/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4A473E" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-danielle-hopkins.webp" alt="Danielle Hopkins" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Danielle Hopkins</div>
+          <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">An AI governance and digital rights specialist whose work sits at the intersection of technology, harm, and humanity. With +10 years in Data and AI Governance across public sector, civil society, health, social care and global education bodies, she brings a rare blend of regulatory depth, lived‑experience insight and technical fluency.</div>
+          <a href="https://www.linkedin.com/in/patdfb/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4A473E" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Q&A 1: SILVIA ROCHA -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--bgSectionPad) var(--sidePad);">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH2Size); line-height: 1.2; margin: 0 0 8px;">The Shift from Advisory to Decision-Making:</h2>
+      <div style="font-size: var(--bgH3Size); color: #4A473E;">A Product/Engineering Perspective</div>
+    </div>
+    <div style="background: #F2F2F0; border-radius: 20px; padding: var(--bgQaPad); display: grid; grid-template-columns: var(--bgQaCols); gap: 32px;">
+      <div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B6558; margin-bottom: 14px;">The Question</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-style: italic; font-size: var(--bgQuestionSize); line-height: 1.3;">What actually changes when AI moves from advisory to determining real world decisions?</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;"><strong>Sílvia Rocha</strong> argued that as AI assumes autonomous or high-influence roles, governance must evolve from reactive auditing into a <strong>“proactive engineering discipline”</strong> centered on three pillars: liability, transparency and explainability, and robustness and safety. She emphasizes that when AI moves from an advisory capacity to making business decisions, liability shifts from the professional to the product, requiring stakeholders to govern the <strong>AI’s underlying logic</strong> rather than just its output.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Sílvia advocates for explainability at a level where any user can understand the rationale behind a decision. Her safety framework further mandates rigorous <strong>“red teaming”</strong> to test resilience, operational <strong>“sandboxing”</strong> to enforce strict limits—such as capping loan approvals, and <strong>“automated halts”</strong> that trigger immediate human oversight the moment a model drifts from its performance baseline.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Q&A 2: WOUTER KLEYNEN -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad) var(--bgSectionPad);">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH2Size); line-height: 1.2; margin: 0;">The Operational Challenge of Compliance</h2>
+    </div>
+    <div style="background: #F2F2F0; border-radius: 20px; padding: var(--bgQaPad); display: grid; grid-template-columns: var(--bgQaCols); gap: 32px;">
+      <div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B6558; margin-bottom: 14px;">The Question</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-style: italic; font-size: var(--bgQuestionSize); line-height: 1.3;">Where do organisations struggle most when translating governance frameworks into real implementation?</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;"><strong>Wouter Kleynen</strong> highlighted that the biggest hurdle is turning abstract governance into something an organization can actually operate and sustain.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">He identified <strong>shadow AI and insufficient visibility</strong> into where AI is being developed or used as major pressure points. Because AI can “learn” and drift from its original goals, Kleynen stressed that governance cannot be a one-time setup.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">He also pointed to a significant gap in <strong>AI literacy</strong> within organizations, noting that the EU AI Act necessitates that all employees understand how to, and how not to, use these tools.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Q&A 3: LISA VERHOEVEN -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad) var(--bgSectionPad);">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH2Size); line-height: 1.2; margin: 0;">Building on a Technical Foundation</h2>
+    </div>
+    <div style="background: #F2F2F0; border-radius: 20px; padding: var(--bgQaPad); display: grid; grid-template-columns: var(--bgQaCols); gap: 32px;">
+      <div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B6558; margin-bottom: 14px;">The Question</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-style: italic; font-size: var(--bgQuestionSize); line-height: 1.3;">What are the main challenges in making AI systems controllable enough to support governance in practice?</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;"><strong>Lisa Verhoeven</strong> cautioned against the “rush to adopt AI” driven by a fear of falling behind. She argued that <strong>AI is only as good as the underlying data and architecture</strong>, which are often fragmented, making effective implementation and oversight difficult.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Her advice to organizations is to <strong>“fix their data and systems” first</strong> and clearly define the problem before applying AI in a “risk-aware way”.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">From a technical standpoint, she noted that <strong>testing must be grounded in “risk levels on the business level,”</strong> ensuring that AI behavior is provable and deterministic where required.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Q&A 4: SARA PORTELL -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad) var(--bgSectionPad);">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH2Size); line-height: 1.2; margin: 0 0 8px;">The Human Layer:</h2>
+      <div style="font-size: var(--bgH3Size); color: #4A473E;">Behavior Shaping and Post-Deployment Governance</div>
+    </div>
+    <div style="background: #F2F2F0; border-radius: 20px; padding: var(--bgQaPad); display: grid; grid-template-columns: var(--bgQaCols); gap: 32px;">
+      <div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B6558; margin-bottom: 14px;">The Question</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-style: italic; font-size: var(--bgQuestionSize); line-height: 1.3;">From a behavioural perspective, where do you see the biggest gaps when people interact with AI systems influencing decisions?</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Sara Portell emphasized that governance must extend beyond the system’s design to <strong>include the “human layer”.</strong></p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">She explained how <strong>AI “framing” shapes behaviour and decision-making in real-world usage</strong>; for instance, a clinician might treat an AI’s suggestion as a “final answer” because it appears as a definitive prediction presented with high confidence.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">These effects often become <strong>visible only in use, and only with real users</strong>, not synthetic testing scenarios.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">And as models drift from their baseline over time, human behaviour evolves alongside them. Portell argued that governance must therefore continue post-deployment, <strong>monitoring how systems are used in practice,</strong> in real world setting, to account for the evolving behavioural patterns and downstream human impact they create.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Q&A 5: DANIELLE HOPKINS -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad) var(--bgSectionPad);">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH2Size); line-height: 1.2; margin: 0 0 8px;">The Ground Reality:</h2>
+      <div style="font-size: var(--bgH3Size); color: #4A473E;">Tech Debt and Literacy</div>
+    </div>
+    <div style="background: #F2F2F0; border-radius: 20px; padding: var(--bgQaPad); display: grid; grid-template-columns: var(--bgQaCols); gap: 32px;">
+      <div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B6558; margin-bottom: 14px;">The Question</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-style: italic; font-size: var(--bgQuestionSize); line-height: 1.3;">Organisations often feel they already “have governance.” Where does this break down in practice?</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;"><strong>Danielle Hopkins</strong> spoke to the practical decay of governance caused by “tech debt,” short life cycles, and a general lack of technical awareness.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">She noted that <strong>governance often breaks down when it is treated as a “top-down” policy</strong> rather than being broken down into “little bits” that integrate into daily workflows.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Danni also warned about <strong>“procedural bias” and the impact of the underlying operating system</strong> on AI performance, suggesting that <strong>governance must be holistic</strong> rather than siloed.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div style="max-width: 860px; margin: 0 auto; padding: 0 var(--sidePad) var(--bgSectionPad); text-align: center;">
+    <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgPullQuoteSize); line-height: 1.35; margin: 0 0 8px;">AI governance cannot remain a document on paper.</p>
+    <p style="font-family: 'Baloo 2', sans-serif; font-weight: 500; font-size: var(--bgPullQuoteSize2); line-height: 1.35; margin: 0; color: #4A473E;">It must become a living part of the system itself.</p>
+  </div>
+
+  <!-- CLOSING THOUGHTS -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad) var(--bgSectionPad);">
+    <div style="background: #F2F2F0; border-radius: 20px; padding: var(--bgQaPad); display: grid; grid-template-columns: var(--bgQaCols); gap: 32px;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH2Size); line-height: 1.2; margin: 0;">Closing Thoughts</h2>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">The discussion made one point especially clear: AI governance becomes of the essence when an output starts shaping a real-world action. That is where principles such as <strong>accountability, oversight, transparency, robustness, and human judgment</strong> must stop living in frameworks and <strong>start functioning in practice</strong>.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Across the panel, a consistent theme emerged: the <strong>challenge</strong> is not merely defining good governance, but <strong>embedding it into the technical systems, organisational processes, and human behaviours</strong> that determine how AI is used. Without that operational layer, governance remains superficial, no matter how well written the policy may be.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">As <strong>Japmandeep Ahluwalia</strong> closed the discussion, AI governance cannot remain a document on paper. It must become a living part of the system itself: visible in design choices, embedded in workflows, sustained across the lifecycle, and activated precisely where people, decisions, and accountability meet.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- WATCH THE FULL ROUNDTABLE -->
+  <article style="max-width: 860px; margin: 0 auto; padding: 0 var(--sidePad) var(--bgSectionPad); text-align: center;">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--bgH2Size); line-height: 1.2; margin: 0 0 24px;">Watch the Full Roundtable</h2>
+    <div style="border-radius: 16px; overflow: hidden; aspect-ratio: 16/9;">
+      <iframe src="https://www.youtube.com/embed/YCePunsCE9Q?rel=0" title="Bridging the Gap: full roundtable recording" style="width: 100%; height: 100%; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+    </div>
+  </article>
+
+  <!-- BYLINE -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1000px; margin: 0 auto; padding: var(--bgBandPad) var(--sidePad);">
+      <p style="font-style: italic; font-size: var(--bgBylineSize); line-height: 1.6; color: #3A3730; margin: 0;">Written by Sílvia Rocha. Roundtable organised and moderated by Japmandeep (Sunny) Ahluwalia, with contributions from Wouter Kleynen, Lisa Verhoeven, Sara Portell, and Danielle Hopkins</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="#linkedin" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
