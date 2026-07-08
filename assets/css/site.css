@@ -99,6 +99,43 @@
   --contactFormCols: 0.85fr 1.15fr;
   --contactFormGap: 64px;
   --contactPanelPad: 56px 48px;
+
+  /* Article: Behavioural Risk ("ra" prefix) */
+  --raBackPad: 28px 40px 0;
+  --raHeroPad: 48px;
+  --raHeroCols: 1.1fr 0.9fr;
+  --raHeroCardPad: 48px;
+  --raArticleTopPad: 80px;
+  --raH1Size: 34px;
+  --raH2Size: 30px;
+  --raH2Size38: 34px;
+  --raQuoteSize: 28px;
+  --raFindingsCols: repeat(2, 1fr);
+  --raFactorBottomMargin: 88px;
+  --raFactorPad: 56px 64px;
+  --raFactorCols: 1.3fr 0.7fr;
+  --raCtaJustify: flex-end;
+  --raNotifyDirection: row;
+  --raNotifyAlign: center;
+  --raNotifyFormWidth: auto;
+
+  /* Article: Unomundi ("ua" prefix) */
+  --uaBackPad: 28px 40px 0;
+  --uaHeroPad: 48px;
+  --uaHeroCols: 1.1fr 0.9fr;
+  --uaHeroCardPad: 48px;
+  --uaH1Size: 34px;
+  --uaSectionPad: 80px;
+  --uaBandPad: 80px;
+  --uaH2Size: 30px;
+  --uaTwoCol: repeat(2, 1fr);
+  --uaApegBodyCols: 1.3fr 1fr;
+  --uaThreeCol: repeat(3, 1fr);
+  --uaFourCol: repeat(4, 1fr);
+  --uaQuoteCols: 220px 1fr;
+  --uaGovCols: 260px 1fr;
+  --uaAuthorCols: 340px 1fr;
+  --uaAuthorPad: 48px 40px 0;
 }
 
 /* Narrow desktop / tablet landscape (< 1200px) */
@@ -204,7 +241,53 @@
     --contactFormCols: 1fr;
     --contactFormGap: 24px;
     --contactPanelPad: 32px 24px;
+
+    --raBackPad: 20px 20px 0;
+    --raHeroPad: 28px;
+    --raHeroCols: 1fr;
+    --raHeroCardPad: 28px 24px;
+    --raArticleTopPad: 48px;
+    --raH1Size: 26px;
+    --raH2Size: 24px;
+    --raH2Size38: 26px;
+    --raQuoteSize: 22px;
+    --raFindingsCols: 1fr;
+    --raFactorBottomMargin: 56px;
+    --raFactorPad: 36px 24px;
+    --raFactorCols: 1fr;
+    --raCtaJustify: flex-start;
+    --raNotifyDirection: column;
+    --raNotifyAlign: stretch;
+    --raNotifyFormWidth: 100%;
+
+    --uaBackPad: 20px 20px 0;
+    --uaHeroPad: 28px;
+    --uaHeroCols: 1fr;
+    --uaHeroCardPad: 28px 24px;
+    --uaH1Size: 26px;
+    --uaSectionPad: 48px;
+    --uaBandPad: 48px;
+    --uaH2Size: 24px;
+    --uaTwoCol: 1fr;
+    --uaApegBodyCols: 1fr;
+    --uaThreeCol: 1fr;
+    --uaFourCol: repeat(2, 1fr);
+    --uaQuoteCols: 1fr;
+    --uaGovCols: 1fr;
+    --uaAuthorCols: 1fr;
+    --uaAuthorPad: 32px 20px 0;
   }
+}
+
+/* Article body copy links (Research & Insights articles) */
+a.body-link {
+  color: #2E63C7;
+  text-decoration: underline;
+  text-decoration-color: rgba(46,99,199,0.35);
+}
+a.body-link:hover {
+  color: #1B4A9E;
+  text-decoration-color: #2E63C7;
 }
 
 /* Mobile hamburger menu */
