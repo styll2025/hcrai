@@ -172,6 +172,27 @@
   --ymArrowDisplay: flex;
   --ymAuthorCols: 340px 1fr;
   --ymAuthorPad: 48px 40px 0;
+
+  /* Article: The Design System As The Operational Layer ("dso" prefix) */
+  --dsoBackPad: 28px 40px 0;
+  --dsoHeroPad: 48px;
+  --dsoHeroCols: 1.1fr 0.9fr;
+  --dsoHeroCardPad: 48px;
+  --dsoArticleTopPad: 80px;
+  --dsoH1Size: 34px;
+  --dsoH2Size: 30px;
+  --dsoH2Size38: 34px;
+  --dsoQuoteSize: 28px;
+  --dsoSectionPad: 80px;
+  --dsoBandPad: 72px;
+  --dsoModuleNavCols: repeat(5, 1fr);
+  --dsoChecklistCols: repeat(2, 1fr);
+  --dsoFactorBottomMargin: 88px;
+  --dsoFactorPad: 56px 64px;
+  --dsoFactorCols: 1.3fr 0.7fr;
+  --dsoCtaJustify2: flex-end;
+  --dsoAuthorCols: 340px 1fr;
+  --dsoAuthorPad: 48px 40px 0;
 }
 
 /* Narrow desktop / tablet landscape (< 1200px) */
@@ -346,6 +367,26 @@
     --ymArrowDisplay: none;
     --ymAuthorCols: 1fr;
     --ymAuthorPad: 32px 20px 0;
+
+    --dsoBackPad: 20px 20px 0;
+    --dsoHeroPad: 28px;
+    --dsoHeroCols: 1fr;
+    --dsoHeroCardPad: 28px 24px;
+    --dsoArticleTopPad: 48px;
+    --dsoH1Size: 26px;
+    --dsoH2Size: 24px;
+    --dsoH2Size38: 26px;
+    --dsoQuoteSize: 22px;
+    --dsoSectionPad: 48px;
+    --dsoBandPad: 48px;
+    --dsoModuleNavCols: 1fr 1fr;
+    --dsoChecklistCols: 1fr;
+    --dsoFactorBottomMargin: 56px;
+    --dsoFactorPad: 36px 24px;
+    --dsoFactorCols: 1fr;
+    --dsoCtaJustify2: flex-start;
+    --dsoAuthorCols: 1fr;
+    --dsoAuthorPad: 32px 20px 0;
   }
 }
 

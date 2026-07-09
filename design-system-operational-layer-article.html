@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Design System As The Operational Layer for Responsible Human-AI Interaction | HCRAI</title>
+<meta name="description" content="AI is reshaping the operating conditions design systems were built for. HCRAI outlines a practical 5-module framework for turning design systems into the operational layer for responsible human-AI interaction.">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- BACK LINK -->
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--dsoBackPad);">
+    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Research &amp; Insights
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F2F2F0; padding: var(--dsoHeroPad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--dsoHeroCols); gap: 24px; align-items: stretch;">
+      <div style="background: #fff; border-radius: 20px; padding: var(--dsoHeroCardPad); display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--dsoH1Size); line-height: 1.15; margin: 0;">The Design System As The Operational Layer for Responsible Human-AI Interaction</h1>
+        <span style="font-size: 15px; color: #6B6558;">Sara Portell • February 6, 2026</span>
+        <div>
+          <div id="share-label" style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Share this article</div>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="shareArticle('The Design System As The Operational Layer for Responsible Human-AI Interaction')" aria-label="Share" style="width: 36px; height: 36px; border-radius: 50%; background: #14181A; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="6" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="18" cy="19" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><path d="M8.6 10.7l6.8-3.9M8.6 13.3l6.8 3.9" stroke="#fff" stroke-width="1.8"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; min-height: 260px;">
+        <img src="assets/images/research-robot-browsers.jpg" alt="Line illustration of an AI robot between two browser windows" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE INTRO -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--dsoArticleTopPad) var(--sidePad) 0;">
+
+    <p style="font-size: 20px; line-height: 1.6; margin: 0 0 24px; font-weight: 600;">Design systems were built to scale consistency, efficiency and quality in user-centric applications. AI is reshaping the operating conditions they were built for.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">Reusable components, shared patterns and practices, and a common language across design and engineering promote collaboration. They improve velocity because teams stop solving the same interface problems repeatedly, providing <a class="body-link" target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2022/09/formula-roi-design-system/">measurable ROI</a>.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">AI introduces both immense opportunities and complex (technical, legal and social) challenges. User-facing outputs are <a class="body-link" target="_blank" rel="noopener" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5142285">adaptive and can vary by input, model behaviour can shift over time</a>, and responses that sound credible can still be wrong. These systems can also reproduce or amplify bias, creating unequal outcomes across users. In high-confidence, relational interactions, they can shape user judgment and behaviour. These shifts raise the bar for <a class="body-link" target="_blank" rel="noopener" href="https://al-kindipublishers.org/index.php/fcsai/article/view/11440">accountability, transparency and governance</a> across the full product lifecycle.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px; font-style: italic; font-weight: 700;">The challenge is not only consistency and quality. It is ensuring consistency and quality safely, fairly and responsibly as both system behaviour and human behaviour evolve.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">At the same time, <a class="body-link" target="_blank" rel="noopener" href="https://www.isjtrend.com/article_199162_93fb076ee84e744ec0a2096683658594.pdf">AI-powered copilots and no-code tools</a> are increasingly used in the design process to support ideation, prototyping and delivery, but their adoption also raises concerns about transparency, bias, privacy, and the need to preserve human judgment and oversight. Fast, polished design outputs often look complete even when the underlying logic is incomplete or flawed. As a result, familiar UX failures, misalignment with real user needs, hidden edge cases and context breakdowns, become harder to detect and more costly to correct later.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">Design systems can take on a bigger operational role in AI-enabled product development by <a class="body-link" target="_blank" rel="noopener" href="https://openresearch.ocadu.ca/id/eprint/4188/">codifying user-centric foundations, rules and infrastructure</a> that guide consistent, safe, ethical and scalable human-AI experiences.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">In AI-enabled contexts, design systems are functioning as product systems, codifying behavioural guardrails, human oversight controls and lifecycle governance. These system-level safeguards help teams manage risks that accumulate over time, including model drift, hallucinations and inaccuracies, over- or under-trust, erosion of user agency and decision-making, unequal outcomes from bias, and contextual or cultural misfit.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">The designer’s role is expanding beyond interface craft into shaping system behaviour, orchestrating human-AI collaboration and managing interaction risk likely to emerge over time. Accountability is now distributed. Outcomes are shaped by interdependent variables owned across teams: prompts, models, retrieval pipelines, guardrails, interaction patterns, monitoring and update cycles. As a result, governance cannot be treated as a policy layer. It becomes a cross-functional design challenge embedded in day-to-day product decisions.</p>
+
+    
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">AI Ethics Standards provide guidelines and structure, but product teams still need to convert those principles into everyday decisions: what to ship, how it behaves, how it’s explained, what to block, what to review (by whom, at what point), what to escalate. In practice, this is where teams operationalise recognised frameworks like <a class="body-link" target="_blank" rel="noopener" href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF</a> and ISO/IEC <a class="body-link" target="_blank" rel="noopener" href="https://www.iso.org/standard/42001">42001</a>/<a class="body-link" target="_blank" rel="noopener" href="https://www.iso.org/standard/77304.html">23894</a>, and, in the EU, align interaction controls with the <a class="body-link" target="_blank" rel="noopener" href="https://artificialintelligenceact.eu/chapter/3/">EU AI Act’s risk-based obligations</a>.</p><p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 48px;">That translation gap is where design systems can create important leverage. Because they function as shared cross-functional operational memory, design systems can <a class="body-link" target="_blank" rel="noopener" href="https://openaccess.cms-conferences.org/publications/book/978-1-958651-95-7/article/978-1-958651-95-7_26" data-comment-anchor="b770d15a3b-a">turn governance into design and delivery logic,</a> enforcing safe and effective interaction patterns and human oversight embedded in how teams already work. Governance becomes built-in by default, not layered on after release, making design systems central to sustaining UX quality and safety over time.</p>
+
+  </article>
+
+  <!-- MODULES INTRO -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--dsoBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--dsoH2Size); line-height: 1.2; margin: 0 0 12px;">Creating a Design System for Responsible Human-AI Interaction</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 12px; max-width: 760px;">A practical implementation in 5 modules.</p>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 40px; max-width: 760px;">A responsible design system helps teams ship effectively at scale while maintaining quality and managing behavioural impact and risk. It should span interfaces (UI, voice, agentic experiences), model providers and tooling environments (Figma, code assistants, no-code builders), and connect principles to enforceable rules in production.</p>
+
+      <div style="display: grid; grid-template-columns: var(--dsoModuleNavCols); gap: 12px;">
+        <a href="#module-1" style="text-decoration: none; color: #14181A; background: #fff; border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 14px; color: #8FA829;">01</span>
+          <span style="font-size: 14.5px; font-weight: 600; line-height: 1.3;">Audit the human-AI interaction</span>
+        </a>
+        <a href="#module-2" style="text-decoration: none; color: #14181A; background: #fff; border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 14px; color: #8FA829;">02</span>
+          <span style="font-size: 14.5px; font-weight: 600; line-height: 1.3;">Build the responsible interaction layer</span>
+        </a>
+        <a href="#module-3" style="text-decoration: none; color: #14181A; background: #fff; border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 14px; color: #8FA829;">03</span>
+          <span style="font-size: 14.5px; font-weight: 600; line-height: 1.3;">Operationalise governance</span>
+        </a>
+        <a href="#module-4" style="text-decoration: none; color: #14181A; background: #fff; border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 14px; color: #8FA829;">04</span>
+          <span style="font-size: 14.5px; font-weight: 600; line-height: 1.3;">Enforce constraints in AI-assisted production</span>
+        </a>
+        <a href="#module-5" style="text-decoration: none; color: #14181A; background: #fff; border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 14px; color: #8FA829;">05</span>
+          <span style="font-size: 14.5px; font-weight: 600; line-height: 1.3;">Systematic testing and continuous monitoring</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 1 -->
+  <article id="module-1" style="max-width: 860px; margin: 0 auto; padding: var(--dsoSectionPad) var(--sidePad) 0; scroll-margin-top: 90px;">
+    <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 12px;">Module 01</div>
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--dsoH2Size); line-height: 1.2; margin: 0 0 24px;">Audit the human-AI interaction</h2>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 32px;">Start by mapping where AI is already present in the experience, and where it soon will be. A strong baseline audit should produce:</p>
+
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">AI touchpoint inventory</h4>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">List where users encounter AI outputs and actions, with consistent metadata (surface, modality, capability type, automation level, owner, initial risk rating). For high-risk touchpoints, add traceability fields (user goal, decision stakes, key inputs, escalation/ownership) and an evidence pack (touchpoint spec, decision rationale, change/version log, disclosure &amp; UX copy, human oversight/escalation playbook, and incident/near-miss record) so evidence and accountability remain auditable over time.</p>
+      </div>
+      <div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Failure risks</h4>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Identify the interaction risks that can occur across the experience (e.g., misleading certainty signals, inaccuracies, hidden automation, bias/unfair outcomes, inadequate contestability, unsafe delegation or responses, sensitive inference, escalation failures), mapped back to the touchpoints where they appear.</p>
+      </div>
+      <div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Gap analysis</h4>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Compare the current experience to defined internal standards (principles, safety, UX, accessibility, content) and relevant external obligations (ethical requirements, regulations and industry-level standards). Record the evidence reviewed (designs, flows, policies, logs, evaluations) so gaps are traceable and auditable.</p>
+      </div>
+      <div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Risk map</h4>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Rank issues by severity of impact, likelihood, exposure/scale, and detectability. Include regulatory classification as one input to prioritisation (alongside user impact and operational risk). Include vulnerability as a risk input, both cohort vulnerability (e.g., minors, mental health contexts, low literacy) and situational vulnerability (e.g., high-pressure decisions, urgency, on-the-go), since it materially shifts stakes and harm likelihood.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- MODULE 2 -->
+  <article id="module-2" style="max-width: 860px; margin: 0 auto; padding: var(--dsoSectionPad) var(--sidePad) 0; scroll-margin-top: 90px;">
+    <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 12px;">Module 02</div>
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--dsoH2Size); line-height: 1.2; margin: 0 0 24px;">Build the responsible interaction layer</h2>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 32px;">The interaction layer is where evidence-informed principles and behavioural insights get translated into enforceable requirements for human-AI interaction. It also turns those requirements into reusable, responsible building blocks and patterns.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 48px;">
+      <div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Principles</h4>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">Principles should translate into interaction requirements, reusable patterns and review criteria. They should define both what <a class="body-link" target="_blank" rel="noopener" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5312384">behavioural and ethical outcomes</a> to enable (e.g., informed trust, better decisions, confident recovery) and harm to prevent (e.g., bias, opacity, privacy risk, unsafe or manipulative interaction patterns).</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Core areas include agency and recoverability, transparency, trust calibration, decision support under uncertainty, safety safeguards, <a class="body-link" target="_blank" rel="noopener" href="http://dx.doi.org/10.2139/ssrn.5312384">fairness, traceability and human oversight</a>. Trust calibration needs explicit design: show what the system used (and didn’t), communicate uncertainty without false precision, nudge verification in proportion to stakes, and add “how this works” primers to prevent magical thinking.</p>
+      </div>
+      <div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Foundations</h4>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">Foundations are baseline rules for all AI-mediated flows. They define role boundaries, tone and behavioural limits, confirmation norms, required disclosures, automation thresholds, recovery patterns, and data-use rules at the interaction layer.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;"><a class="body-link" target="_blank" rel="noopener" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5142285">They also define change transparency</a>: which behaviour shifts require internal escalation, and which (such as those affecting trust, control, outcomes or data use) must be disclosed to users, plus the signals that trigger both.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">Set clear data boundaries (what data can be used for inference, personalisation and training, with purpose-specific rules, retention limits and user controls). Prohibit or tightly control sensitive inference with detection and escalation paths, and require explicit consent for proactive and background actions.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">These are minimum foundations, not a closed list. They should be adapted by domain, risk tier and level of automation.</p>
+      </div>
+      <div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Components and interaction patterns</h4>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">Components provide the building blocks teams use daily (e.g., review-before-apply, pause/undo automation controls, uncertainty signals, escalation handoffs, provenance cues where AI contributes to outputs).</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Patterns define how those blocks work together across real user journeys (e.g., setting expectations, supporting recovery, preserving user control, consent mechanisms, handling safe refusal, calibrating trust, reducing over-reliance over time).</p>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 8px;">Where organisations usually fail</h3>
+    <div style="margin-bottom: 28px;"><p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">In transformation work, <a class="body-link" target="_blank" rel="noopener" href="https://www.linkedin.com/in/markjonathanreynolds/">Mark Reynolds</a> sees three recurring structural failures:</p></div>
+
+    <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 28px 30px;">
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">1. Unstructured foundations <span style="font-weight: 500; color: #6B6558;">(design tokens aren’t AI-ready)</span></h4>
+        <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Most design systems were built for human consumption, not machine interpretation. Poorly structured tokens, inconsistent naming, messy hierarchies and unclear JSON schemas make it difficult for AI to reliably understand colour, spacing, typography and semantic intent, resulting in incorrect or inconsistent outputs.</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 28px 30px;">
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">2. Schema-free components <span style="font-weight: 500; color: #6B6558;">(forcing AI to guess)</span></h4>
+        <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Without explicit schemas for components, patterns and templates, AI is forced to reverse-engineer intent by inspecting Figma files and component libraries. This visual interpretation is unreliable, brittle and context-blind, leading to hallucinated properties, broken layouts and misuse of components at scale.</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 28px 30px;">
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">3. Missing guardrails <span style="font-weight: 500; color: #6B6558;">(no built-in brand, accessibility or responsibility controls)</span></h4>
+        <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Design systems rarely encode brand rules, accessibility requirements or responsible design constraints in a way AI can enforce. Without these baked-in guardrails, AI-generated outputs drift off-brand, violate accessibility standards and introduce compliance and ethical risks that teams must manually fix afterward.</p>
+      </div>
+    </div>
+
+    <blockquote style="margin: 0 0 56px; padding: 36px var(--sidePad); background: #D7E85B; border-radius: 20px;">
+      <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--dsoQuoteSize); line-height: 1.35; color: #14181A; margin: 0 0 16px;">Poorly structured tokens, inconsistent naming and unclear schemas make it difficult for AI to reliably understand intent, resulting in incorrect or inconsistent outputs.</p>
+      <p style="font-size: 15.5px; color: #4A4E1F; line-height: 1.6; margin: 0;">Mark Reynolds, Design System Director; Founder at <a href="https://www.atomle.com/" target="_blank" rel="noopener" style="color: #4A4E1F;">Atomle</a></p>
+    </blockquote>
+  </article>
+
+  <!-- MODULE 3 -->
+  <section id="module-3" style="background: #14181A; scroll-margin-top: 90px;">
+    <div style="max-width: 860px; margin: 0 auto; padding: var(--dsoSectionPad) var(--sidePad);">
+      <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #D7E85B; margin-bottom: 12px;">Module 03</div>
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--dsoH2Size); line-height: 1.2; margin: 0 0 20px; color: #fff;">Operationalise governance</h2>
+      <p style="font-size: 17px; line-height: 1.75; color: #D8D5CC; margin: 0 0 36px;">This module focuses on making governance executable in day-to-day delivery. The goal is to define clear human accountability, decision rights, revisions and evidence requirements so teams can innovate without bottlenecks while maintaining safety, accountability and alignment to compliance requirements.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div style="display: grid; grid-template-columns: 40px 1fr; gap: 16px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 16px; color: #D7E85B;">01</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 6px; color: #fff;">Human oversight model</h4>
+            <p style="font-size: 15.5px; line-height: 1.65; color: #D8D5CC; margin: 0;">Where and when human oversight is required, including override/escalation rights.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 40px 1fr; gap: 16px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 16px; color: #D7E85B;">02</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 6px; color: #fff;">Decision &amp; approval criteria</h4>
+            <p style="font-size: 15.5px; line-height: 1.65; color: #D8D5CC; margin: 0;">How decisions are made (pass/fail thresholds, required evidence, and documentation standards). By risk tier, define ship/hold/monitor checkpoints, release/rollout controls, and incident-response requirements. High-risk touchpoints require logged sign-off.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 40px 1fr; gap: 16px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 16px; color: #D7E85B;">03</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 6px; color: #fff;">Ownership &amp; accountability model</h4>
+            <p style="font-size: 15.5px; line-height: 1.65; color: #D8D5CC; margin: 0;">Responsibilities and decision authority across required functions (Design, Product, Engineering, Legal/Risk).</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 40px 1fr; gap: 16px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 16px; color: #D7E85B;">04</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 6px; color: #fff;">Behaviour change</h4>
+            <p style="font-size: 15.5px; line-height: 1.65; color: #D8D5CC; margin: 0;">How changes in system behaviour (model, prompt, policy, retrieval) and human behaviour (usage patterns, workarounds, risk signals, decision drift) are monitored, documented, approved and communicated.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 40px 1fr; gap: 16px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 16px; color: #D7E85B;">05</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 6px; color: #fff;">Escalation triggers</h4>
+            <p style="font-size: 15.5px; line-height: 1.65; color: #D8D5CC; margin: 0;">Exception rules that define when the normal flow must stop, when a higher-risk path is activated, and which function owns the escalation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 4 -->
+  <article id="module-4" style="max-width: 860px; margin: 0 auto; padding: var(--dsoSectionPad) var(--sidePad) 0; scroll-margin-top: 90px;">
+    <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 12px;">Module 04</div>
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--dsoH2Size); line-height: 1.2; margin: 0 0 24px;">Co-pilots and no-code tools</h2>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">A responsible design system must operate in the reality of AI-assisted production. Copilots and no-code tools now generate UI and code, compressing development cycles. In this environment, documentation is necessary but insufficient.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">Teams also need a risk-tiered evidence pack for high-impact patterns (touchpoint spec, decision rationale, change/version log, disclosure &amp; UX copy, human oversight/escalation playbook, and incident/near-miss record) that travels with the work and is required for release. To keep this scalable, guardrails can’t live only in docs. They need to be built into how work is produced and shipped.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">That means translating standards into reusable building blocks and non-negotiable checks (required disclosures, accessibility, traceable records of key AI actions and user controls, and clear no-go patterns for high-risk interactions), plus clear requirements for AI UI elements (attribution, uncertainty, user override) and consistent tracking so teams can monitor drift and catch issues early.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">AI can also extend governance across more of the product lifecycle. Policy-aware agents can review implementation quality, flag deviations, support conformance checks, and, in low-risk cases, suggest or auto-correct adoption issues.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 40px;">A practical model combines global enforcement of user-centred principles and ethical, safety and compliance constraints with local flexibility in implementation. At the same time, teams must avoid encoding principles so rigidly that AI-assisted outputs become formulaic. Effective governance combines hard safety constraints with flexible guidance that preserves creativity and contextual judgment.</p>
+
+    <div style="display: grid; grid-template-columns: var(--dsoChecklistCols); gap: 20px; margin-bottom: 56px;">
+      <div style="background: #EEF5C4; border-radius: 16px; padding: 30px;">
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 16px;">Platform-level non-negotiables</h4>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Approved AI interaction patterns, mandatory disclosures, telemetry/logging requirements, explicit confirmation for high-stakes actions.</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 16px; padding: 30px;">
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 16px;">Team-level flexibility</h4>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Tone adaptation, microcopy variants, contextual nudges, domain-specific implementation choices.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- MODULE 5 -->
+  <article id="module-5" style="max-width: 860px; margin: 0 auto; padding: var(--dsoSectionPad) var(--sidePad) 0; scroll-margin-top: 90px;">
+    <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 12px;">Module 05</div>
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--dsoH2Size); line-height: 1.2; margin: 0 0 24px;">Testing and monitoring playbook</h2>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">Continuous research and testing with users helps you design for real-world conditions and anticipate behavioural risks. Pair this with scenario-based evaluations across end-to-end journeys and targeted stress testing (red teaming) of high-risk interactions.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">After launch, continuous human oversight and feedback loops make emergent behaviour and risk visible and manageable. Combine telemetry with ongoing user research to detect both model and behaviour drift that metrics alone won’t capture.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">Pay special attention to behavioural failure and risk modes that develop over time, such as:</p>
+
+    <ul style="margin: 0 0 48px; padding-left: 22px; font-size: 16px; line-height: 1.9; color: #3A3730; display: flex; flex-direction: column; gap: 12px;">
+      <li><strong>Over-reliance, bias and accuracy risk:</strong> rising error rates, increases in accepted-wrong outcomes, widening gaps across user groups or contexts.</li>
+      <li><strong>Lack of adoption:</strong> trust or usefulness mismatches, poor fit to real workflows.</li>
+      <li><strong>Misplaced or transferred authority:</strong> treating output as expert judgment, increasing reliance, low verification.</li>
+      <li><strong>Relationship attachment:</strong> anthropomorphism, emotional reliance, oversharing.</li>
+      <li><strong>Misuse and weak recovery:</strong> off-label use/retry loops, jail-breaking, silent agent actions, limited undo/appeal pathways, repeat incidents.</li>
+    </ul>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 24px;">As AI supports the design process and increases delivery speed, the key advantage depends on operational consistency through governance, oversight and accountability.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 64px;">In product organisations, design systems can serve as one operational mechanism to make responsible human-AI interaction repeatable, allowing quality, safety and governance to scale with delivery.</p>
+  </article>
+
+  <!-- ASSESS CTA -->
+  <section style="max-width: 1360px; margin: 0 auto var(--dsoFactorBottomMargin); padding: 0 var(--sidePad);">
+    <div style="background: #E7E7E4; border-radius: 28px; padding: var(--dsoFactorPad); display: grid; grid-template-columns: var(--dsoFactorCols); gap: 40px; align-items: center;">
+      <div>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--dsoH2Size38); line-height: 1.15; margin: 0 0 16px;">Where to start? Assess readiness before you scale</h2>
+        <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0;">Before scaling AI across products and teams, assess whether your design system and governance can support it safely and consistently. Start with a Design System + AI Readiness Sprint, led by design systems and human-centered responsible AI practitioners from HCRAI and <a class="body-link" target="_blank" rel="noopener" href="https://www.atomle.com/">Atomle</a>. We’ll assess your system foundations (tokens, components, interaction patterns), documentation and governance, then deliver a practical gap analysis and a prioritised roadmap to support AI-native workflows and responsible human–AI interaction at scale.</p>
+      </div>
+      <div style="display: flex; justify-content: var(--dsoCtaJustify2);">
+        <a href="contact.html" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 34px; border-radius: 12px; text-decoration: none; white-space: nowrap;">Talk to an Expert</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHOR -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--dsoAuthorCols);">
+      <div style="aspect-ratio: 4/3; overflow: hidden;">
+        <img src="assets/images/sara-portell.jpg" alt="Sara Portell, HCRAI Founder" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
+      </div>
+      <div style="padding: var(--dsoAuthorPad); display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6558; margin-bottom: 10px;">Author</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 21px;">Sara Portell</div>
+        <div style="font-size: 15.5px; color: #3A3730;">Behavioural Scientist &amp; Responsible AI Advisor</div>
+        <div style="font-size: 15.5px; color: #3A3730; margin-bottom: 14px;">Founder, HCRAI</div>
+        <a href="https://www.linkedin.com/in/saraportell" target="_blank" rel="noopener" style="display: inline-flex; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--dsoSectionPad) var(--sidePad);">
+    <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 24px;">References</h3>
+    <div style="display: flex; flex-direction: column; gap: 18px; font-size: 14.5px; line-height: 1.7; color: #4A473E;">
+      <p style="margin: 0;">Ashfin, P. (2024). Towards Responsible Engineering Software: Ethical, Legal and Social Implications of Automated Design and AI-Driven Tools. <em>Frontiers in Computer Science and Artificial Intelligence, 3</em>(1), 01–14.</p>
+      <p style="margin: 0;">Fabricio de Barros, C., &amp; Sandberg, R. (2025). <em>Designing for UX Designers: Creating Sustainable and Usable Design Systems</em> (Dissertation). <a class="body-link" target="_blank" rel="noopener" href="https://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-245806">urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-245806</a></p>
+      <p style="margin: 0;">Fessenden, T. (2021). Design systems 101. <em>Nielsen Norman Group</em>.</p>
+      <p style="margin: 0;">Kimm, G. (2025). Supporting Designers’ Authorship with AI: Design Computing Patterns to Navigate Across Human and Artificial Intelligences (Version 1). Swinburne. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.25916/sut.28340456.v1">doi.org/10.25916/sut.28340456.v1</a></p>
+      <p style="margin: 0;">Lee, K. S., Choi, M. &amp; Asni, E. Y. (2025). AI Opportunity Cards: Developing a Toolkit for AI as a Design Material. In <em>Proceedings of the 2025 International Conference on Information Technology for Social Good (GoodIT ’25)</em>. ACM, 396–402. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3748699.3749817">doi.org/10.1145/3748699.3749817</a></p>
+      <p style="margin: 0;">Lere, H. M., &amp; Bilkisu, H. (2025). AI-driven architectural design: Opportunities and ethical challenges. <em>ARCN International Journal of Sustainable Development, 14</em>(2), 97–110. ISSN: 2384-5341</p>
+      <p style="margin: 0;">Myllylä, M., Karvonen, A., Koskinen, H. (2024). Design Systems for Intelligent Technology. In <em>Intelligent Human Systems Integration (IHSI 2024)</em>. AHFE International, USA. <a class="body-link" target="_blank" rel="noopener" href="http://doi.org/10.54941/ahfe1004490">doi.org/10.54941/ahfe1004490</a></p>
+      <p style="margin: 0;">Okpala, B. (2024). Examining the Impact of Generative AI on UX/UI Design. SSRN. <a class="body-link" target="_blank" rel="noopener" href="http://dx.doi.org/10.2139/ssrn.5312384">dx.doi.org/10.2139/ssrn.5312384</a></p>
+      <p style="margin: 0;">Saeidnia, H. R. and Ausloos, M. (2024). Integrating Artificial Intelligence into Design Thinking. <em>InfoScience Trends, 1</em>(2), 1–9. doi: 10.61186/ist.202401.01.09</p>
+      <p style="margin: 0;">Salem, Al. (2024). Component Constellations: Future Perspectives on Design Systems. [MRP]. OCAD. <a class="body-link" target="_blank" rel="noopener" href="https://openresearch.ocadu.ca/id/eprint/4188">openresearch.ocadu.ca/id/eprint/4188</a></p>
+      <p style="margin: 0;">Speicher, M., &amp; Baena Wehrmann, G. (2022). One formula to rule them all: The ROI of a design system. <em>Smashing Magazine</em>.</p>
+      <p style="margin: 0;">Windarto, Y. (2024). Study of Research Trends and Leveraging AI on User Experience and Interface Design. SSRN. <a class="body-link" target="_blank" rel="noopener" href="http://dx.doi.org/10.2139/ssrn.5142285">dx.doi.org/10.2139/ssrn.5142285</a></p>
+      <p style="margin: 0;">Yu, C., Zheng, P., Peng, T., Xu, X., Vos, S., &amp; Ren, X. (2025). Design meets AI: challenges and opportunities. <em>Journal of Engineering Design, 36</em>(5–6), 637–641. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1080/09544828.2025.2484085">doi.org/10.1080/09544828.2025.2484085</a></p>
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="#linkedin" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
