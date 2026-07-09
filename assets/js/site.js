@@ -5,14 +5,40 @@ function closeMobileMenu() {
   document.getElementById('mobile-menu').classList.remove('is-open');
 }
 
-// Contact page: no backend is wired up yet (see README). This only swaps the
-// visible UI state client-side; it does not send the message anywhere.
+var CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzTUmp4mJC-C-sUV3jFB9vRWTjd04Qd8M5E-14yu7-IHwzZnuMbZsWiU7WH0wv5JRm-8A/exec';
+
+// Contact page: send submissions to the Google Sheet via Apps Script.
 function handleContactSubmit(event) {
   event.preventDefault();
-  var form = document.getElementById('contact-form');
+  var form = event.target;
   var success = document.getElementById('contact-success');
-  if (form) form.classList.add('is-hidden');
-  if (success) success.classList.add('is-visible');
+  var submitButton = form.querySelector('button[type="submit"]');
+  var originalButtonText = submitButton ? submitButton.textContent : '';
+  var formData = new FormData(form);
+
+  formData.append('submittedAt', new Date().toISOString());
+  formData.append('pageUrl', window.location.href);
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+  }
+
+  fetch(CONTACT_FORM_ENDPOINT, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData
+  }).then(function () {
+    form.reset();
+    form.classList.add('is-hidden');
+    if (success) success.classList.add('is-visible');
+  }).catch(function () {
+    alert('Sorry, something went wrong. Please email contact@hcrai.com instead.');
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
 }
 
 // Article pages: native Web Share API with a clipboard-copy fallback.

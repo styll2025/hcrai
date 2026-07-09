@@ -41,11 +41,11 @@ Every page links the same `assets/css/fonts.css`, `assets/css/site.css`, and `as
 
 ## Known gaps
 
-**Contact form has no backend.** `contact.html`'s form currently only swaps the on-page UI (shows a "Thanks for reaching out" message) when submitted — it does not send the message anywhere. The original design file has the same limitation. To make it actually deliver messages, wire the `<form>` to a service like Formspree, Netlify Forms, Getform, or your own endpoint, or change `handleContactSubmit` in `assets/js/site.js` to POST somewhere.
+**Contact form submissions go to Google Sheets.** `contact.html` posts name, email, organisation, message, submission time and page URL to the Google Apps Script endpoint configured in `assets/js/site.js`.
 
 **"Notify Me" on the Behavioural Risk article has the same limitation.** The email signup at the bottom of `behavioural-risk-article.html` shows a "Thanks!" confirmation but doesn't actually collect or send the email anywhere — same as in the original design file. Needs a real mailing-list backend (Mailchimp, Buttondown, etc.) if you want it to work.
 
-**"View Report" has no destination.** The `#report` link (homepage and Behavioural Risk page) and the "View Report" buttons on the Behavioural Risk article aren't pointing to an actual report page or PDF yet.
+**"View Report" opens the white paper PDF.** The homepage and Behavioural Risk page CTAs point to `assets/documents/hcrai-behavioural-ai-risk-white-paper-june-2026.pdf` and open it in a new tab.
 
 Everything else is fully built out and cross-linked, with a consistent nav and footer across all 16 pages. All 9 Research & Insights cards now link to real article pages, and every LinkedIn icon and byline across the site points to a real profile or the HCRAI company page.
 
