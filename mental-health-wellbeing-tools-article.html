@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Designing AI Mental Health and Wellbeing Tools: Risks, Interaction Patterns and Governance | HCRAI</title>
+<meta name="description" content="AI is becoming a frontline interface for wellbeing and mental health. HCRAI maps the interaction patterns, risks, and governance needed to design these tools safely.">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- BACK LINK -->
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtBackPad);">
+    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 13px; font-weight: 600;">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Research &amp; Insights
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F2F2F0; padding: var(--mhwtHeroPad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--mhwtHeroCols); gap: 24px; align-items: stretch;">
+      <div style="background: #fff; border-radius: 20px; padding: var(--mhwtHeroCardPad); display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH1Size); line-height: 1.15; margin: 0;">Designing AI Mental Health and Wellbeing Tools: Risks, Interaction Patterns and Governance</h1>
+        <span style="font-size: 15px; color: #6B6558;">Sara Portell • January 13, 2026</span>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Share this article</div>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="shareArticle('Designing AI Mental Health and Wellbeing Tools: Risks, Interaction Patterns and Governance')" aria-label="Share" style="width: 36px; height: 36px; border-radius: 50%; background: #14181A; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="6" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="18" cy="19" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><path d="M8.6 10.7l6.8-3.9M8.6 13.3l6.8 3.9" stroke="#fff" stroke-width="1.8"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; min-height: 260px; background: #F5F1E8;">
+        <img src="assets/images/research-anxious-vs-mindful.jpg" alt="Line illustration comparing anxious phone scrolling with calm mindful breathing" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtSectionPad) var(--sidePad);">
+    <div style="display: grid; grid-template-columns: var(--mhwtIntroCols); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">AI is becoming a frontline interface for wellbeing, care, and mental health, spanning chat-based support tools, virtual coaching and therapy-adjacent experiences, journaling and mindfulness applications. This shift is now being reinforced at the industry level. Just a few days ago, <a class="body-link" target="_blank" rel="noopener" href="https://openai.com/index/introducing-chatgpt-health">OpenAI launched ChatGPT Health</a> as part of its broader push into healthcare and acquired the health records <a class="body-link" target="_blank" rel="noopener" href="https://techcrunch.com/2026/01/12/openai-buys-tiny-health-records-startup-torch-for-reportedly-100m">startup Torch</a> to accelerate this effort. Likewise, <a class="body-link" target="_blank" rel="noopener" href="https://www.anthropic.com/news/healthcare-life-sciences">Anthropic launched its own healthcare and life sciences initiative</a>, positioning AI as a tool across <a class="body-link" target="_blank" rel="noopener" href="https://www.bloomberg.com/news/newsletters/2026-01-08/openai-anthropic-see-health-care-as-next-big-market-for-ai">prevention, care and patient engagement</a>. These developments signal the growing presence of generative models in health-related contexts, and the likelihood that more people will encounter AI systems at moments of vulnerability.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">For many users, these tools offer a first place to articulate distress and make sense of emotional states and difficult experiences, particularly when human support is unavailable, unaffordable or hard to access.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">However, when AI systems interact with people who may be distressed or at risk, poorly calibrated responses and advice, blurred role boundaries, or unhandled crises can cause real harm.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">This article is written for business leaders, product managers, and AI developers building (non-clinical) mental health and wellbeing tools. It examines what responsible AI design looks like in practice, focusing on the risks underestimated, and the interaction patterns and governance required to assess and maintain safety once a system is deployed and meets real users.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">This is essential reading for teams building conversational or coaching-style wellbeing AI, where users can easily interpret system outputs as guidance, care or authority.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- OPPORTUNITIES -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH2Size); line-height: 1.2; margin: 0 0 36px; text-align: center">Opportunities, If Built with Boundaries</h2>
+      <div style="display: grid; grid-template-columns: var(--mhwtIntroCols); gap: 48px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">AI can reduce unmet wellbeing needs when deployed with clear limits and robust safeguards. <a class="body-link" target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/39392869">Always-available, low-cost, and anonymous tools</a> can lower barriers to early support, particularly for early signals of distress, prevention and self-management when formal care is not easily accessible or affordable. They also play a role in <a class="body-link" target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S2949916X24000525">reducing stigma</a> by offering a private, low-threshold entry point to reflection and support, especially in underserved regions. <br><br>This creates the opportunity to raise the safety bar by design, through risk identification assessments, longitudinal testing, and governance.&nbsp;<br></p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">To do so, it is important to first understand where and how AI systems designed for wellbeing fail in practice.<br><br>Generative AI enables adaptive support through personalised <a class="body-link" target="_blank" rel="noopener" href="https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2024.1280235/full">psychoeducation, reflective journaling, mood tracking, emotion regulation</a> and structured, non-clinical exercises that respond to user context. Used responsibly, these tools can help people articulate and make sense of lived experiences, build self-awareness and prepare for human support.</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- RISK LANDSCAPE -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtSectionPad) var(--sidePad);">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH2Size); line-height: 1.2; margin: 0 0 36px; text-align: center">The Risk Landscape of AI Mental Health and Wellbeing</h2>
+    <div style="display: grid; grid-template-columns: var(--mhwtIntroCols); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Many generative (non-clinical) AI mental health and wellness products sit in an accountability grey zone: are <a class="body-link" target="_blank" rel="noopener" href="https://www.apa.org/topics/artificial-intelligence-machine-learning/health-advisory-chatbots-wellness-apps">unregulated, lightly governed or classified as general use</a> while being used in high-stakes emotional contexts. In the real-world, users disclose <a class="body-link" target="_blank" rel="noopener" href="https://www.ft.com/content/1468f5a0-6a08-4294-a479-5fd998214a0d">abuse, trauma, acute distress, suicidal ideation and self-harm</a>, whether or not the product was designed for this. Because <a class="body-link" target="_blank" rel="noopener" href="https://www.nature.com/articles/s41591-024-02943-6">conversational AI invites free-form dialogue</a>, this is expected: users are likely to share personal information as part of ordinary use.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">A primary failure mode is <a class="body-link" target="_blank" rel="noopener" href="https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2023.1278186/full">crisis mismanagement</a>: missed distress cues, unsafe reassurance, inadequate escalation, or harmful outputs. Another significant risk is therapeutic misconception and over-authority, where users overestimate the system’s capabilities or care and begin to treat it as a substitute for professional support. Anthropomorphic language can further intensify this dynamic, accelerating dependency and transforming a support feature into a quasi-relationship with blurred boundaries.&nbsp;<br><br>To address these risks, we require a socio-technical approach that links interaction design, system behaviour, organisational accountability and ongoing assessment with experts and users. This analysis is intentionally system-agnostic.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Whether wellbeing AI appears as a chatbot, companion feature, coaching interface, or embedded support layer within a broader product, the primary risks emerge through interaction, interpretation and repeated use in vulnerable contexts. The framework therefore focuses on behavioural dynamics and system-level responsibility.<br><br>Mental health is context-dependent; outputs can be generic, inaccurate, culturally misaligned, age inappropriate or stigmatizing. <a class="body-link" target="_blank" rel="noopener" href="https://www.theguardian.com/technology/2026/jan/02/google-ai-overviews-risk-harm-misleading-health-information">Hallucinations and confident misinformation</a> are particularly dangerous when users are vulnerable or interpreting responses as guidance.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Moreover, mental health data is highly sensitive and often collected at scale; opaque retention, secondary use or third-party access can violate expectations of confidentiality. Many risks are longitudinal: guardrails that appear adequate in demos degrade over time through repeated use, growing user reliance, bias, model drift, and organisational pressure to ship.</p>
+      </div>
+    </div>
+    
+    
+  </article>
+
+  <!-- PRACTICAL FRAMEWORK -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH2Size); line-height: 1.2; margin: 0 0 28px; text-align: center">A Practical Framework For (Non-Clinical) Mental Health AI</h2>
+      
+
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 40px; max-width: 860px; text-align: center">This framework is synthesised from recurring failure modes and design recommendations in the current mental health AI literature. It presents a structured way to design for use, interaction and risk over time.</p><div style="display: grid; grid-template-columns: var(--mhwtTwoColGrid); gap: 32px 40px;">
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #8FA829;">1</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Role Clarity</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;"><a class="body-link" target="_blank" rel="noopener" href="https://www.mdpi.com/2227-9709/10/4/82">What the system is and is not allowed to be</a> (and what it must never imply). This includes transparency and explicit <a class="body-link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3757430">role, capability boundaries and authority</a>. Users must understand chatbot limits and non-human nature.</p>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Avoid simulating <a class="body-link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3757430">love, care, or exclusive attachment.</a></p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #8FA829;">2</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Evidence-Based Content</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Tasks, use cases and information are sourced from validated methods, reviewed with domain experts and tested with real users. Content is assembled from a <a class="body-link" target="_blank" rel="noopener" href="https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2023.1034724/full">curated, transparent and auditable source base</a>, with clear user-facing explainability, including optional access to sources.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #8FA829;">3</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Context-Awareness</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Adaptation relies on user-provided preferences and in-context clarification, adjusting tone and examples (taking into account language, gender, age, culture, norms) without profiling, inference, or clinical interpretation.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #8FA829;">4</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Boundaries and Safety <a class="body-link" target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11624515/pdf/10.1177_02537176241302898.pdf">Escalation</a></h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">How the system behaves as emotional intensity increases (i.e., refusal logic, scope enforcement). And, <a class="body-link" target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11624515/pdf/10.1177_02537176241302898.pdf">how it responds when risk or ambiguity appears</a> (i.e., human-support routing, <a class="body-link" target="_blank" rel="noopener" href="https://www.nature.com/articles/s41598-025-17242-4">region-appropriate resources)</a>.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #8FA829;">5</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Data Protection, Consent and Governance</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Data collection and use are minimised, transparent, and purpose-bound, with explicit and revocable user consent. Sensitive data is <a class="body-link" target="_blank" rel="noopener" href="https://link.springer.com/article/10.1186/s41983-023-00735-2">access-controlled, retained only as necessary, and never used for secondary purposes</a>, profiling, or training beyond what is consented to.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #8FA829;">6</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Longitudinal Effects</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Monitoring how trust, reliance, and interpretation evolve over repeated use, with defined <a class="body-link" target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/37809254/">human-in-the-loop review, expert oversight</a> and intervention for dependency signals, model drift and failure modes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNERSHIP -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtSectionPad) var(--sidePad); text-align: center;">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH2Size); line-height: 1.2; margin: 0 0 32px;">Ownership and Decision Rights</h2>
+    <div style="display: grid; grid-template-columns: var(--mhwtIntroCols); gap: 48px; text-align: left; max-width: 1100px; margin: 0 auto;">
+      <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Responsible wellbeing AI requires explicit ownership and decision rights within teams. Safety cannot sit solely with product, UX or be deferred to legal or security review at launch, or be shifted onto users themselves. Product, engineering, and leadership must be clear on who defines and approves the system’s core features and content.</p>
+      <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">This includes role boundaries, escalation thresholds, consent changes and acceptable failure trade-offs, and who is accountable for revisiting those decisions as models, prompts, features and human behaviour evolve over time. Without named owners, safety mechanisms erode under delivery pressure and responsibility becomes diffuse when systems begin interacting with users in real-world contexts.</p>
+    </div>
+  </article>
+
+  <!-- OPERATIONALISING FRAMEWORK -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtBandPad) var(--sidePad); text-align: center;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH2Size); line-height: 1.2; margin: 0 0 16px;">Operationalising the Framework at the Interface</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 auto; max-width: 860px;">The framework assumes vulnerability is situational and that harm often emerges from cumulative interaction. This framework becomes actionable at the interface through concrete interaction design patterns.</p>
+    </div>
+  </section>
+
+  <!-- INTERACTION PATTERNS -->
+  <section style="background: #D7E85B;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtBandPad) var(--sidePad); text-align: center;">
+      <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 16px;">Interaction Design Patterns For Responsible AI Mental Health and Wellbeing</h3>
+      <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 auto 32px; max-width: 860px;">Responsible AI for (non-clinical) mental health and wellbeing is defined by how it structures interaction, preserves autonomy and enforces limits. The following patterns translate the framework above into practical design choices.</p>
+
+      <div style="display: grid; grid-template-columns: var(--mhwtPatternsGridCols); grid-template-rows: var(--mhwtPatternsGridRows); grid-auto-flow: column; gap: 20px;">
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Capability framing by default</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">The system presents a short, concrete menu or prompts of what it can help with (e.g., reflection, organising thoughts, journaling, emotion regulation, psychoeducation).</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Clear framing prevents boundary testing and reduces misuse without needing heavy moderation.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Actionable micro-supports</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">Brief, opt-in exercises (grounding, journaling, prioritisation, mindfulness), framed as optional.</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Low-effort supports provide value without simulating therapy or routines.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Skill transfer</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">The system highlights skills users can apply without the tool. Encourages writing, conversations or reflection outside the app.</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Builds capability instead of reliance.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Reflection</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">Responses mirror themes, patterns and questions rather than solving or advising.</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Reflection supports insight without implying diagnosis, treatment or authority.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Choice-preserving</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">Multiple safe next steps are offered (e.g., “reflect more,” “pause,” “talk to someone”, including “do nothing”).</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Preserves autonomy and avoids over-direction.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Healthy session closure</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">Sessions end with a short summary and a gentle off-platform suggestion. No emotional cliff-hangers.</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Prevents looping and reinforces that the tool is a support, not a companion.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Safe prompt scaffolding</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">Pre-written prompts help users engage safely during use; prompts rotate to avoid emotional looping.</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Good scaffolding increases usefulness while reducing risk and ambiguity.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Show progress</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">Neutral summaries (e.g., “Topics you’ve reflected on”). Emphasis on clarity, awareness, or learning, not symptoms or scores.</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Supports continuity without medical framing or stigma.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Contextual adaptation</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">Tone and examples adapt via user’s choice and clarification prompts.</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Improves relevance without sensitive inference or profiling.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 26px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px;">Confidence through limits</h4>
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3A3730; margin: 0 0 10px;">Calm, boundary-setting, and redirection to safe alternatives.</p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Users trust systems that know their limits more than systems that overreach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVALUATION AND METRICS -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtSectionPad) var(--sidePad); text-align: center;">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH2Size); line-height: 1.2; margin: 0 0 16px;">Evaluation and Metrics</h2>
+    <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 40px; max-width: 860px; margin-left: auto; margin-right: auto;">Responsible wellbeing AI requires evaluation across multiple layers. Teams should monitor a focused set of signals that surface model performance, bias, drift and model updates, and user behaviour.</p>
+
+    <div style="background: #F2F2F0; border-radius: 20px; padding: var(--mhwtQaPad); text-align: left;">
+      <div style="display: grid; grid-template-columns: var(--mhwtTwoColGrid); gap: 32px; padding-bottom: 28px; border-bottom: 1px solid rgba(20,24,26,0.12);">
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 14px;">Model Performance</h4>
+          <ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.8; color: #3A3730; display: flex; flex-direction: column; gap: 6px;">
+            <li>Precision and recall for safety-relevant content and behaviours (e.g. evidence-based content, local resources, escalation paths)</li>
+            <li>Calibration (confidence and uncertainty aligned with reliability)</li>
+            <li>Error patterns (systematic or context-specific failures)</li>
+            <li>Disaggregated performance to avoid average-case masking</li>
+            <li>Robustness under variation (e.g. emotional intensity, ambiguous inputs)</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 14px;">Bias and Fairness</h4>
+          <ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.8; color: #3A3730; display: flex; flex-direction: column; gap: 6px;">
+            <li><a class="body-link" target="_blank" rel="noopener" href="https://www.mdpi.com/2073-8994/17/7/1082">Differences in content, tone, reassurance, refusals, or escalation mechanisms across user groups</a></li>
+            <li>Worst-group or subgroup performance, not only averages</li>
+            <li>Signals of systematically higher risk exposure for certain users</li>
+          </ul>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: var(--mhwtTwoColGrid); gap: 32px; padding-top: 28px;">
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 14px;">Model Drift and Updates</h4>
+          <ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.8; color: #3A3730; display: flex; flex-direction: column; gap: 6px;">
+            <li>Robustness and regression testing, with heightened coverage for safety-critical scenarios</li>
+            <li>Monitoring for model drift affecting content, boundaries, tone and escalation paths</li>
+            <li>Reassessment after model updates and feature expansion</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 14px;">User Behaviour</h4>
+          <ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.8; color: #3A3730; display: flex; flex-direction: column; gap: 6px;">
+            <li>Discrepancy between system reliability and user acceptance (over-trust vs under-trust)</li>
+            <li>Adoption and use patterns over time</li>
+            <li>Signals of miscalibrated trust driven by tone or anthropomorphic cues</li>
+            <li>Boundary probing and repeated reassurance-seeking</li>
+            <li>Escalating emotional intensity</li>
+            <li>Session frequency and duration trends over time</li>
+            <li>Drop-off or churn following boundary enforcement or escalation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- HUMAN OVERSIGHT -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtBandPad) var(--sidePad); text-align: center;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH2Size); line-height: 1.2; margin: 0 0 32px;">Human Oversight and Continuous Research</h2>
+      <div style="display: grid; grid-template-columns: var(--mhwtIntroCols); gap: 48px; text-align: left; max-width: 1100px; margin: 0 auto;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Metrics and automated signals are necessary but insufficient in mental health contexts. Teams must maintain human-in-the-loop processes for reviewing content, flagged interactions, interpreting ambiguous cases and revisiting design assumptions.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Continuous qualitative research with experts and users, across contexts, cultures and patterns of use, is essential to maintain system effectiveness and safety, and detect harms, misunderstandings, or dependency that do not surface through quantitative metrics alone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESPONSIBILITY -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtSectionPad) var(--sidePad); text-align: center;">
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH2Size); line-height: 1.2; margin: 0 0 32px;">Responsibility Is a System Property</h2>
+    <div style="display: grid; grid-template-columns: var(--mhwtIntroCols); gap: 48px; text-align: left; max-width: 1100px; margin: 0 auto;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">AI systems intended for mental health and wellbeing become safer through explicit boundaries, defaults and enforceable governance. Guardrails must be designed into interaction, supported by clear decision rights and sustained over time. Moreover, <a class="body-link" target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/37809254/">expert input and review should be treated a safety control</a>, not a compliance formality.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Most harm does not arise from malicious design. It emerges through dynamics that surface in real use. This is where accountability must operate at the system level. Responsible teams define who owns content and safety decisions, how boundaries and escalation paths are set and reviewed, how data protection and consent are enforced in practice, and how signals from real-world use trigger intervention or change.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Ethical integration requires <a class="body-link" target="_blank" rel="noopener" href="https://mental.jmir.org/2025/1/e70439">institutional oversight and accountability</a>, not individual user burden. Monitoring without authority, or authority without monitoring, is insufficient.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">The goal is to deliver genuine wellbeing value while keeping users safe. When these controls are in place, AI-driven care products can support reflection, self-management, mindfulness and skill practice, while guiding people toward human support when limits or risk appear.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- CTA BANNER -->
+  <section style="background: #fff;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--mhwtBandPad) var(--sidePad);">
+      <div style="background: #D7E85B; border-radius: 20px; padding: var(--mhwtQaPad);">
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--mhwtH2Size); line-height: 1.2; margin: 0 0 20px;">How We Work With Teams</h2>
+        
+        <p style="font-size: 16.5px; line-height: 1.7; color: #14181A; margin: 0 0 16px; max-width: 760px;">We work with teams to bring behavioural and domain expertise into design, evaluation, and post-deployment review. We translate behavioural evidence into concrete interaction patterns, guardrails, and governance decisions.</p>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #14181A; margin: 0 0 28px; max-width: 760px;">We typically start with a focused discovery and behavioural risk review to identify key interaction risks and governance gaps, followed by an evaluation plan. If you are building or deploying wellbeing AI and are unsure whether your current design or safeguards would hold up under real-world use, get in touch.</p>
+        <a href="contact.html" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 18px 36px; border-radius: 10px; text-decoration: none;">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--mhwtSectionPad) var(--sidePad);">
+    <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 24px;">References</h3>
+    <div style="display: flex; flex-direction: column; gap: 18px; font-size: 14.5px; line-height: 1.7; color: #4A473E;">
+      <p style="margin: 0;">Algumaei, A., Yaacob, N. M., Doheir, M., Al-Andoli, M. N., &amp; Algumaie, M. (2025). Symmetric Therapeutic Frameworks and Ethical Dimensions in AI-Based Mental Health Chatbots (2020–2025): A Systematic Review of Design Patterns, Cultural Balance, and Structural Symmetry. <em>Symmetry, 17</em>(7), 1082. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3390/sym17071082">doi.org/10.3390/sym17071082</a></p>
+      <p style="margin: 0;">American Psychological Association. (2025, November). APA health advisory on the use of generative AI chatbots and wellness applications for mental health. American Psychological Association.</p>
+      <p style="margin: 0;">Asman, O., Torous, J., &amp; Tal, A. (2025). Responsible Design, Integration, and Use of Generative AI in Mental Health. <em>JMIR Mental Health, 12</em>, e70439. <a class="body-link" target="_blank" rel="noopener" href="https://mental.jmir.org/2025/1/e70439">doi.org/10.2196/70439</a></p>
+      <p style="margin: 0;">Balcombe, L. (2023). AI Chatbots in Digital Mental Health. <em>Informatics, 10</em>(4), 82. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3390/informatics10040082">doi.org/10.3390/informatics10040082</a></p>
+      <p style="margin: 0;">Beg, M. J. (2025). Responsible AI integration in mental health research: Issues, guidelines, and best practices. <em>Indian Journal of Psychological Medicine, 47</em>(1), 5–8. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1177/02537176241302898">doi.org/10.1177/02537176241302898</a></p>
+      <p style="margin: 0;">Cross, S., Bell, I., Nicholas, J., Valentine, L., Mangelsdorf, S., Baker, S., Titov, N., &amp; Alvarez-Jimenez, M. (2024). Use of AI in Mental Health Care: Community and Mental Health Professionals Survey. <em>JMIR Mental Health, 11</em>, e60589. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.2196/60589">doi.org/10.2196/60589</a></p>
+      <p style="margin: 0;">De Freitas, J., &amp; Cohen, I. G. (2024). The health risks of generative AI-based wellness apps. <em>Nature Medicine, 30</em>, 1269–1275. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1038/s41591-024-02943-6">doi.org/10.1038/s41591-024-02943-6</a></p>
+      <p style="margin: 0;">Espejo, G., Reiner, W., &amp; Wenzinger, M. (2023). Exploring the Role of Artificial Intelligence in Mental Healthcare: Progress, Pitfalls, and Promises. <em>Cureus, 15</em>(9), e44748. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.7759/cureus.44748">doi.org/10.7759/cureus.44748</a></p>
+      <p style="margin: 0;">Khawaja, Z., &amp; Bélisle-Pipon, J.-C. (2023). Your robot therapist is not your therapist: Understanding the role of AI-powered mental health chatbots. <em>Frontiers in Digital Health, 5</em>. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3389/fdgth.2023.1278186">doi.org/10.3389/fdgth.2023.1278186</a></p>
+      <p style="margin: 0;">Mestre, R., Schoene, A. M., Middleton, S. E., &amp; Lapedriza, A. (2024). Building responsible AI for mental health: Insights from the first RAI4MH workshop [White paper]. University of Southampton; Institute for Experiential AI at Northeastern University. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.14044362">doi.org/10.5281/zenodo.14044362</a></p>
+      <p style="margin: 0;">Moilanen, J., van Berkel, N., Visuri, A., Gadiraju, U., van der Maden, W., &amp; Hosio, S. (2023). Supporting mental health self-care discovery through a chatbot. <em>Frontiers in Digital Health, 5</em>. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3389/fdgth.2023.1034724">doi.org/10.3389/fdgth.2023.1034724</a></p>
+      <p style="margin: 0;">Olawade, D. B., Wada, O. Z., Odetayo, A., David-Olawade, A. C., Asaolu, F., &amp; Eberhardt, J. (2024). Enhancing mental health with artificial intelligence: Current trends and future prospects. <em>Journal of Medicine, Surgery, and Public Health, 3</em>, 100099. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1016/j.glmedi.2024.100099">doi.org/10.1016/j.glmedi.2024.100099</a></p>
+      <p style="margin: 0;">Pichowicz, W., Kotas, M., &amp; Piotrowski, P. (2025). Performance of mental health chatbot agents in detecting and managing suicidal ideation. <em>Scientific Reports, 15</em>, 31652. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1038/s41598-025-17242-4">doi.org/10.1038/s41598-025-17242-4</a></p>
+      <p style="margin: 0;">Pickett, T. (2025, December 6). Headspace CEO: “People are using AI tools not built for mental health”. <em>Financial Times</em>. <a class="body-link" target="_blank" rel="noopener" href="https://www.ft.com/content/1468f5a0-6a08-4294-a479-5fd998214a0d">ft.com</a></p>
+      <p style="margin: 0;">Saeidnia, H. R., Hashemi Fotami, S. G., Lund, B., &amp; Ghiasi, N. (2024). Ethical Considerations in Artificial Intelligence Interventions for Mental Health and Well-Being: Ensuring Responsible Implementation and Impact. <em>Social Sciences, 13</em>(7), 381. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3390/socsci13070381">doi.org/10.3390/socsci13070381</a></p>
+      <p style="margin: 0;">Song, I., Pendse, S. R., Kumar, N., &amp; De Choudhury, M. (2025). The Typing Cure: Experiences with Large Language Model Chatbots for Mental Health Support. <em>Proceedings of the ACM on Human-Computer Interaction, 9</em>(7), Article CSCW249. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3757430">doi.org/10.1145/3757430</a></p>
+      <p style="margin: 0;">Thakkar, A., Gupta, A., &amp; De Sousa, A. (2024). Artificial intelligence in positive mental health: A narrative review. <em>Frontiers in Digital Health, 6</em>, 1280235. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3389/fdgth.2024.1280235">doi.org/10.3389/fdgth.2024.1280235</a></p>
+      <p style="margin: 0;">Warrier, U., Warrier, A., &amp; Khandelwal, K. (2023). Ethical considerations in the use of artificial intelligence in mental health. <em>Egyptian Journal of Neurology, Psychiatry and Neurosurgery, 59</em>, 139. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1186/s41983-023-00735-2">doi.org/10.1186/s41983-023-00735-2</a></p>
+    </div>
+  </article>
+
+  <!-- AUTHOR -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--mhwtAuthorCols);">
+      <div style="aspect-ratio: 4/3; overflow: hidden;">
+        <img src="assets/images/sara-portell.jpg" alt="Sara Portell, HCRAI Founder" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
+      </div>
+      <div style="padding: var(--mhwtAuthorPad); display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6558; margin-bottom: 10px;">Author</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 21px;">Sara Portell</div>
+        <div style="font-size: 15.5px; color: #3A3730;">Behavioural Scientist &amp; Responsible AI Advisor</div>
+        <div style="font-size: 15.5px; color: #3A3730; margin-bottom: 14px;">Founder, HCRAI</div>
+        <a href="https://www.linkedin.com/in/saraportell/" target="_blank" rel="noopener" style="display: inline-flex; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="https://www.linkedin.com/company/hcrai" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

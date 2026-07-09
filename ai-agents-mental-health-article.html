@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Agents For Mental Health: Different Therapeutic Styles and Outcomes | HCRAI</title>
+<meta name="description" content="Woebot, Wysa, Youper: AI mental-health agents borrow styles from psychoeducation, CBT and humanistic therapy. HCRAI examines the risks each style carries and the design principles that keep them safe.">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- BACK LINK -->
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--aamhBackPad);">
+    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 13px; font-weight: 600;">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Research &amp; Insights
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F2F2F0; padding: var(--aamhHeroPad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--aamhHeroCols); gap: 24px; align-items: stretch;">
+      <div style="background: #fff; border-radius: 20px; padding: var(--aamhHeroCardPad); display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--aamhH1Size); line-height: 1.15; margin: 0;">AI Agents For Mental Health: Different Therapeutic Styles and Outcomes</h1>
+        <span style="font-size: 15px; color: #6B6558;">Yasmina El Fassi &bull; February 19, 2026</span>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Share this article</div>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="shareArticle('AI Agents For Mental Health: Different Therapeutic Styles and Outcomes')" aria-label="Share" style="width: 36px; height: 36px; border-radius: 50%; background: #14181A; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="6" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="18" cy="19" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><path d="M8.6 10.7l6.8-3.9M8.6 13.3l6.8 3.9" stroke="#fff" stroke-width="1.8"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; min-height: 260px; background: #F5F1E8;">
+        <img src="assets/images/research-robot-therapist.jpg" alt="Line illustration of a client on a couch talking to a robot therapist" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--aamhSectionPad) var(--sidePad);">
+    <div style="display: grid; grid-template-columns: var(--aamhIntroCols); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">What do <a class="body-link" target="_blank" rel="noopener" href="https://woebothealth.com">Woebot</a>, <a class="body-link" target="_blank" rel="noopener" href="https://www.wysa.com">Wysa</a> and <a class="body-link" target="_blank" rel="noopener" href="https://www.youper.ai">Youper</a> have in common? These are all AI agents that use therapeutic techniques to help users improve mental well-being, guide meditation and even help with managing anxiety.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">In this article, AI mental&#8209;health agents are goal&#8209;directed conversational systems that sit with you in a chat or voice interface to support specific wellbeing tasks; for example, walking through CBT&#8209;style exercises, practicing coping strategies, or checking in on mood over time.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">In the broader <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1016/j.inffus.2025.103599">AI literature</a>, these would be considered agents because they are built around particular goals and workflows, whereas &ldquo;agentic&rdquo; AI usually refers to more autonomous systems that can independently plan multi&#8209;step actions, call tools, and adapt their behaviour with relatively little human steering.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Translating that distinction into the mental&#8209;health space, the tools we discuss here behave more like tightly scoped, therapeutically scripted companions than fully agentic systems that roam across apps and channels on your behalf.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">The mental health industry has been completely disrupted by these agents, as AI no longer plays the role of a simple symptom checker or static content library. Millions of users make good use of these conversational users for a support that <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1007/978-3-031-72059-8_11">&ldquo;feels&rdquo; human</a>.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">When AI agents adopt therapeutic styles, from <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1016/j.invent.2024.100795">CBT-inspired coaching</a> to <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3390/soc14100200">companion-like reassurance</a>, their interaction patterns start to shape how people think, feel and act over time. For teams building these products, the therapeutic style is therefore not an aesthetic choice; it is a safety decision with regulatory, reputational and ethical consequences.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- BOLD STATEMENT -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 860px; margin: 0 auto; padding: var(--aamhSectionPad) var(--sidePad);">
+      <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--aamhPullQuoteSize); line-height: 1.4; margin: 0; color: #14181A;">When an AI agent remembers past conversations, uses empathic language, or checks in unprompted, many people will treat it less like a feature and more like a therapist, coach or confidant.</p>
+    </div>
+  </section>
+
+  <!-- THREE DYNAMICS -->
+  <section style="background: #fff;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--aamhBandPad) var(--sidePad);">
+      <p style="font-size: 17px; line-height: 1.7; color: #3A3730; margin: 0 0 40px; max-width: 760px; font-weight: 700;">Three dynamics are particularly important in this case:</p>
+      <div style="display: grid; grid-template-columns: var(--aamhThreeCol); gap: 32px;">
+        <div style="text-align: center;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; color: #8FA829; margin: 0 0 16px;">Therapeutic misconception</h4>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">If a system sounds like a therapist, users can infer that it must be clinically tested, supervised and suitable for &ldquo;people like them&rdquo;, even when it is positioned as non&#8209;clinical.</p>
+        </div>
+        <div style="text-align: center;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; color: #8FA829; margin: 0 0 16px;">Relationship and reliance</h4>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Repeated late&#8209;night chats, daily mood logs and personalised reflections create continuity and perceived caring, even when the system is driven by generic models and prompts.</p>
+        </div>
+        <div style="text-align: center;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; color: #8FA829; margin: 0 0 16px;">Hidden role shifts</h4>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">As agents suggest coping strategies, reframe thoughts or encourage disclosure, they quietly move into roles traditionally held by therapists, peers or family, but without the training, accountability and boundaries those roles normally carry.</p>
+        </div>
+      </div>
+      <p style="font-size: 17px; line-height: 1.7; color: #3A3730; margin: 40px 0 0; max-width: 860px;">There is a <strong>plethora of psychotherapy styles</strong>, and since practitioners need to tailor the style to the individuality of the patient, there might even be as many styles as people on earth.</p>
+    </div>
+  </section>
+
+  <!-- PSYCHOTHERAPY STYLES -->
+  <article style="background: #F2F2F0; max-width: none; margin: 0; padding: var(--aamhSectionPad) 0;">
+   <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad);">
+    <div style="margin-bottom: 40px;">
+      <div style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #14181A; background: #fff; padding: 5px 12px; border-radius: 100px; margin-bottom: 12px; position: relative; top: -8px;">Examples Of</div>
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--aamhH2Size); line-height: 1.2; margin: 0;">Psychotherapy Styles</h2>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <div style="display: grid; grid-template-columns: var(--aamhEffectCols); gap: 24px; padding: 28px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.3;">Psychoeducation Style</div>
+        <div style="display: var(--aamhArrowDisplay); align-items: center; justify-content: center;"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8FA829" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">These systems focus on helping users understand what they are experiencing: &ldquo;What is anxiety?&rdquo;, &ldquo;Why am I feeling this way?&rdquo;, &ldquo;What can people do in this situation?&rdquo;. They echo the educational, rationale&#8209;providing components that appear across many therapies; especially cognitive&#8209;behavioural approaches, which often start by linking symptoms to understandable models and offering a coherent treatment rationale. Typical behaviours of these AI agents include: short explanations, normalising statements, evidence&#8209;aligned self&#8209;help tips, clear signposting to human resources, limited emotional mirroring. The main risk associated with this approach is generic or culturally misaligned content which can misinform or invalidate; developmental appropriateness is often an afterthought for children and adolescents.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: var(--aamhEffectCols); gap: 24px; padding: 28px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.3;">Coaching and CBT-Inspired Style</div>
+        <div style="display: var(--aamhArrowDisplay); align-items: center; justify-content: center;"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8FA829" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Coaching&#8209;style agents most visibly mirror cognitive&#8209;behavioural therapies (CBT) and related approaches, which focus on the links between thoughts, feelings and behaviours and use structured tasks to support change. Usually, behaviours of these agents encompass: thought&#8209;records, behavioural activation tasks, problem&#8209;solving steps, goal&#8209;setting, &ldquo;homework&rdquo; prompts and progress summaries. However, when stripped from case formulation and clinical judgment, CBT&#8209;like tasks can become rigid, decontextualised and subtly blaming (&ldquo;you just need to change your thinking&rdquo;), especially for users facing structural constraints or trauma. This constitutes a major risk on users, especially the most vulnerable ones.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: var(--aamhEffectCols); gap: 24px; padding: 28px 0; border-top: 1px solid rgba(20,24,26,0.12); border-bottom: 1px solid rgba(20,24,26,0.12);">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.3;">Companion or Relational Style</div>
+        <div style="display: var(--aamhArrowDisplay); align-items: center; justify-content: center;"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8FA829" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;">Relational agents emphasise warmth, continuity and open&#8209;ended conversation. They often borrow cues from humanistic and psychodynamic traditions that foreground the therapeutic relationship, empathy and the client&rsquo;s subjective experience. These AI agents usually rely on small talk, empathic statements, following up on earlier conversations, &ldquo;I&#8209;language&rdquo; (&ldquo;I&rsquo;m here for you&rdquo;), apparent unconditional positive regard or a form of <a class="body-link" target="_blank" rel="noopener" href="the-yes-machine-article.html">sycophancy</a>. It appears that one of the reasons these agents were developed was to reduce loneliness, among other things. However, this creates risks of high dependency, blurred boundaries and unrealistic expectations from peers for example when it comes to emotional support.</p>
+      </div>
+    </div>
+   </div>
+  </article>
+
+  <!-- DESIGN PRINCIPLES -->
+  <section style="background: #fff;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--aamhBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--aamhH2Size); line-height: 1.2; margin: 0 0 12px; text-align: center;">Design Principles for Safer Therapeutic Styles</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 40px; text-align: center; max-width: 760px; margin-left: auto; margin-right: auto;">Once teams recognise how their systems echo psychotherapy traditions, the task is to design interaction patterns that preserve value and reduce harm.</p>
+
+      <div style="display: grid; grid-template-columns: var(--aamhChecklistCols); gap: 20px;">
+        <div style="background: #EEF5C4; border-radius: 16px; padding: 30px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 16px;">Role Clarity and Boundaries</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">Role and limits should be legible in the interaction, not only in the terms of service.</p>
+          <ul style="margin: 0 0 12px; padding-left: 20px; font-size: 15px; line-height: 1.7; color: #3A3730; display: flex; flex-direction: column; gap: 8px;">
+            <li>Use plain, repeated statements of what the system is and is not (&ldquo;I&rsquo;m a digital tool, not a therapist; I can&rsquo;t diagnose or respond to emergencies&rdquo;).</li>
+            <li>Avoid claims that overstate agency, care or expertise, especially those that mimic humanistic or psychodynamic language of deep understanding and unconditional acceptance.</li>
+          </ul>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">For <a class="body-link" target="_blank" rel="noopener" href="unomundi-article.html">child-reachable systems</a>, boundaries need to be developmentally appropriate, visually reinforced and consistent across features.</p>
+        </div>
+        <div style="background: #FBDEE8; border-radius: 16px; padding: 30px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 16px;">Interaction Guardrails and Safe Exits</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">Guardrails should be visible and testable.</p>
+          <ul style="margin: 0 0 12px; padding-left: 20px; font-size: 15px; line-height: 1.7; color: #3A3730; display: flex; flex-direction: column; gap: 8px;">
+            <li>Define and test escalation patterns for risk cues, including when the agent stops generative conversation and surfaces crisis resources.</li>
+            <li>Provide obvious exit points: options to change topic, reduce intensity, contact a human or remove content, without penalty.</li>
+          </ul>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">These patterns should be monitored and refined, not treated as one&#8209;off compliance tasks.</p>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 30px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 16px;">Calibrated Empathy</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">Empathy scripts drawn from humanistic and integrative traditions need calibration when implemented in AI.</p>
+          <ul style="margin: 0 0 12px; padding-left: 20px; font-size: 15px; line-height: 1.7; color: #3A3730; display: flex; flex-direction: column; gap: 8px;">
+            <li>Use validating language that acknowledges experience without promising outcomes, unconditional availability or personal care.</li>
+            <li>Avoid self&#8209;disclosure and &ldquo;best friend&rdquo; positioning, especially with young users; keep the agent&rsquo;s status as a tool visible.</li>
+          </ul>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">The goal is to support users while keeping expectations in line with what the system can reliably and ethically deliver.</p>
+        </div>
+        <div style="background: #FBE6CC; border-radius: 16px; padding: 30px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 16px;">Preserving User Agency</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">Interaction should support, not replace, users&rsquo; own reasoning and decision&#8209;making.</p>
+          <ul style="margin: 0 0 12px; padding-left: 20px; font-size: 15px; line-height: 1.7; color: #3A3730; display: flex; flex-direction: column; gap: 8px;">
+            <li>Offer options and branching paths (&ldquo;Would you like to understand what might be happening, explore coping strategies, or talk about support from people around you?&rdquo;) rather than single, pre&#8209;selected routes.</li>
+            <li>Use prompts that invite reflection (&ldquo;How does that suggestion fit your situation?&rdquo;) instead of treating outputs as prescriptions.</li>
+          </ul>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">In CBT&#8209;like and embedded styles, this is central to avoiding a dynamic where the agent quietly becomes the main decision&#8209;maker.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--aamhSectionPad) var(--sidePad);">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--aamhH2Size); line-height: 1.2; margin: 0 0 16px;">Governance: From Styles to Accountability</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 auto; max-width: 760px;">Therapeutic styles emerge from content, product and UX decisions, but they require explicit governance if they are to remain safe over time.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: var(--aamhChecklistCols); gap: 20px; margin-bottom: 32px;">
+      <div style="background: #F2F2F0; border-radius: 16px; padding: 30px;">
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 16px;">Clear Ownership</h4>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">Organisations need clear <strong>ownership for role boundaries, escalation thresholds, data practices and acceptable trade&#8209;offs</strong> between engagement and risk.</p>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">These responsibilities should span the lifecycle: initial design, deployment, model or prompt updates, and decommissioning.</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 16px; padding: 30px;">
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 16px;">Continuous Review</h4>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 12px;">The most <strong>significant risks often appear only after launch</strong>. It is of utmost importance to <strong>involve clinicians, psychotherapy researchers and people with lived experience</strong> when reviewing logs and making changes to styles and guardrails.</p>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Work on <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1002/jclp.20764">common factors and &ldquo;what works for whom&rdquo;</a> shows that different therapeutic approaches need to be adapted continuously to the people using them.</p>
+      </div>
+    </div>
+
+    <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0; max-width: 860px; margin-left: auto; margin-right: auto; text-align: center;">For AI systems, that <strong>adaptation has to be engineered and governed</strong> rather than assumed.</p>
+  </article>
+
+  <!-- PRACTICAL CHECKLIST -->
+  <section style="background: #14181A;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--aamhBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--aamhH2Size); line-height: 1.2; margin: 0 0 16px; color: #fff;">Practical Checklist</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #D8D5CC; margin: 0 0 32px; max-width: 760px;">Here is a brief checklist for teams who would like to apply what has been discussed so far:</p>
+
+      <div style="display: grid; grid-template-columns: var(--aamhChecklistQCols); gap: 32px; margin-bottom: 40px;">
+        <ul style="margin: 0; padding-left: 22px; font-size: 16px; line-height: 1.9; color: #D8D5CC; display: flex; flex-direction: column; gap: 20px;">
+          <li>Which psychotherapy&#8209;inspired elements (e.g., CBT&#8209;like structure, humanistic&#8209;like empathy, psychodynamic&#8209;style exploration, mindfulness practices) are present in your agent?</li>
+          <li>How might users reasonably overestimate the level of care, expertise or crisis support these elements imply?</li>
+          <li>Where and how do you state the system&rsquo;s role and limits (e.g., inside the interaction itself)?</li>
+        </ul>
+        <ul style="margin: 0; padding-left: 22px; font-size: 16px; line-height: 1.9; color: #D8D5CC; display: flex; flex-direction: column; gap: 20px;">
+          <li>How are you monitoring real&#8209;world use for dependency, misuse, misfit and unintended behavioural effects across different user groups?</li>
+          <li>Who has the authority to change styles, guardrails and escalation patterns when new risks emerge, and how often do you revisit those decisions?</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="background: #fff;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--aamhBandPad) var(--sidePad);">
+      <div style="background: #D7E85B; border-radius: 20px; padding: var(--aamhQaPad); display: grid; grid-template-columns: var(--aamhCtaCols); gap: 32px; align-items: center;">
+        <div>
+          <p style="font-size: 16.5px; line-height: 1.7; color: #14181A; margin: 0 0 16px;">If you&rsquo;re building (or scaling) an AI mental-health agent and want to pressure-test your therapeutic style, boundaries, interaction patterns, and escalation design, we&rsquo;re here to help.</p>
+          <p style="font-size: 16.5px; line-height: 1.7; color: #14181A; margin: 0;">Reach out for a <strong>short review session to identify risk hotspots and translate them into an implementable safety &amp; governance pack</strong>, your team can ship and maintain.</p>
+        </div>
+        <a href="contact.html" style="display: inline-block; justify-self: var(--aamhCtaJustify); background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 18px 36px; border-radius: 10px; text-decoration: none; white-space: nowrap;">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--aamhSectionPad) var(--sidePad);">
+    <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 24px;">References</h3>
+    <div style="display: flex; flex-direction: column; gap: 18px; font-size: 14.5px; line-height: 1.7; color: #4A473E;">
+      <p style="margin: 0;">Biswas, M., &amp; Murray, J. (2024). &ldquo;Incomplete Without Tech&rdquo;: Emotional Responses and the Psychology of AI Reliance. In <em>Lecture notes in computer science</em> (pp. 119&ndash;131). <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1007/978-3-031-72059-8_11">doi.org/10.1007/978-3-031-72059-8_11</a></p>
+      <p style="margin: 0;">Chandra, S., Shirish, A., &amp; Srivastava, S. C. (2022). To be or not to be . . . Human? Theorizing the role of Human-Like competencies in conversational artificial intelligence agents. <em>Journal of Management Information Systems, 39</em>(4), 969&ndash;1005. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1080/07421222.2022.2127441">doi.org/10.1080/07421222.2022.2127441</a></p>
+      <p style="margin: 0;">Darcy, A., Beaudette, A., Chiauzzi, E., Daniels, J., Goodwin, K., Mariano, T. Y., Wicks, P., &amp; Robinson, A. (2023). Anatomy of a Woebot&reg; (WB001): agent guided CBT for women with postpartum depression. <em>Expert Review of Medical Devices, 20</em>(12), 1035&ndash;1049. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1080/17434440.2023.2280686">doi.org/10.1080/17434440.2023.2280686</a></p>
+      <p style="margin: 0;">Dwivedi, Y. K., Helal, M. Y. I., Elgendy, I. A., Alahmad, R., Walton, P., Suh, A., Singh, V., &amp; Jeon, I. (2025). Agentic AI Systems: What it is and isn&rsquo;t. <em>Global Business and Organizational Excellence, 45</em>(3), 253&ndash;263. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1002/joe.70018">doi.org/10.1002/joe.70018</a></p>
+      <p style="margin: 0;">Johnson, C., Egan, S. J., Carlbring, P., Shafran, R., &amp; Wade, T. D. (2024). Artificial intelligence as a virtual coach in a cognitive behavioural intervention for perfectionism in young people: A randomised feasibility trial. <em>Internet Interventions, 38</em>, 100795. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1016/j.invent.2024.100795">doi.org/10.1016/j.invent.2024.100795</a></p>
+      <p style="margin: 0;">Jones, B., Stemmler, K., Su, E., Kim, Y., &amp; Kuzminykh, A. (2025). Users&rsquo; expectations and practices with agent memory (pp. 1&ndash;8). <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3706599.3720158">doi.org/10.1145/3706599.3720158</a></p>
+      <p style="margin: 0;">Khawaja, Z., &amp; B&eacute;lisle-Pipon, J. (2023). Your robot therapist is not your therapist: understanding the role of AI-powered mental health chatbots. <em>Frontiers in Digital Health, 5</em>, 1278186. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3389/fdgth.2023.1278186">doi.org/10.3389/fdgth.2023.1278186</a></p>
+      <p style="margin: 0;">Kouros, T., &amp; Papa, V. (2024). Digital Mirrors: AI companions and the self. <em>Societies, 14</em>(10), 200. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3390/soc14100200">doi.org/10.3390/soc14100200</a></p>
+      <p style="margin: 0;">Malmqvist, L. (2025). Sycophancy in Large Language Models: Causes and mitigations. In <em>Lecture notes in networks and systems</em> (pp. 61&ndash;74). <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1007/978-3-031-92611-2_5">doi.org/10.1007/978-3-031-92611-2_5</a></p>
+      <p style="margin: 0;">Maurya, R. K., Montesinos, S., Bogomaz, M., &amp; DeDiego, A. C. (2024). Assessing the use of ChatGPT as a psychoeducational tool for mental health practice. <em>Counselling and Psychotherapy Research, 25</em>(1). <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1002/capr.12759">doi.org/10.1002/capr.12759</a></p>
+      <p style="margin: 0;">Norcross, J. C., &amp; Wampold, B. E. (2010). What works for whom: Tailoring psychotherapy to the person. <em>Journal of Clinical Psychology, 67</em>(2), 127&ndash;132. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1002/jclp.20764">doi.org/10.1002/jclp.20764</a></p>
+      <p style="margin: 0;">Portell, S. (2026). Building AI Responsibly for Children: A Practical framework. HCRAI. <a class="body-link" target="_blank" rel="noopener" href="unomundi-article.html">hcrai.com/building-ai-responsibly-for-children-a-practical-framework</a></p>
+      <p style="margin: 0;">Sapkota, R., Roumeliotis, K. I., &amp; Karkee, M. (2025). AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges. <em>Information Fusion, 126</em>, 103599. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1016/j.inffus.2025.103599">doi.org/10.1016/j.inffus.2025.103599</a></p>
+      <p style="margin: 0;">Short, F., &amp; Thomas, P. (2014). Core approaches in counselling and psychotherapy. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.4324/9780203773390">doi.org/10.4324/9780203773390</a></p>
+      <p style="margin: 0;">Zhang, Y., Zhao, D., Hancock, J. T., Kraut, R., &amp; Yang, D. (2025). The rise of AI Companions: How Human-Chatbot Relationships Influence Well-Being. arXiv (Cornell University). <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2506.12605">doi.org/10.48550/arxiv.2506.12605</a></p>
+    </div>
+  </article>
+
+  <!-- AUTHOR -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--aamhAuthorCols);">
+      <div style="aspect-ratio: 4/3; overflow: hidden;">
+        <img src="assets/images/yasmina-elfassi.jpg" alt="Yasmina El-Fassi" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div style="padding: var(--aamhAuthorPad); display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6558; margin-bottom: 10px;">Author</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 21px;">Yasmina El-Fassi</div>
+        <div style="font-size: 15.5px; color: #3A3730;">Human-AI Interaction | PhD Researcher, Psychology &amp; AI</div>
+        <div style="font-size: 15.5px; color: #3A3730; margin-bottom: 14px;">Research Collaborator, HCRAI</div>
+        <a href="https://www.linkedin.com/in/yasminaelfassi/" target="_blank" rel="noopener" style="display: inline-flex; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="https://www.linkedin.com/company/hcrai" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

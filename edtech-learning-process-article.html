@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When AI Enters the Learning Process: Design Failures, Regulatory Risk and Guardrails for EdTech | HCRAI</title>
+<meta name="description" content="Generative and agentic AI are moving into the learning process itself. HCRAI maps where this design can undermine learning, nine common anti-patterns, and the guardrails that keep AI-powered EdTech safe.">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- BACK LINK -->
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--edtechBackPad);">
+    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 13px; font-weight: 600;">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Research &amp; Insights
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F2F2F0; padding: var(--edtechHeroPad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--edtechHeroCols); gap: 24px; align-items: stretch;">
+      <div style="background: #fff; border-radius: 20px; padding: var(--edtechHeroCardPad); display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--edtechH1Size); line-height: 1.15; margin: 0;">When AI Enters the Learning Process: Design Failures, Regulatory Risk and Guardrails for EdTech</h1>
+        <span style="font-size: 15px; color: #6B6558;">Sara Portell • January 21, 2026</span>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Share this article</div>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="shareArticle('When AI Enters the Learning Process: Design Failures, Regulatory Risk and Guardrails for EdTech')" aria-label="Share" style="width: 36px; height: 36px; border-radius: 50%; background: #14181A; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="6" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="18" cy="19" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><path d="M8.6 10.7l6.8-3.9M8.6 13.3l6.8 3.9" stroke="#fff" stroke-width="1.8"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; min-height: 260px; background: #F5F1E8;">
+        <img src="assets/images/research-students-discussing.jpg" alt="Line illustration of five students discussing around a table with books" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--edtechSectionPad) var(--sidePad);">
+    <div style="display: grid; grid-template-columns: var(--edtechIntroCols); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Generative AI (GenAI) and emerging agentic systems are moving AI into the learning process itself. These systems don’t stop at delivering content. They explain, adapt, remember and guide learners through tasks. In doing so, they change where cognitive effort sits: what learners do themselves and what gets delegated to machines.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">This shift unlocks significant opportunities. GenAI can provide on-demand explanations, examples and feedback at scale. It can diversify learning resources through multimodal content, support learners working in a second language and reduce friction when students get stuck, lowering barriers to engagement and persistence. For some learners, AI-mediated feedback can feel psychologically safer, <a class="body-link" target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0001691825012934">encouraging experimentation (trial and error), revision and assistance</a> without fear of judgement.<br><br>But these gains come with important risks. The same design choices that improve short-term performance, confidence, or engagement can weaken <a class="body-link" target="_blank" rel="noopener" href="https://www.brookings.edu/articles/a-new-direction-for-students-in-an-ai-world-prosper-prepare-protect/">independent reasoning, distort social development or introduce hidden dependencies</a> over time.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">In educational contexts, especially those involving children and teens, we are talking about learning, safeguarding, regulatory and reputational risks. If the <a class="body-link" target="_blank" rel="noopener" href="https://www.science.org/doi/10.1126/science.1207745">“Google effect” (digital amnesia)</a> raised concerns about outsourcing memory to search engines, LLMs can be even more powerful in practice. Agentic and multi-agent systems raise the stakes further. As AI systems plan, adapt, coordinate, and act proactively, they can quietly <a class="body-link" target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/11201263">assume roles that belong to learners or educators</a>: framing problems, sequencing tasks, resolving disagreement, or deciding what happens next.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">When these shifts are unexamined, learning can collapse into automated coordination, impacting cognitive development. This is why emerging standards and guidance, such as the <a class="body-link" target="_blank" rel="noopener" href="https://unesdoc.unesco.org/ark:/48223/pf0000386693?locale=en">Guidance for Generative AI in Education and Research</a> created by UNESCO or the Generative AI: product safety standards by the <a class="body-link" target="_blank" rel="noopener" href="https://www.gov.uk/government/publications/generative-ai-product-safety-standards/generative-ai-product-safety-standards">UK Department for Education</a>, take a risk-first approach to AI in education. As AI becomes embedded in learning, design choices increasingly carry regulatory, safeguarding and reputational consequences, alongside pedagogical ones.</p>
+      </div>
+    </div>
+    <div style="margin-top: 20px;">
+      
+    </div>
+  </article>
+
+  <!-- WHERE AI CAN UNDERMINE LEARNING -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--edtechBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--edtechH2Size); line-height: 1.2; margin: 0 0 16px;">Where AI Can Undermine Learning</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 16px; max-width: 860px;">AI introduces learning and developmental risks unless we actively mitigate them.</p>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 40px; max-width: 860px;">These risks are not uniform across learners. It is very important to consider age and developmental stage. Younger learners are more susceptible to over-trust, emotional reliance, and authority transfer, while older learners may better interrogate and contextualise AI outputs. Responsible educational AI requires <a class="body-link" target="_blank" rel="noopener" href="index.html">age-appropriate constraints on autonomy</a>, interaction style and use cases; one model of use won’t fit all learners.</p>
+
+      <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 24px;">Risk Accumulation</h3>
+      <div style="display: grid; grid-template-columns: var(--edtechThreeColGrid); gap: 20px;">
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 12px;">Hallucinations and biases</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">AI can produce confident but incorrect or biased explanations. These errors are often hard to detect and can introduce <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.06682">misconceptions, cognitive bias and amplify over-trust</a>, undermining learner judgment, and reinforcing stereotypes and uneven representations.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 12px;">Cognitive deskilling</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">When AI is available to generate answers, full solutions and completed tasks, <a class="body-link" target="_blank" rel="noopener" href="https://link.springer.com/article/10.1186/s40561-024-00316-7">learners offload cognitive work</a>. This shows up as relying on full solutions rather than grappling with problems, and over time can <a class="body-link" target="_blank" rel="noopener" href="https://ajet.org.au/index.php/AJET/article/view/9932">weaken reasoning, problem-solving and persistence</a>.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 12px;">Psychological, emotional and social risk</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">AI learning systems built as conversational, companion-style or anthropomorphic can encourage <a class="body-link" target="_blank" rel="noopener" href="https://www.brookings.edu/articles/a-new-direction-for-students-in-an-ai-world-prosper-prepare-protect/">emotional reliance, reduce peer interaction and undermine real-world support</a> networks, especially problematic for children, distorting emotional and social development.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 12px;">Context insensitivity</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Without contextual adaptation, outputs can be <a class="body-link" target="_blank" rel="noopener" href="https://bera-journals.onlinelibrary.wiley.com/doi/10.1111/bjet.13614">inappropriate, misleading, or misaligned</a> with learners’ educational context, privileging dominant knowledge frameworks and creating friction with local classroom practices.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 12px;">Manipulative design</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Patterns such as flattery, unjustified confidence, social pressure (“others have done this”), or reward-based engagement and monetisation-driven <a class="body-link" target="_blank" rel="noopener" href="https://www.gov.uk/government/publications/generative-ai-product-safety-standards/generative-ai-product-safety-standards">dark patterns can influence learner behaviour</a> in ways not acceptable in learning contexts.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 12px;">Data privacy</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Continuous monitoring, collection of sensitive learner data, or reuse of data for commercial purposes or model training raise serious concerns, especially for children, treated as a high-risk group under data protection law.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px; grid-column: var(--edtechSpanFull);">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 12px;">Agentic autonomy</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Agentic AI systems plan, adapt, and act over time. Memory and proactive decision-making can gradually shift agency away from learners (even when short-term task performance improves), creating dependency loops that are difficult to detect. Learners may rely increasingly on system guidance for task sequencing, decision-making, or problem framing, reducing opportunities for independent reasoning and productive struggle. In multi-agent systems, coordinated outputs or apparent consensus can further <a class="body-link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3726302.3730092">inflate epistemic authority</a>, making AI guidance appear more reliable, discouraging critical evaluation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANTI-PATTERNS -->
+  <section style="background: #fff;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--edtechBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--edtechH2Size); line-height: 1.2; margin: 0 0 16px;">Anti-Patterns in EdTech AI Design</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 40px; max-width: 860px;">Responsible edtech requires human-centred design and system-level accountability. The patterns below highlight design risks that product teams can address to reduce harm and improve learning outcomes.</p>
+
+      <div style="display: grid; grid-template-columns: var(--edtechTwoColGrid); gap: 20px;">
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #C7C4B7;">01</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Solution-by-default</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">AI is configured to generate full answers, code, solutions or explanations as the primary interaction. This encourages cognitive offloading, shortcuts productive struggle, and shifts the learner from sense-making to copying.</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #8B5A50; margin: 0;"><strong>Red flag:</strong> Learners can complete tasks without attempting them.</p>
+          </div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #C7C4B7;">02</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Fluency instead of understanding</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Performance while AI is active is used as a success signal, without testing whether learners can perform independently.</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #8B5A50; margin: 0;"><strong>Red flag:</strong> Success metrics that only focus on task completion, speed or output quality, without measuring skill transfer.</p>
+          </div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #C7C4B7;">03</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">AI as the primary authority</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">The system speaks with high confidence and human-like authority, discouraging questioning or verification. Multi-agent consensus is presented as more reliable rather than provisional.</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #8B5A50; margin: 0;"><strong>Red flag:</strong> Learners rarely challenge or revise AI outputs.</p>
+          </div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #C7C4B7;">04</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Optimising for engagement</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Design choices prioritise time-on-task, retention or satisfaction over learning depth. Persuasive nudges, flattery or gamified rewards do not drive understanding.</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #8B5A50; margin: 0;"><strong>Red flag:</strong> Engagement metrics improve while independent performance stagnates or declines.</p>
+          </div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #C7C4B7;">05</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Opaque decisions</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Learners and educators cannot tell why the system intervened, what information it used, or how confident it is. Errors, bias or hallucinations go unnoticed.</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #8B5A50; margin: 0;"><strong>Red flag:</strong> It just gives an answer with no explanation or source transparency.</p>
+          </div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #C7C4B7;">06</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Agentic autonomy without boundaries</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Agentic systems plan tasks, set goals or sequence learning steps without learner confirmation. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/ACCESS.2025.3620473">Memory and adaptation replace learner agency over time.</a></p>
+            <p style="font-size: 14px; line-height: 1.6; color: #8B5A50; margin: 0;"><strong>Red flag:</strong> The system increasingly decides what happens next.</p>
+          </div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #C7C4B7;">07</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Confidence without competence</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Learners feel more confident using AI, but are not given opportunities to test skills without support. Confidence becomes a <a class="body-link" target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S109675162400040X?via%3Dihub">misleading proxy for mastery</a> (Dunning-Kruger effect).</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #8B5A50; margin: 0;"><strong>Red flag:</strong> No AI-free checkpoints or ‘try without help’ moments.</p>
+          </div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #C7C4B7;">08</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Misuse treated as a user problem</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Design assumes learners will use AI responsibly without constraints, scaffolds and literacy support.</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #8B5A50; margin: 0;"><strong>Red flag:</strong> Responsibility is pushed to users rather than designed into the system.</p>
+          </div>
+        </div>
+        <div style="background: #F2F2F0; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px; grid-column: var(--edtechSpanFull);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 32px; color: #C7C4B7;">09</div>
+          <div>
+            <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Age and context-blind design</h4>
+            <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">AI systems are deployed without adaptation to learner age or developmental stage, local curricula or cultural and linguistic context.</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #8B5A50; margin: 0;"><strong>Red flag:</strong> The same interaction patterns, autonomy level and behaviour is applied across age groups or contexts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARDRAILS -->
+  <section style="background: #EEF5C4;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--edtechBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--edtechH2Size); line-height: 1.2; margin: 0 0 16px;">Designing for Protection: Guardrails for EdTech AI</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 40px; max-width: 860px;">Learning harm is often an emergent property of design choices, interaction patterns and governance gaps. Responsible edtech requires human-centred design and system-level accountability.</p>
+
+      <div style="display: grid; grid-template-columns: var(--edtechThreeColGrid); gap: 20px;">
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Ground AI in learning science</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;"><a class="body-link" target="_blank" rel="noopener" href="https://www.nature.com/articles/s41562-024-02004-5">AI must be grounded in human learning theory</a> (e.g. constructivism, Inquiry-Based Learning, scaffolding, Zone of Proximal Development), not optimised for task completion, speed, fluency or output quality alone.</p>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Encourages cognitive engagement, reflection, verification and independent reasoning.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Design against over-reliance</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Systems should enforce clear <a class="body-link" target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/s10648-025-10020-8">role boundaries, avoid authoritative or solution-first behaviour</a> and prioritise scaffolding. Support should fade as competence increases, not persist indefinitely.</p>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Implement attempt-first flows, progressive disclosure and intentional support fading. Explicitly design for <a class="body-link" target="_blank" rel="noopener" href="https://osf.io/preprints/psyarxiv/g5fd8_v1">scaffolding modes</a> (Aid/Complement) rather than replacement mode (Substitute) as the default.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Preserve agency</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">AI should <a class="body-link" target="_blank" rel="noopener" href="https://ajet.org.au/index.php/AJET/article/view/9932">support learners in questioning, verifying and revising</a>, not accepting outputs at face value. Interfaces should make uncertainty visible and prompt reflection (“What would you check?”, “What do you keep and why?”).</p>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Treat agency as a core learning outcome, requiring justification, comparison and learner reasoning.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Ensure human oversight</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">AI should augment educator judgment, not bypass it. Responsible adoption requires <a class="body-link" target="_blank" rel="noopener" href="https://library.iated.org/view/ARTSIN2025CHA">explicit boundaries</a> on which functions may be automated, which require human review and which should never be delegated to AI.</p>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Enable human review, override and escalation for consequential decisions.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Conduct longitudinal behavioural testing</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Short-term confidence and efficiency gains can mask declining independent performance. Governance must include <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2509.21972">longitudinal monitoring</a> of reliance, cognition, self-efficacy and differential impacts across learner groups.</p>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Track learning trajectories over time and monitor whether confidence and independence converge or diverge.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Design for transparency and explainability</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Learners and educators should understand <a class="body-link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3706598.3713778">what the system is doing</a>, why it intervened, what data it relied on and how confident it is.</p>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Expose reasoning and uncertainty through interaction design; make AI contributions visible in learner work.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Prevent inaccuracy and pedagogical misalignment</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">For AI-generated learning materials (videos, quizzes, Q&amp;A), ensure outputs align with course content and instructional or academic goals.</p>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Use <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.06682">restricted retrieval from approved materials (e.g. RAG) and human oversight</a> to prevent misinformation, biases and low pedagogical quality.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Do not dehumanize learning</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">Social interaction is a learning-relevant ingredient. Designs that remove it can reduce learning quality (e.g. lower perceived social presence).</p>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Position the AI as a tool or facilitator; actively <a class="body-link" target="_blank" rel="noopener" href="https://www.mdpi.com/2076-328X/15/10/1348">redirect learners to teachers, peers or group discussion</a> when social engagement is essential.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 8px;">Treat AI literacy as a prerequisite</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0 0 10px;">AI literacy for learners and educators is a prerequisite for responsible deployment; it cannot be expected to emerge automatically through use.</p>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B6558; margin: 0;"><strong>Why:</strong> Show what AI can/cannot do and why outputs are generated, with contextual explanations at moments of use rather than one-off onboarding. Offer <a class="body-link" target="_blank" rel="noopener" href="https://ijeret.org/index.php/ijeret/article/view/377">distinct explanations and controls</a> for learners, educators, parents and administrators, aligned with their decision-making responsibilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CO-CREATION -->
+  <section style="background: #fff;">
+    
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--edtechBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--edtechH2Size); line-height: 1.2; margin: 0 0 40px; text-align: center">Co-creation, system evaluation and ongoing monitoring</h2>
+      <div style="display: grid; grid-template-columns: var(--edtechIntroCols); gap: 24px;">
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Co-creation with learning and development experts, educators, learners and local domain experts is essential to ensure systems align with learning theory, developmental needs, cultural and linguistic contexts and the constraints of classroom and school environments. <br><br>For agentic and multi-agent systems, this includes testing how decisions are delegated, how disagreement is resolved, and whether collaboration supports learning or collapses into automated coordination. Because many risks surface only through repeated use, longitudinal monitoring must be treated as a governance requirement.<br><br><br></p><p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Treating educators, schools, learners and local domain experts as ongoing partners rather than end users helps surface risks early and recalibrate system behaviour.<br><br>Testing must cover the full AI learning system, including data sources and knowledge bases, retrieval and grounding mechanisms, prompts, interaction design, memory and adaptation, orchestration logic, and, where applicable, the dynamics of multi-agent interactions.</p>
+      </div>
+      
+    </div></section>
+
+  <!-- PULL QUOTE -->
+  <section style="background: #14181A;">
+    <div style="max-width: 860px; margin: 0 auto; padding: var(--edtechSectionPad) var(--sidePad); text-align: center;">
+      <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--edtechPullQuoteSize); line-height: 1.4; margin: 0 0 20px; color: #fff;">AI is shaping how we think, collaborate and develop over time.</p>
+      <p style="font-size: 17px; line-height: 1.7; color: #D8D5CC; margin: 0;">Whether this strengthens or erodes learning is a design and governance choice, shared by builders and education systems. Getting this right requires clear governance, boundaries, age-appropriate safeguards, and sustained attention to how learning unfolds in practice.</p>
+    </div>
+  </section>
+
+  <!-- CASE STUDY -->
+  <section style="background: #F5F5F4;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--edtechBandPad) var(--sidePad); display: grid; grid-template-columns: var(--edtechCaseCols); gap: var(--edtechCaseGap); align-items: center;">
+      <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(20,24,26,0.15);">
+        <img src="assets/images/unomundi-app-screenshot.jpg" alt="Unomundi children's edtech app screenshot" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Case Study</div>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--edtechH2Size); line-height: 1.15; margin: 0 0 20px;">Responsible AI in child-focused edtech: lessons from Unomundi</h2>
+        <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0 0 32px; max-width: 480px;">A working example of how these guardrails play out in practice: building trustworthy AI for children through developmental psychology, human&ndash;AI interaction, and ethical governance.</p>
+        <a href="unomundi-article.html" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none;">Read the Case Study</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK WITH EDTECH TEAMS -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--edtechBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--edtechH2Size); line-height: 1.2; margin: 0 0 32px;">How We Work With EdTech Teams</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 32px; max-width: 860px;">We support teams across three areas:</p>
+
+      <div style="display: grid; grid-template-columns: var(--edtechThreeColGrid); gap: 20px; margin-bottom: 36px;">
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 12px;">01</div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">AI evaluations &amp; behavioural risk assessments</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">We assess how learners and educators interact with your system: output quality, model and behaviour drift over time, and where over-reliance, authority transfer, misuse or unintended behaviours emerge.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 12px;">02</div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Design refinement</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">We translate learning science and behavioural evidence into concrete design guidance (interaction patterns, autonomy boundaries, scaffolding strategies, safeguards and monitoring) that reduce risk and are developmentally appropriate while improving product value.</p>
+        </div>
+        <div style="background: #fff; border-radius: 16px; padding: 28px;">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 12px;">03</div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 10px;">Regulatory alignment</h4>
+          <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">We help teams align design and governance decisions with emerging standards and regulations before these become compliance or procurement blockers.</p>
+        </div>
+      </div>
+
+      <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 24px; max-width: 860px;">If you’re building or deploying AI in an education setting or for educational purposes, we’re happy to talk.</p>
+      <a href="contact.html" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 18px 36px; border-radius: 10px; text-decoration: none;">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--edtechSectionPad) var(--sidePad);">
+    <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 24px;">References</h3>
+    <div style="display: flex; flex-direction: column; gap: 18px; font-size: 14.5px; line-height: 1.7; color: #4A473E;">
+      <p style="margin: 0;">Artsın, M., &amp; Bozkurt, A. (2025). Charting new horizons: What agentic artificial intelligence (AI) promises in the educational landscape. In <em>EDULEARN25 proceedings</em> (pp. 2019–2023). IATED Academy. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.21125/edulearn.2025.0585">doi.org/10.21125/edulearn.2025.0585</a></p>
+      <p style="margin: 0;">Bauer, E., Greiff, S., Graesser, A. C., Scheiter, K., &amp; Sailer, M. (2025). Looking beyond the hype: Understanding the effects of AI on learning. <em>Educational Psychology Review, 37</em>, Article 45. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1007/s10648-025-10020-8">doi.org/10.1007/s10648-025-10020-8</a></p>
+      <p style="margin: 0;">Burns, M., Winthrop, R., Luther, N., Venetis, E., &amp; Karim, R. (2026). A new direction for students in an AI world: Prosper, prepare, protect. The Brookings Institution, Center for Universal Education. <a class="body-link" target="_blank" rel="noopener" href="https://www.brookings.edu/articles/a-new-direction-for-students-in-an-ai-world-prosper-prepare-protect">brookings.edu</a></p>
+      <p style="margin: 0;">Delikoura, I., Fung, Y. R., &amp; Hui, P. (2025). From superficial outputs to superficial learning: Risks of large language models in education. <em>arXiv</em>. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2509.21972">doi.org/10.48550/arXiv.2509.21972</a></p>
+      <p style="margin: 0;">Hu, X., Xu, S., Tong, R., &amp; Graesser, A. C. (2025). Generative AI in education: From foundational insights to the Socratic Playground for Learning. <em>arXiv</em>. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2501.06682">doi.org/10.48550/arXiv.2501.06682</a></p>
+      <p style="margin: 0;">Jia, W., Pan, L., &amp; Neary, S. (2025). Effect of GenAI dependency on university students’ academic achievement: The mediating role of self-efficacy and moderating role of perceived teacher caring. <em>Behavioral Sciences, 15</em>(10), 1348. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.3390/bs15101348">doi.org/10.3390/bs15101348</a></p>
+      <p style="margin: 0;">Kamalov, F., Kumar, S., Hossain, M. S., &amp; Ahmed, S. (2025). Evolution of AI in education: Agentic workflows. <em>arXiv</em>. <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.20082">arxiv.org/abs/2504.20082</a></p>
+      <p style="margin: 0;">Kostopoulos, G., Gkamas, V., Rigou, M., &amp; Kotsiantis, S. (2025). Agentic AI in education: State of the art and future directions. <em>IEEE Access, 13</em>, 177467–177491. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/ACCESS.2025.3620473">doi.org/10.1109/ACCESS.2025.3620473</a></p>
+      <p style="margin: 0;">Le, H., Shen, Y., Li, Z., Xia, M., Tang, L., Li, X., Jia, J., Wang, Q., Gašević, D., &amp; Fan, Y. (2025). Breaking human dominance: Investigating learners’ preferences for learning feedback from generative AI and human tutors. <em>British Journal of Educational Technology, 56</em>, 1758–1783. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1111/bjet.13614">doi.org/10.1111/bjet.13614</a></p>
+      <p style="margin: 0;">Lee, H.-P., Sarkar, A., Tankelevitch, L., Drosos, I. Z., Rintel, S., Banks, R., &amp; Wilson, N. (2025). The impact of generative AI on critical thinking: Self-reported reductions in cognitive effort and confidence effects from a survey of knowledge workers. In <em>Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</em> (pp. 1–22). ACM. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3706598.3713778">doi.org/10.1145/3706598.3713778</a></p>
+      <p style="margin: 0;">Li, S., Liu, J., &amp; Dong, Q. (2025). Generative artificial intelligence-supported programming education: Effects on learning performance, self-efficacy and processes. <em>Australasian Journal of Educational Technology, 41</em>(3), 1–25. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.14742/ajet.9932">doi.org/10.14742/ajet.9932</a></p>
+      <p style="margin: 0;">Liu, Y., Liu, Y., Zhang, X., Chen, X., &amp; Yan, R. (2025). The truth becomes clearer through debate! Multi-agent systems with large language models unmask fake news. In <em>Proceedings of the 48th International ACM SIGIR Conference on Research and Development in Information Retrieval</em> (pp. 504–514). ACM. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3726302.3730092">doi.org/10.1145/3726302.3730092</a></p>
+      <p style="margin: 0;">Lyu, Y., Ren, S., Feng, Y., Wang, Z., Chen, Z., Ren, Z., &amp; de Rijke, M. (2025). Self-adaptive cognitive debiasing for large language models in decision-making. <em>arXiv</em>. <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.04141">arxiv.org/abs/2504.04141</a></p>
+      <p style="margin: 0;">Miao, F., Holmes, W., Huang, R., &amp; Zhang, H. (2021). AI and education: Guidance for policy-makers. UNESCO. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.54675/PCSP7350">doi.org/10.54675/PCSP7350</a></p>
+      <p style="margin: 0;">Reagan Panguraj AR. (2025). Agentic AI in Inclusive Learning: A Framework for Autonomous Personalization across Diverse Learner Populations. <em>IJERET</em>, 100–1. <a class="body-link" target="_blank" rel="noopener" href="https://ijeret.org/index.php/ijeret/article/view/377">ijeret.org</a></p>
+      <p style="margin: 0;">Sparrow, B., Liu, J., &amp; Wegner, D. M. (2011). Google effects on memory: Cognitive consequences of having information at our fingertips. <em>Science, 333</em>, 776–778. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1126/science.1207745">doi.org/10.1126/science.1207745</a></p>
+      <p style="margin: 0;">Tsim, F., &amp; Gutoreva, A. (2025). SCAN: A Decision-Making Framework for Task Assignment with Generative AI [Preprint]. PsyArXiv. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.31234/osf.io/g5fd8_v1">doi.org/10.31234/osf.io/g5fd8_v1</a></p>
+      <p style="margin: 0;">UK Department for Education. (2026, January 19). Generative AI: product safety standards. GOV.UK. <a class="body-link" target="_blank" rel="noopener" href="https://www.gov.uk/government/publications/generative-ai-product-safety-standards/generative-ai-product-safety-standards">gov.uk</a></p>
+      <p style="margin: 0;">UNESCO. (2023). Guidance for Generative AI in Education and Research (F. Miao &amp; W. Holmes, Authors). UNESCO Publishing. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.54675/EWZM9535">doi.org/10.54675/EWZM9535</a></p>
+      <p style="margin: 0;">Xia, M., &amp; Guo, S. (2025). Understanding learners' perceptions of artificial intelligence-mediated Informal Digital Learning of English: A Q methodology approach. <em>Acta Psychologica, 261</em>, 105980. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1016/j.actpsy.2025.105980">doi.org/10.1016/j.actpsy.2025.105980</a></p>
+      <p style="margin: 0;">Yan, L., Greiff, S., Teuber, Z., &amp; Gašević, D. (2024). Promises and challenges of generative artificial intelligence for human learning. <em>Nature Human Behaviour, 8</em>(10), 1839–1850. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1038/s41562-024-02004-5">doi.org/10.1038/s41562-024-02004-5</a></p>
+      <p style="margin: 0;">Zhai, C., Wibowo, S., &amp; Li, L. D. (2024). The effects of over-reliance on AI dialogue systems on students’ cognitive abilities: A systematic review. <em>Smart Learning Environments, 11</em>, Article 28. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1186/s40561-024-00316-7">doi.org/10.1186/s40561-024-00316-7</a></p>
+      <p style="margin: 0;">Zhang, L., &amp; Xu, J. (2025). The paradox of self-efficacy and technological dependence: Unraveling generative AI’s impact on university students’ task completion. <em>The Internet and Higher Education, 65</em>, Article 100978. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1016/j.iheduc.2024.100978">doi.org/10.1016/j.iheduc.2024.100978</a></p>
+    </div>
+  </article>
+
+  <!-- AUTHOR -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--edtechAuthorCols);">
+      <div style="aspect-ratio: 4/3; overflow: hidden;">
+        <img src="assets/images/sara-portell.jpg" alt="Sara Portell, HCRAI Founder" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
+      </div>
+      <div style="padding: var(--edtechAuthorPad); display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6558; margin-bottom: 10px;">Author</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 21px;">Sara Portell</div>
+        <div style="font-size: 15.5px; color: #3A3730;">Behavioural Scientist &amp; Responsible AI Advisor</div>
+        <div style="font-size: 15.5px; color: #3A3730; margin-bottom: 14px;">Founder, HCRAI</div>
+        <a href="https://www.linkedin.com/in/saraportell/" target="_blank" rel="noopener" style="display: inline-flex; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="https://www.linkedin.com/company/hcrai" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

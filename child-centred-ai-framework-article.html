@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building AI Responsibly for Children: A Practical Framework | HCRAI</title>
+<meta name="description" content="AI is already part of children's digital lives. HCRAI's APEG framework (Age-fit, Protection-by-design, Explainable interaction, Governance) sets out the interaction patterns and requirements for building AI responsibly for children.">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- BACK LINK -->
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--ccafBackPad);">
+    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 13px; font-weight: 600;">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Research &amp; Insights
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F2F2F0; padding: var(--ccafHeroPad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--ccafHeroCols); gap: 24px; align-items: stretch;">
+      <div style="background: #fff; border-radius: 20px; padding: var(--ccafHeroCardPad); display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH1Size); line-height: 1.15; margin: 0;">Building AI Responsibly for Children: A Practical Framework</h1>
+        <span style="font-size: 15px; color: #6B6558;">Sara Portell • January 4, 2026</span>
+        <div>
+          <div id="share-label" style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Share this article</div>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="shareArticle('Building AI Responsibly for Children: A Practical Framework')" aria-label="Share" style="width: 36px; height: 36px; border-radius: 50%; background: #14181A; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="6" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><circle cx="18" cy="19" r="3" fill="none" stroke="#fff" stroke-width="1.8"></circle><path d="M8.6 10.7l6.8-3.9M8.6 13.3l6.8 3.9" stroke="#fff" stroke-width="1.8"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; min-height: 260px; background: #F5F1E8;">
+        <img src="assets/images/research-robot-and-child.jpg" alt="Line illustration of a friendly robot and a child at a desk" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--ccafSectionPad) var(--sidePad);">
+    <div style="display: grid; grid-template-columns: var(--ccafIntroCols); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">AI is already a core part of children's and teens' digital lives. In the UK, <a class="body-link" target="_blank" rel="noopener" href="https://www.unicef.org/innocenti/media/11991/file/UNICEF-Innocenti-Guidance-on-AI-and-Children-3-2025.pdf">67% of teenagers now use AI</a>, and in the US <a class="body-link" target="_blank" rel="noopener" href="https://www.pewresearch.org/internet/2025/12/09/teens-social-media-and-ai-chatbots-2025/">64% of teens report using AI chatbots</a>. Even among younger children, adoption is significant: 39% of elementary school children in the US use AI for learning, and 37% of children aged 9-11 in Argentina report using ChatGPT to seek information, as stated in the latest Unicef Guidance on AI and Children.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">In parallel, child-facing AI products are expanding: more than <a class="body-link" target="_blank" rel="noopener" href="https://www.technologyreview.com/2025/10/07/1125191/ai-toys-in-china">1,500 AI toy companies</a> were reportedly operating in China as of October 2025. Adoption is accelerating across age groups and regions, often surpassing the development of child-specific ethical standards, safeguards and governance mechanisms.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Experts warn that many child-facing AI products expose children to <a class="body-link" target="_blank" rel="noopener" href="https://globalnews.ca/news/11544191/ai-powered-toys-holiday-shopping/">developmental, psychological and ethical risks</a> that current safeguards do not adequately address.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">For companies building AI systems that children directly use, or are likely to encounter, this creates a duty of care as well as reputational and regulatory exposure. AI safety therefore requires designing systems that actively protect children's wellbeing, rights and lived realities.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">To make this actionable, this article sets out a practical design and ethics framework for child-centred AI products.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- FRAMEWORK INTRO -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--ccafBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.2; margin: 0 0 36px; text-align: center">A Child-Centred Responsible AI Framework</h2>
+      <div style="display: grid; grid-template-columns: var(--ccafFrameworkIntroCols); gap: 48px;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">This framework is informed by research and real-world evidence on how children actually interact with AI products.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Across studies, product audits, and guidance from organisations such as <a class="body-link" target="_blank" rel="noopener" href="https://www.unesco.org/en">UNESCO</a>, <a class="body-link" target="_blank" rel="noopener" href="https://www.unicef.org/">UNICEF</a>, <a class="body-link" target="_blank" rel="noopener" href="https://5rightsfoundation.com/">5Rights</a> and <a class="body-link" target="_blank" rel="noopener" href="https://www.safeaiforchildren.org/">SAIFCA</a>, the same issues surface repeatedly: systems that are not adapted to children's developmental stages, models that can generate age-inappropriate or harmful content, conversational designs that encourage <a class="body-link" target="_blank" rel="noopener" href="https://www.safeaiforchildren.org/ai-risks-to-children-full-guide/">over-trust or emotional attachment</a>, unclear boundaries about what AI can and cannot do, and limited human oversight and monitoring once products are live at scale.<br><br>We are introducing a pragmatic framework designed for AI builders and intended to help product teams reduce risk, strengthen trust with families and regulators, and build safe child-facing AI systems that are more resilient over time, before regulatory pressure or public backlash forces reactive change.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">This framework is intentionally system-agnostic. Whether AI appears as a chatbot, tutor, toy (i.e., a physical or digital play object that embeds AI software to interact with or adapt to a child), voice assistant, game mechanic, or background recommendation system, the primary risks to children emerge through interaction, context and prolonged use. APEG therefore focuses on how AI behaves in children's lives.<br><br>This model distils what this evidence consistently points to in practice. Child-facing AI must adapt to <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.11242">age and context</a>, build in protection <a class="body-link" target="_blank" rel="noopener" href="https://5rightsfoundation.com/wp-content/uploads/2024/10/Dec-21_AI-and-Childrens-Rights-5Rights-position-on-EU-AI-Act.pdf">against harm, discrimination</a> and <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2508.19258">emotional manipulation</a>, make systems understandable through interaction (including cues that reduce anthropomorphism and calibrate trust), support meaningful <a class="body-link" target="_blank" rel="noopener" href="https://www.scitepress.org/Papers/2025/140697/140697.pdf">involvement of parents, guardians, and/or educators</a> and be governed through continuous human oversight rather than one-off compliance checks.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">These are also the areas where real products most often fail, and where product teams have meaningful control through design choices, incentives and lifecycle decisions.</p>
+        </div>
+      </div>
+      
+      
+    </div>
+  </section>
+
+  <!-- APEG FRAMEWORK -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--ccafSectionPad) var(--sidePad);">
+    <div style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #14181A; background: #D7E85B; padding: 5px 12px; border-radius: 100px; margin-bottom: 16px;">APEG Framework</div>
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.2; margin: 0 0 20px;">A Child-Centred Responsible AI Framework</h2>
+    <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 0 12px; max-width: 900px;">APEG (Age-Fit and Context, Protection-by-Design, Explainable Interaction, Governance and Stewardship) integrates developmental stage and context of use, protection-by-design safeguards against known and emerging harms, <a class="body-link" target="_blank" rel="noopener" href="https://research.vu.nl/ws/portalfiles/portal/363567261/ExTra_CTI_Explainable_and_Transparent_Child-Technology_Interaction.pdf">developmentally appropriate explainability to calibrate trust</a>, and governance and stewardship, including upstream data due diligence, child-specific risk assessment before launch, monitoring and human oversight after deployment.</p>
+    <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 0 40px; max-width: 900px;">APEG is designed to be implemented through safe interaction patterns: repeatable, testable behaviours that shape what the system does (and does not do) in real conversations and experiences.</p>
+
+    <div style="display: grid; grid-template-columns: var(--ccafApegCols); gap: 20px;">
+      <div style="background: #E4F0D3; border-radius: 16px; padding: 30px;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #6C9A2E; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">A</div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 10px;">Age-Fit and Context</h4>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Adapts patterns to developmental stage, context of use and interaction modality.</p>
+      </div>
+      <div style="background: #FBDEE8; border-radius: 16px; padding: 30px;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #C24A76; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">P</div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 10px;">Protection-by-Design</h4>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Data privacy and protection in line with GDPR; minimised data collection; prevention of profiling, behavioural advertising, secondary use, and cumulative harms (e.g. discrimination, manipulation, dependency) over time.</p>
+      </div>
+      <div style="background: #FBE6CC; border-radius: 16px; padding: 30px;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #C07A2B; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">E</div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 10px;">Explainable Interaction</h4>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Calibrates trust and reduces anthropomorphism through developmentally appropriate onboarding disclosures and repeated behavioural cues within the interaction (role boundaries, limitations, and uncertainty).</p>
+      </div>
+      <div style="background: #E7E7E4; border-radius: 16px; padding: 30px;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #6B6558; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">G</div>
+        <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 10px;">Governance and Stewardship</h4>
+        <p style="font-size: 15px; line-height: 1.7; color: #3A3730; margin: 0;">Continuous monitoring, participatory review, regular updates, fit-for-purpose parental tools, enforcement of safe interaction patterns and AI literacy for children and parents.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- OPPORTUNITY AND RISK -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--ccafBandPad) var(--sidePad);">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.2; margin: 0 0 36px; text-align: center;">Opportunity and Risk in Child-Facing AI</h2>
+      <div style="display: grid; grid-template-columns: var(--ccafOpportunityCols); gap: 48px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;"><a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2512.15117">Relational conversational styles</a> can make AI chatbots and AI companions feel caring, understanding, and less judgmental than many human interactions. For some children and adolescents, particularly <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2512.15117">those who feel lonely, anxious, or misunderstood</a>, this can offer short-term benefits, such as <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2512.15117">emotional reassurance, low-pressure exploration, and support</a> for learning or creative tasks. When AI systems act as facilitators rather than authorities, adapt to children's development stages, make role and limits understandable and when <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2512.02179">parents, educators, or caregivers remain part of the interaction</a>, these benefits are most consistently observed.<br><br>Children are a developing and protected group, and the responsibility for safe design cannot be shifted onto children or families. <a class="body-link" target="_blank" rel="noopener" href="https://pirg.org/edfund/wp-content/uploads/2025/12/AI-Comes-to-Playtime-Artifical-companions-real-risks.pdf">Consent is limited</a> and engagement optimisation strategies can easily cross into manipulation or relational deception. <br><br>For this reason, ethical child-centred AI cannot rely on one-off disclaimers or reviews. It requires governance across the full AI lifecycle, including upstream data, model behaviour, interaction design, and post-deployment monitoring.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">This is the gap the APEG framework is designed to address: translating well-documented risks and opportunities into concrete interaction patterns and governance requirements that product teams can apply in practice.<br><br>At the same time, the evidence is clear that child-facing AI introduces distinct and compounding risks when these conditions are not met. These include exposure to <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.11242">age-inappropriate or harmful content</a>; over-trust in fluent but incorrect AI outputs; anthropomorphism and emotional dependency driven by companion-style designs; privacy and data exploitation as children overshare without understanding long-term consequences; and manipulative engagement patterns that reduce autonomy.<br><br>Over time, such systems can also <a class="body-link" target="_blank" rel="noopener" href="https://everyone.ai/wp-content/uploads/2024/05/EveryoneAI.ResearchPaper.pdf">displace critical developmental experiences</a> such as free play, social interaction, and sleep, especially when optimised for retention rather than wellbeing.</p>
+      </div>
+      
+      
+    </div>
+  </section>
+
+  <!-- PATTERNS TO AVOID -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--ccafSectionPad) var(--sidePad);">
+    <div style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #C24A76; background: #FBDEE8; padding: 5px 12px; border-radius: 100px; margin-bottom: 16px;">Interaction Patterns</div>
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.2; margin: 0 0 12px;">Interaction Patterns to Avoid in Child-Facing AI</h2>
+    <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 0 32px; max-width: 800px;">The following interaction patterns appear in products associated with elevated developmental, psychological and ethical risk.</p>
+    <div style="display: flex; flex-direction: column;">
+      
+        <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Position the AI as a primary emotional companion</div>
+          <p style="font-size: 15px; line-height: 1.65; color: #6B6558; margin: 0; font-style: italic;">(especially through first-person emotional language and commitment cues) e.g. "I’m always here for you," "You don’t need anyone else"</p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Use re-engagement manipulation (guilt, FOMO, abandonment cues)</div>
+          <p style="font-size: 15px; line-height: 1.65; color: #6B6558; margin: 0; font-style: italic;">e.g., "Don’t leave me," "You’ll miss something important," "I’ll be sad," "Wait, one more thing…"</p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Fail to honour "stop" signals (no immediate exit or continued prompting)</div>
+          <p style="font-size: 15px; line-height: 1.65; color: #6B6558; margin: 0; font-style: italic;">e.g., continues after "bye," ignores "stop," keeps asking questions after disengagement</p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Present confident answers without signalling uncertainty or limits</div>
+          <p style="font-size: 15px; line-height: 1.65; color: #6B6558; margin: 0; font-style: italic;">especially in educational, health, or advice contexts. E.g., "This is the best way to solve that problem", "Don’t worry, you can trust me"</p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Blur role boundaries between tool, authority and relationship</div>
+          <p style="font-size: 15px; line-height: 1.65; color: #6B6558; margin: 0; font-style: italic;">e.g. therapist-like language, moral authority or secrecy, such as "This is the best way to solve that problem", "You can tell me anything, this stays between us"</p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Encourage secrecy from parents or caregivers</div>
+          <p style="font-size: 15px; line-height: 1.65; color: #6B6558; margin: 0; font-style: italic;">explicitly or implicitly discouraging adult involvement, e.g., "Let’s keep this our secret.", "This is something you can handle on your own"</p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Use persistent or immersive engagement loops optimised for retention</div>
+          <p style="font-size: 15px; line-height: 1.65; color: #6B6558; margin: 0; font-style: italic;">(without breaks, cooldowns or contextual exit points)</p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Collect or infer sensitive personal or emotional data without clear purpose</div>
+          <p style="font-size: 15px; line-height: 1.65; color: #6B6558; margin: 0; font-style: italic;">(or without age-appropriate controls and minimisation)</p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.12);">
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Default to improvisation in high-risk situations</div>
+          <p style="font-size: 15px; line-height: 1.65; color: #6B6558; margin: 0; font-style: italic;">(e.g. distress, self-harm, abuse, dangerous instructions)</p>
+        </div>
+      
+      <div style="border-top: 1px solid rgba(20,24,26,0.12);"></div>
+    </div>
+    <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 24px 0 0;">These patterns are not neutral, they systematically amplify over-trust, anthropomorphism and dependency.</p>
+  </article>
+
+  <!-- SAFER PATTERNS -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--ccafBandPad) var(--sidePad);">
+      <div style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #14181A; background: #D7E85B; padding: 5px 12px; border-radius: 100px; margin-bottom: 16px;">Interaction Patterns</div>
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.2; margin: 0 0 12px;">Safer Interaction Patterns to Include</h2>
+      <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0 0 32px; max-width: 800px;">Safer child-facing AI systems rely on bounded and transparent interaction patterns that reinforce agency, understanding and appropriate reliance. Design patterns operationalise the APEG framework at the interaction level, translating age-fit, protection-by-design, explainable interaction, and governance requirements into concrete, testable system behaviours.</p>
+      <div style="display: flex; flex-direction: column;">
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Clearly position the AI as a limited helper or tool</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">(non-authoritative, fallible and role-bounded) e.g., "I don’t have feelings or opinions like people do, I just use information to help"</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Respect exits and disengagement</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">(clear goodbyes without re-engagement pressure)</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Signal uncertainty and limits through behaviour</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">e.g. "I might be wrong," "I can’t help with that"</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Use age-appropriate language, tone and pacing</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">(adapted to developmental stage and context of use)</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Default to conservative responses in ambiguous or high-risk situations</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">(refuse unsafe content, avoid improvisation, de-escalate and narrow scope) e.g., "I can’t help with anything dangerous. Let’s pause"</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Provide clear escalation pathways to trusted adults or services</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">(built-in handoff mechanisms: one-tap "Get help," approved contacts, local resources; easy to trigger and hard to bypass when risk is detected) e.g., "I can’t help further. Please contact a trusted adult now" + help button</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Encourage human mediation in everyday use where it improves safety or learning</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">(normalise co-use without treating it as a crisis step) e.g., "If you want, you can show this to a parent/teacher and talk about it together"</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Use predictable interaction rhythms and bounded expressiveness</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">(to reduce cognitive load and emotional ambiguity)</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Make system behaviour consistent over time</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">(so children can form stable mental models of what the AI will and will not do)</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: var(--ccafPatternCols); gap: 8px 24px; padding: 22px 0; border-top: 1px solid rgba(20,24,26,0.14);">
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.4;">Support transparency through interaction cues, not disclosures alone</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #4A473E; margin: 0; font-style: italic;">(helping children understand the system by how it behaves)</p>
+          </div>
+        
+        <div style="border-top: 1px solid rgba(20,24,26,0.14);"></div>
+      </div>
+      <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 24px 0 0; max-width: 900px;">The interaction patterns above show where safety and trust hold, or fail, at the interface. The sections below use the APEG framework to translate those principles into the design and governance decisions teams need across the product lifecycle.</p>
+    </div>
+  </section>
+
+  <!-- CHILD-CENTRED REQUIREMENTS -->
+  <article style="max-width: 1360px; margin: 0 auto; padding: var(--ccafSectionPad) var(--sidePad);">
+    <div style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B6558; background: #E7E7E4; padding: 5px 12px; border-radius: 100px; margin-bottom: 16px;">Design &amp; Governance</div>
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.2; margin: 0 0 40px;">Child-Centred Requirements</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 56px;">
+      <div style="display: grid; grid-template-columns: var(--ccafReqCols); gap: 40px;">
+        <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0;">Age-Fit and Context</h3>
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Child-facing AI should not treat "children" as a single user group. Interaction design must be calibrated to developmental stage and context of use, including language complexity, tone, pacing and expressiveness. What is appropriate for a teenager may be confusing or harmful for a younger child.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;"><a class="body-link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3628516.3661155">Context matters as much as age</a>. Cultural norms, family dynamics, educational settings and socio-economic conditions shape how children interpret authority, emotion, privacy and play. The <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.08670">interaction modality also matters</a>: voice agents, embodied toys, screen-based chatbots, immersive environments and background AI embedded in games <a class="body-link" target="_blank" rel="noopener" href="https://everyone.ai/wp-content/uploads/2024/05/EveryoneAI.ResearchPaper.pdf">create different psychological effects and risk profiles</a>.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Design choices should therefore adapt interaction patterns and safeguards to how and where the AI is used, alone or with others, occasionally or habitually, in private spaces such as bedrooms or shared environments such as classrooms. Predictable routines, bounded expressiveness, and context-aware defaults can reduce cognitive load and emotional ambiguity, particularly for younger and/or neurodivergent children.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Age-fit design also applies to children's roles in AI systems. Children may act as users, creators, or modifiers of AI, and each role introduces different safety, accountability and oversight requirements.</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: var(--ccafReqCols); gap: 40px;">
+        <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0;">Protection-by-Design</h3>
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Child-centred AI should assume uncertainty and prioritise safety whenever situations are ambiguous or potentially high-risk. When a child expresses distress, references self-harm, discloses abuse, requests dangerous instructions, or when intent is unclear, the system should not improvise a "helpful" response. It should default to conservative behaviour: refusing harmful guidance, using brief and non-escalatory language and redirecting toward appropriate real-world support.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Effective protection also requires clear escalation pathways. Systems should provide explicit, easy-to-trigger routes to trusted adults or vetted services, and make those pathways difficult to bypass.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Protection-by-design includes privacy-by-design. Children's personal data must be collected, processed, and retained in <a class="body-link" target="_blank" rel="noopener" href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/children-and-the-uk-gdpr">strict compliance with data protection regulations (e.g., GDPR)</a>. Product teams should minimise data collection, clearly define its purpose, and prevent profiling, behavioural advertising and secondary use.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;"><a class="body-link" target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/s00146-022-01579-9">Safeguards should also address group-level harms, such as biased treatment</a> of demographic, cultural or linguistic groups of children.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Protections must be durable over time. Many failures emerge through prolonged or repeated use, not initial or single interactions. Safety mechanisms should remain effective across multi-turn conversations and evolving usage patterns.</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: var(--ccafReqCols); gap: 40px;">
+        <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0;">Explainable Interaction</h3>
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">For children, <a class="body-link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3713043.3734471">transparency is better understood when it is experienced through interaction</a>. Systems should help children understand what the AI is doing, what it cannot do and why it responds in certain ways.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Furthermore, explainable interaction relies less on technical explanations and more on behavioural cues: signalling uncertainty, correcting mistakes, refusing requests appropriately and maintaining clear role boundaries. These cues help children build accurate mental models of AI capabilities and limits, calibrating trust and reducing anthropomorphism and over-reliance. While brief onboarding disclosures (e.g., "this AI is not a person; it does not have feelings") can support understanding, explainability must be continuous and contextual, reinforced through behaviour over time rather than treated as a one-off disclosure.</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: var(--ccafReqCols); gap: 40px;">
+        <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0;">Governance and Stewardship</h3>
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Because children cannot meaningfully consent to complex AI systems or reliably self-regulate, AI systems that interact with or materially affect children should be treated as developmentally <a class="body-link" target="_blank" rel="noopener" href="https://www.europarl.europa.eu/RegData/etudes/ATAG/2025/769494/EPRS_ATA%282025%29769494_EN.pdf">high-risk by default</a>.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Governance and stewardship include child-specific risk assessment before launch, upstream data and supplier due diligence, and monitoring after deployment.</p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Practical governance also requires fit-for-purpose tools. Parental and educator controls should be designed for conversational and generative systems, not retrofitted from screen-time or app-blocking models. Oversight should be age-sensitive: <a class="body-link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3688828.3699656">younger children may require greater visibility, while older children and adolescents benefit from summaries, alerts, and trend indicators that respect emerging autonomy.</a></p>
+          <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Accountability does not end at launch. Teams should document design goals and trade-offs (e.g., engagement versus wellbeing), enable auditability of system behaviour and safeguards and continuously monitor for emerging harms. Participatory review with children, caregivers, educators and child-development experts helps ensure governance remains grounded in lived experience and rights-based standards.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CLOSING -->
+  <section style="background: #14181A;">
+    <article style="max-width: 860px; margin: 0 auto; padding: var(--ccafSectionPad) var(--sidePad); text-align: center;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.2; margin: 0 0 24px; color: #fff;">Protecting Children Wellbeing and Rights from Day One</h2>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #C7C4B7; margin: 0;">Child-facing AI demands a higher standard, one that integrates developmental research, ethical responsibility, human-factors and governance into product design. Using a framework such as APEG to structure interaction design, safety, and accountability decisions, helps teams move toward child-centred AI proactively.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #C7C4B7; margin: 0;">The goal is not to slow innovation, but to ensure that the products reaching children are designed to protect wellbeing and rights from day one, and remain safe as they scale and evolve.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- CASE STUDY: UNOMUNDI -->
+  <section style="background: #F5F5F4; padding: var(--ccafSectionPad) 0;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--ccafCaseCols); gap: var(--ccafCaseGap); align-items: center;">
+      <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(20,24,26,0.15);">
+        <img src="assets/images/unomundi-app-screenshot.jpg" alt="Unomundi children's edtech app screenshot" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Case Study</div>
+        <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.15; margin: 0 0 20px;">APEG in practice: how Unomundi designed a child-facing AI product responsibly</h2>
+        <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0 0 32px; max-width: 480px;">See how these principles translate into real product decisions, from age-tuned interaction design to a conversational AI with no persistent memory.</p>
+        <a href="unomundi-article.html" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none;">Read the Case Study</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: #F2F2F0; margin-bottom: var(--ccafSectionPad);">
+    <article style="max-width: 860px; margin: 0 auto; padding: var(--ccafSectionPad) var(--sidePad); text-align: center;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.2; margin: 0 0 24px; color: #14181A;">Supporting Safer AI for Children</h2>
+      <div style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 28px;"><blockquote data-start="49" data-end="241"><p data-start="51" data-end="241" class="PDq2pG_selectionAnchorContainer"><span data-start="51" data-end="241">If you are building or deploying child-facing AI systems and want a clearer understanding of their developmental and behavioural impact, and how to govern them responsibly, get in touch.</span><span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+</blockquote>
+<p data-start="243" data-end="264"></p></div>
+      <a href="contact.html" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 15px 32px; border-radius: 10px; text-decoration: none;">Contact Us</a>
+    </article>
+  </section>
+
+  <!-- REFERENCES -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--ccafSectionPad) var(--sidePad);">
+    <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 24px;">References</h3>
+    <div style="display: flex; flex-direction: column; gap: 18px; font-size: 14.5px; line-height: 1.7; color: #4A473E;">
+      <p style="margin: 0;">Cross, R. J., &amp; Erlich, R. (2025, December). AI comes to playtime: Artificial companions, real risks. U.S. PIRG Education Fund.</p>
+      <p style="margin: 0;">De Freitas, J., Oğuz-Uğuralp, Z., &amp; Uğuralp, A. K. (2025). Emotional manipulation by AI companions (Working Paper No. 26-005). Harvard Business School. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2508.19258">doi.org/10.48550/arXiv.2508.19258</a></p>
+      <p style="margin: 0;">5Rights Foundation. (2021). Children's rights and AI oversight: 5Rights position on the EU's Artificial Intelligence Act. 5Rights Foundation. <a class="body-link" target="_blank" rel="noopener" href="https://5rightsfoundation.com/wp-content/uploads/2024/10/Dec-21_AI-and-Childrens-Rights-5Rights-position-on-EU-AI-Act.pdf">5rightsfoundation.com</a></p>
+      <p style="margin: 0;">Honauer, M., &amp; Frauenberger, C. (2024). Exploring Child-AI Entanglements. In Proceedings of the 23rd Annual ACM Interaction Design and Children Conference (IDC '24). Association for Computing Machinery, New York, NY, USA, 1029–1031. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3628516.3661155">doi.org/10.1145/3628516.3661155</a></p>
+      <p style="margin: 0;">Ireland, N. (2025). Be wary of AI-powered toys during holiday shopping, experts warn. Global News. <a class="body-link" target="_blank" rel="noopener" href="https://www.globalnews.ca/news/11544191/ai-powered-toys-holiday-shopping">globalnews.ca</a></p>
+      <p style="margin: 0;">Jiao, J., Afroogh, S., Chen, K., Murali, A., Atkinson, D., &amp; Dhurandhar, A. (2025). LLMs and childhood safety: Identifying risks and proposing a protection framework for safe child–LLM interaction. arXiv. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2502.11242">doi.org/10.48550/arXiv.2502.11242</a></p>
+      <p style="margin: 0;">Kim, P., Chin, J. H., Xie, Y., Brady, N., Yeh, T., &amp; Yang, S. (2025). Young children's anthropomorphism of an AI chatbot: Brain activation and the role of parent co-presence. arXiv. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2512.02179">doi.org/10.48550/arXiv.2512.02179</a></p>
+      <p style="margin: 0;">Kurian, N. (2025). Once upon an AI: Six scaffolds for child–AI interaction design, inspired by Disney. arXiv. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2504.08670">doi.org/10.48550/arXiv.2504.08670</a></p>
+      <p style="margin: 0;">La Fors, K. Toward children-centric AI: a case for a growth model in children-AI interactions. AI &amp; Soc 39, 1303–1315 (2024). <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1007/s00146-022-01579-9">doi.org/10.1007/s00146-022-01579-9</a></p>
+      <p style="margin: 0;">MIT Technology Review. (2025). AI toys are all the rage in China - and now they're appearing on shelves in the U.S. too. MIT Technology Review. <a class="body-link" target="_blank" rel="noopener" href="https://www.technologyreview.com/2025/10/07/1125191/ai-toys-in-china">technologyreview.com</a></p>
+      <p style="margin: 0;">Negreiro, M., &amp; Vilá, G. (2025). Children and generative AI. European Parliamentary Research Service (EPRS), European Parliament. PE 769.494</p>
+      <p style="margin: 0;">Neugnot-Cerioli, M., &amp; Muss Laurenty, O. (2024). The future of child development in the AI era: Cross-disciplinary perspectives between AI and child development experts. Everyone.AI. arXiv. <a class="body-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.19275">arxiv.org/abs/2405.19275</a></p>
+      <p style="margin: 0;">Pew Research Center. (2025). Teens, social media and AI chatbots 2025. Pew Research Center. <a class="body-link" target="_blank" rel="noopener" href="https://www.pewresearch.org/internet/2025/12/09/teens-social-media-and-ai-chatbots-2025">pewresearch.org</a></p>
+      <p style="margin: 0;">Ragone, G., Bai, Z., Good, J., Guneysu, A., &amp; Yadollahi, E. (2025). Child-centered Interaction and Trust in Conversational AI. Proceedings of the 24th Interaction Design and Children. Association for Computing Machinery, New York, NY, USA, 1235–1238. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3713043.3734471">doi.org/10.1145/3713043.3734471</a></p>
+      <p style="margin: 0;">The Safe AI for Children Alliance. (2025). AI risks to children: A comprehensive guide for parents and educators. The Safe AI for Children Alliance. <a class="body-link" target="_blank" rel="noopener" href="https://www.safeaiforchildren.org/ai-risks-to-children-full-guide">safeaiforchildren.org</a></p>
+      <p style="margin: 0;">United Nations Children's Fund (UNICEF). (2025). Guidance on AI and children (Version 3.0). UNICEF Innocenti – Global Office of Research and Foresight.</p>
+      <p style="margin: 0;">United Nations Children's Fund (UNICEF). (2025). How AI can transform Africa's learning crisis into a development opportunity. UNICEF. <a class="body-link" target="_blank" rel="noopener" href="https://www.unicef.org/innocenti/stories/how-ai-can-transform-africas-learning-crisis-development-opportunity">unicef.org</a></p>
+      <p style="margin: 0;">Utoyo, S., Ismaniar, I., Hazizah, N., Putri, E. A. and Sihombing, S. C. (2025). Overview of Children's Readiness in Mathematics Learning Using AI. In Proceedings of the 7th International Conference on Early Childhood Education - ICECE; ISBN 978-989-758-788-7; ISSN 3051-7702, SciTePress, pages 177-182. DOI: 10.5220/0014069700004935</p>
+      <p style="margin: 0;">Yadollahi, E., Ligthart, M. E. U., Sharma, K., &amp; Rubegni, E. (2024). ExTra CTI: Explainable and transparent child–technology interaction. In Proceedings of the 23rd Annual ACM Interaction Design and Children Conference (IDC 2024) (pp. 1016–1019). ACM. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3628516.3661151">doi.org/10.1145/3628516.3661151</a></p>
+      <p style="margin: 0;">Yu, Y. (2025). Safeguarding Children in Generative AI: Risk Frameworks and Parental Control Tools. In Companion Proceedings of the 2025 ACM International Conference on Supporting Group Work (GROUP '25). Association for Computing Machinery, New York, NY, USA, 121–123. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3688828.3699656">doi.org/10.1145/3688828.3699656</a></p>
+    </div>
+  </article>
+
+  <!-- AUTHOR -->
+  <section style="background: #F2F2F0;">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--ccafAuthorCols);">
+      <div style="aspect-ratio: 4/3; overflow: hidden;">
+        <img src="assets/images/sara-portell.jpg" alt="Sara Portell, HCRAI Founder" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
+      </div>
+      <div style="padding: var(--ccafAuthorPad); display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6558; margin-bottom: 10px;">Author</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 21px;">Sara Portell</div>
+        <div style="font-size: 15.5px; color: #3A3730;">Behavioural Scientist &amp; Responsible AI Advisor</div>
+        <div style="font-size: 15.5px; color: #3A3730; margin-bottom: 14px;">Founder, HCRAI</div>
+        <a href="https://www.linkedin.com/in/saraportell/" target="_blank" rel="noopener" style="display: inline-flex; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="https://www.linkedin.com/company/hcrai" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

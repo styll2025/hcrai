@@ -193,6 +193,84 @@
   --dsoCtaJustify2: flex-end;
   --dsoAuthorCols: 340px 1fr;
   --dsoAuthorPad: 48px 40px 0;
+
+  /* Article: AI Agents For Mental Health ("aamh" prefix) */
+  --aamhBackPad: 28px 40px 24px;
+  --aamhHeroPad: 48px;
+  --aamhHeroCols: 1.1fr 0.9fr;
+  --aamhHeroCardPad: 48px;
+  --aamhH1Size: 34px;
+  --aamhSectionPad: 80px;
+  --aamhBandPad: 72px;
+  --aamhH2Size: 30px;
+  --aamhPullQuoteSize: 28px;
+  --aamhIntroCols: 0.9fr 1.1fr;
+  --aamhThreeCol: repeat(3, 1fr);
+  --aamhChecklistCols: repeat(2, 1fr);
+  --aamhChecklistQCols: repeat(2, 1fr);
+  --aamhEffectCols: 300px 32px 1fr;
+  --aamhArrowDisplay: flex;
+  --aamhQaPad: 40px 48px;
+  --aamhCtaCols: 1fr auto;
+  --aamhCtaJustify: end;
+  --aamhAuthorCols: 340px 1fr;
+  --aamhAuthorPad: 48px 40px 0;
+
+  /* Article: When AI Enters the Learning Process ("edtech" prefix) */
+  --edtechBackPad: 28px 40px 24px;
+  --edtechHeroPad: 48px;
+  --edtechHeroCols: 1.1fr 0.9fr;
+  --edtechHeroCardPad: 48px;
+  --edtechH1Size: 32px;
+  --edtechSectionPad: 80px;
+  --edtechBandPad: 72px;
+  --edtechH2Size: 30px;
+  --edtechPullQuoteSize: 28px;
+  --edtechIntroCols: 1fr 1fr;
+  --edtechThreeColGrid: repeat(3, 1fr);
+  --edtechTwoColGrid: repeat(2, 1fr);
+  --edtechSpanFull: 1 / -1;
+  --edtechCaseCols: 1fr 1fr;
+  --edtechCaseGap: 64px;
+  --edtechAuthorCols: 340px 1fr;
+  --edtechAuthorPad: 48px 40px 0;
+
+  /* Article: Designing AI Mental Health and Wellbeing Tools ("mhwt" prefix) */
+  --mhwtBackPad: 28px 40px 24px;
+  --mhwtHeroPad: 48px;
+  --mhwtHeroCols: 1.1fr 0.9fr;
+  --mhwtHeroCardPad: 48px;
+  --mhwtH1Size: 32px;
+  --mhwtSectionPad: 80px;
+  --mhwtBandPad: 72px;
+  --mhwtH2Size: 30px;
+  --mhwtIntroCols: 1fr 1fr;
+  --mhwtTwoColGrid: repeat(2, 1fr);
+  --mhwtPatternsGridCols: repeat(2, 1fr);
+  --mhwtPatternsGridRows: repeat(5, auto);
+  --mhwtQaPad: 40px 48px;
+  --mhwtAuthorCols: 340px 1fr;
+  --mhwtAuthorPad: 48px 40px 0;
+
+  /* Article: Building AI Responsibly for Children ("ccaf" prefix) */
+  --ccafBackPad: 28px 40px 24px;
+  --ccafHeroPad: 48px;
+  --ccafHeroCols: 1.1fr 0.9fr;
+  --ccafHeroCardPad: 48px;
+  --ccafH1Size: 34px;
+  --ccafSectionPad: 80px;
+  --ccafBandPad: 72px;
+  --ccafH2Size: 30px;
+  --ccafIntroCols: 1fr 1fr;
+  --ccafFrameworkIntroCols: 1fr 1fr;
+  --ccafOpportunityCols: 1fr 1fr;
+  --ccafApegCols: repeat(4, 1fr);
+  --ccafPatternCols: 360px 1fr;
+  --ccafReqCols: 260px 1fr;
+  --ccafCaseCols: 1fr 1fr;
+  --ccafCaseGap: 64px;
+  --ccafAuthorCols: 340px 1fr;
+  --ccafAuthorPad: 48px 40px 0;
 }
 
 /* Narrow desktop / tablet landscape (< 1200px) */
@@ -387,6 +465,80 @@
     --dsoCtaJustify2: flex-start;
     --dsoAuthorCols: 1fr;
     --dsoAuthorPad: 32px 20px 0;
+
+    --aamhBackPad: 20px 20px 20px;
+    --aamhHeroPad: 28px;
+    --aamhHeroCols: 1fr;
+    --aamhHeroCardPad: 28px 24px;
+    --aamhH1Size: 26px;
+    --aamhSectionPad: 48px;
+    --aamhBandPad: 48px;
+    --aamhH2Size: 24px;
+    --aamhPullQuoteSize: 22px;
+    --aamhIntroCols: 1fr;
+    --aamhThreeCol: 1fr;
+    --aamhChecklistCols: 1fr;
+    --aamhChecklistQCols: 1fr;
+    --aamhEffectCols: 1fr;
+    --aamhArrowDisplay: none;
+    --aamhQaPad: 28px 24px;
+    --aamhCtaCols: 1fr;
+    --aamhCtaJustify: flex-start;
+    --aamhAuthorCols: 1fr;
+    --aamhAuthorPad: 32px 20px 0;
+
+    --edtechBackPad: 20px 20px 20px;
+    --edtechHeroPad: 28px;
+    --edtechHeroCols: 1fr;
+    --edtechHeroCardPad: 28px 24px;
+    --edtechH1Size: 26px;
+    --edtechSectionPad: 48px;
+    --edtechBandPad: 48px;
+    --edtechH2Size: 24px;
+    --edtechPullQuoteSize: 22px;
+    --edtechIntroCols: 1fr;
+    --edtechThreeColGrid: 1fr;
+    --edtechTwoColGrid: 1fr;
+    --edtechSpanFull: auto;
+    --edtechCaseCols: 1fr;
+    --edtechCaseGap: 32px;
+    --edtechAuthorCols: 1fr;
+    --edtechAuthorPad: 32px 20px 0;
+
+    --mhwtBackPad: 20px 20px 20px;
+    --mhwtHeroPad: 28px;
+    --mhwtHeroCols: 1fr;
+    --mhwtHeroCardPad: 28px 24px;
+    --mhwtH1Size: 26px;
+    --mhwtSectionPad: 48px;
+    --mhwtBandPad: 48px;
+    --mhwtH2Size: 24px;
+    --mhwtIntroCols: 1fr;
+    --mhwtTwoColGrid: 1fr;
+    --mhwtPatternsGridCols: 1fr;
+    --mhwtPatternsGridRows: none;
+    --mhwtQaPad: 28px 24px;
+    --mhwtAuthorCols: 1fr;
+    --mhwtAuthorPad: 32px 20px 0;
+
+    --ccafBackPad: 20px 20px 20px;
+    --ccafHeroPad: 28px;
+    --ccafHeroCols: 1fr;
+    --ccafHeroCardPad: 28px 24px;
+    --ccafH1Size: 26px;
+    --ccafSectionPad: 48px;
+    --ccafBandPad: 48px;
+    --ccafH2Size: 24px;
+    --ccafIntroCols: 1fr;
+    --ccafFrameworkIntroCols: 1fr;
+    --ccafOpportunityCols: 1fr;
+    --ccafApegCols: 1fr;
+    --ccafPatternCols: 1fr;
+    --ccafReqCols: 1fr;
+    --ccafCaseCols: 1fr;
+    --ccafCaseGap: 32px;
+    --ccafAuthorCols: 1fr;
+    --ccafAuthorPad: 32px 20px 0;
   }
 }
 
