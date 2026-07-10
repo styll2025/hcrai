@@ -47,7 +47,7 @@ Every page links the same root-relative `/assets/css/fonts.css`, `/assets/css/si
 
 **Contact form submissions go to Google Sheets.** `/contact/` posts name, email, organisation, message, submission time and page URL to the Google Apps Script endpoint configured in `assets/js/site.js`.
 
-**"Notify Me" on the Behavioural Risk article has the same limitation.** The email signup at the bottom of `/insights/behavioural-risk-ai-systems/` shows a "Thanks!" confirmation but doesn't actually collect or send the email anywhere — same as in the original design file. Needs a real mailing-list backend (Mailchimp, Buttondown, etc.) if you want it to work.
+**"Notify Me" on the Behavioural Risk article goes to Google Sheets.** The signup form at the bottom of `/insights/behavioural-risk-ai-systems/` posts name, email, submission time, page URL and source to the Apps Script endpoint configured in `assets/js/site.js`.
 
 **"View Report" opens the white paper PDF.** The homepage and Behavioural Risk page CTAs point to `assets/documents/hcrai-behavioural-ai-risk-white-paper-june-2026.pdf` and open it in a new tab.
 
