@@ -64,13 +64,16 @@ function shareArticle(title) {
 function handleNotifySignup(event) {
   event.preventDefault();
   var form = event.target;
+  var nameInput = form.querySelector('input[name="name"]');
+  var emailInput = form.querySelector('input[name="email"]');
   var btn = form.querySelector('button[type="submit"]');
   var originalButtonText = btn ? btn.textContent : '';
-  var formData = new FormData(form);
+  var payload = {
+    name: nameInput ? nameInput.value.trim() : '',
+    email: emailInput ? emailInput.value.trim() : ''
+  };
 
-  formData.append('submittedAt', new Date().toISOString());
-  formData.append('pageUrl', window.location.href);
-  formData.append('source', 'Behavioural Risk Wave 2 newsletter');
+  if (!payload.name || !payload.email) return;
 
   if (btn) {
     btn.disabled = true;
@@ -80,7 +83,10 @@ function handleNotifySignup(event) {
   fetch(NOTIFY_SIGNUP_ENDPOINT, {
     method: 'POST',
     mode: 'no-cors',
-    body: formData
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
   }).then(function () {
     form.reset();
     if (btn) btn.textContent = 'Thanks!';
