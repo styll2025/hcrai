@@ -149,9 +149,11 @@
     <div style="border-top: 1px solid rgba(20,24,26,0.1); padding-top: 40px; display: flex; flex-direction: var(--raNotifyDirection); align-items: var(--raNotifyAlign); justify-content: space-between; gap: 24px;">
       <div>
         <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 21px; margin: 0 0 6px;">Want to stay updated on Wave 2 findings?</h3>
+        <p style="font-size: 15.5px; color: #4A473E; line-height: 1.6; margin: 0;">Join our newsletter for the latest research, insights and updates on human-centred AI.</p>
       </div>
       <form onsubmit="handleNotifySignup(event)" style="display: flex; gap: 10px; flex-wrap: wrap; width: var(--raNotifyFormWidth);">
-        <input type="email" required placeholder="you@company.com" style="flex: 1; min-width: 200px; padding: 13px 18px; border-radius: 100px; border: 1.5px solid rgba(20,24,26,0.18); font-family: 'Inter', sans-serif; font-size: 15px; outline: none;">
+        <input type="text" name="name" required placeholder="Your name" style="flex: 1; min-width: 160px; padding: 13px 18px; border-radius: 100px; border: 1.5px solid rgba(20,24,26,0.18); font-family: 'Inter', sans-serif; font-size: 15px; outline: none;">
+        <input type="email" name="email" required placeholder="you@company.com" style="flex: 1; min-width: 200px; padding: 13px 18px; border-radius: 100px; border: 1.5px solid rgba(20,24,26,0.18); font-family: 'Inter', sans-serif; font-size: 15px; outline: none;">
         <button type="submit" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px; padding: 13px 26px; border-radius: 100px; border: none; cursor: pointer; white-space: nowrap;">Notify Me</button>
       </form>
     </div>

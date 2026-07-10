@@ -6,6 +6,7 @@ function closeMobileMenu() {
 }
 
 var CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyQ2JqqZFd00Bhyq3wHTZFSAcCSp7m-hTyRLD9s2prpPb_2BYvt6v8EpYncnkc4hGVdtQ/exec';
+var NOTIFY_SIGNUP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzrCKh-iHAG0tmKEPUKol-s8-joX9HHw1mNV0EgW1ZTeOFAEL_slwj8_BNiUyvjwVYQBA/exec';
 
 // Contact page: send submissions to the Google Sheet via Apps Script.
 function handleContactSubmit(event) {
@@ -59,17 +60,41 @@ function shareArticle(title) {
   }
 }
 
-// Article pages: "notify me" email signup. No backend is wired up yet (see
-// README) — this only gives visual confirmation client-side and does not
-// actually collect or send the email address anywhere.
+// Behavioural Risk article: collect newsletter signups through Apps Script.
 function handleNotifySignup(event) {
   event.preventDefault();
   var form = event.target;
-  var input = form.querySelector('input[type="email"]');
   var btn = form.querySelector('button[type="submit"]');
-  if (!input || !input.value || !btn) return;
-  var original = btn.textContent;
-  btn.textContent = 'Thanks!';
-  input.value = '';
-  setTimeout(function () { btn.textContent = original; }, 2500);
+  var originalButtonText = btn ? btn.textContent : '';
+  var formData = new FormData(form);
+
+  formData.append('submittedAt', new Date().toISOString());
+  formData.append('pageUrl', window.location.href);
+  formData.append('source', 'Behavioural Risk Wave 2 newsletter');
+
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+  }
+
+  fetch(NOTIFY_SIGNUP_ENDPOINT, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData
+  }).then(function () {
+    form.reset();
+    if (btn) btn.textContent = 'Thanks!';
+    setTimeout(function () {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = originalButtonText;
+      }
+    }, 2500);
+  }).catch(function () {
+    alert('Sorry, something went wrong. Please try again later.');
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = originalButtonText;
+    }
+  });
 }
