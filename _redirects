@@ -1,0 +1,35 @@
+# Legacy flat HTML URLs
+/index.html / 301
+/about.html /about/ 301
+/about /about/ 301
+/contact.html /contact/ 301
+/contact /contact/ 301
+/behavioural-risk.html /behavioural-risk/ 301
+/behavioural-risk /behavioural-risk/ 301
+/research-and-insights.html /insights/ 301
+/research-and-insights /insights/ 301
+/behavioural-risk-article.html /insights/behavioural-risk-ai-systems/ 301
+/behavioural-risk-article /insights/behavioural-risk-ai-systems/ 301
+/unomundi-article.html /insights/responsible-ai-child-edtech/ 301
+/unomundi-article /insights/responsible-ai-child-edtech/ 301
+/bridging-the-gap-article.html /insights/bridging-ai-ethics-practice/ 301
+/bridging-the-gap-article /insights/bridging-ai-ethics-practice/ 301
+/the-yes-machine-article.html /insights/yes-machine-ai-agency/ 301
+/the-yes-machine-article /insights/yes-machine-ai-agency/ 301
+/design-system-operational-layer-article.html /insights/design-system-operational-layer/ 301
+/design-system-operational-layer-article /insights/design-system-operational-layer/ 301
+/ai-agents-mental-health-article.html /insights/ai-agents-mental-health/ 301
+/ai-agents-mental-health-article /insights/ai-agents-mental-health/ 301
+/edtech-learning-process-article.html /insights/ai-edtech-learning-process/ 301
+/edtech-learning-process-article /insights/ai-edtech-learning-process/ 301
+/mental-health-wellbeing-tools-article.html /insights/mental-health-wellbeing-tools/ 301
+/mental-health-wellbeing-tools-article /insights/mental-health-wellbeing-tools/ 301
+/child-centred-ai-framework-article.html /insights/child-centred-ai-framework/ 301
+/child-centred-ai-framework-article /insights/child-centred-ai-framework/ 301
+/terms.html /terms/ 301
+/terms /terms/ 301
+/privacy-policy.html /privacy-policy/ 301
+/privacy-policy /privacy-policy/ 301
+
+# Previously used public article slug
+/responsible-ai-in-child-focused-edtech-lessons-from-unomundi /insights/responsible-ai-child-edtech/ 301

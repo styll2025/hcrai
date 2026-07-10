@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Building AI Responsibly for Children: A Practical Framework | HCRAI</title>
 <meta name="description" content="AI is already part of children's digital lives. HCRAI's APEG framework (Age-fit, Protection-by-design, Explainable interaction, Governance) sets out the interaction patterns and requirements for building AI responsibly for children.">
-<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-<link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="canonical" href="https://hcrai.pages.dev/insights/child-centred-ai-framework/">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
 <div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
@@ -15,7 +16,7 @@
   <!-- NAV -->
   <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
     <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
         <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
           <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
           <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
@@ -29,13 +30,13 @@
       </a>
 
       <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
-        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
-        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
-        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
-        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+        <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
       </nav>
 
-      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+      <a href="/contact/" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
 
       <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
         <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
@@ -44,17 +45,17 @@
     </div>
 
     <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
-      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
-      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
-      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
-      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
-      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+      <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="/contact/" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
     </div>
   </header>
 
   <!-- BACK LINK -->
   <div style="max-width: 1360px; margin: 0 auto; padding: var(--ccafBackPad);">
-    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 13px; font-weight: 600;">
+    <a href="/insights/" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 13px; font-weight: 600;">
       <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       Research &amp; Insights
     </a>
@@ -76,7 +77,7 @@
         </div>
       </div>
       <div style="border-radius: 20px; overflow: hidden; min-height: 260px; background: #F5F1E8;">
-        <img src="assets/images/research-robot-and-child.jpg" alt="Line illustration of a friendly robot and a child at a desk" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <img src="/assets/images/research-robot-and-child.jpg" alt="Line illustration of a friendly robot and a child at a desk" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
     </div>
   </section>
@@ -342,13 +343,13 @@
   <section style="background: #F5F5F4; padding: var(--ccafSectionPad) 0;">
     <div style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--ccafCaseCols); gap: var(--ccafCaseGap); align-items: center;">
       <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(20,24,26,0.15);">
-        <img src="assets/images/unomundi-app-screenshot.jpg" alt="Unomundi children's edtech app screenshot" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <img src="/assets/images/unomundi-app-screenshot.jpg" alt="Unomundi children's edtech app screenshot" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
       <div>
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 14px;">Case Study</div>
         <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ccafH2Size); line-height: 1.15; margin: 0 0 20px;">APEG in practice: how Unomundi designed a child-facing AI product responsibly</h2>
         <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0 0 32px; max-width: 480px;">See how these principles translate into real product decisions, from age-tuned interaction design to a conversational AI with no persistent memory.</p>
-        <a href="unomundi-article.html" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none;">Read the Case Study</a>
+        <a href="/insights/responsible-ai-child-edtech/" style="display: inline-block; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none;">Read the Case Study</a>
       </div>
     </div>
   </section>
@@ -360,7 +361,7 @@
       <div style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 28px;"><blockquote data-start="49" data-end="241"><p data-start="51" data-end="241" class="PDq2pG_selectionAnchorContainer"><span data-start="51" data-end="241">If you are building or deploying child-facing AI systems and want a clearer understanding of their developmental and behavioural impact, and how to govern them responsibly, get in touch.</span><span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
 </blockquote>
 <p data-start="243" data-end="264"></p></div>
-      <a href="contact.html" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 15px 32px; border-radius: 10px; text-decoration: none;">Contact Us</a>
+      <a href="/contact/" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 15px 32px; border-radius: 10px; text-decoration: none;">Contact Us</a>
     </article>
   </section>
 
@@ -395,7 +396,7 @@
   <section style="background: #F2F2F0;">
     <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--ccafAuthorCols);">
       <div style="aspect-ratio: 4/3; overflow: hidden;">
-        <img src="assets/images/sara-portell.jpg" alt="Sara Portell, HCRAI Founder" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
+        <img src="/assets/images/sara-portell.jpg" alt="Sara Portell, HCRAI Founder" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
       </div>
       <div style="padding: var(--ccafAuthorPad); display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;">
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6558; margin-bottom: 10px;">Author</div>
@@ -441,8 +442,8 @@
         <div>
           <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
           <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
-            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
-            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+            <a href="/terms/" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="/privacy-policy/" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
           </div>
         </div>
       </div>
@@ -451,6 +452,6 @@
   </footer>
 
 </div>
-  <script src="assets/js/site.js"></script>
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>
