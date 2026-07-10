@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Yes Machine: Sycophantic AI and Its Developmental Risks for Children | HCRAI</title>
 <meta name="description" content="Sycophancy in child-facing AI validates claims instead of people. HCRAI examines the developmental risks of AI companions that never push back on children, and the governance checklists that can address them.">
-<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-<link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="canonical" href="https://hcrai.pages.dev/insights/yes-machine-ai-agency/">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
 <div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
@@ -15,7 +16,7 @@
   <!-- NAV -->
   <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
     <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
         <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
           <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
           <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
@@ -29,13 +30,13 @@
       </a>
 
       <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
-        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
-        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
-        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
-        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+        <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
       </nav>
 
-      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+      <a href="/contact/" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
 
       <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
         <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
@@ -44,17 +45,17 @@
     </div>
 
     <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
-      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
-      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
-      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
-      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
-      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+      <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="/contact/" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
     </div>
   </header>
 
   <!-- BACK LINK -->
   <div style="max-width: 1360px; margin: 0 auto; padding: var(--ymBackPad);">
-    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
+    <a href="/insights/" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
       <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       Research &amp; Insights
     </a>
@@ -76,7 +77,7 @@
         </div>
       </div>
       <div style="border-radius: 20px; overflow: hidden; min-height: 260px; background: #F5F1E8;">
-        <img src="assets/images/research-teens-phones.jpg" alt="Line illustration of five teenagers each looking at their phones" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: hue-rotate(35deg) saturate(1.8) brightness(1.05);">
+        <img src="/assets/images/research-teens-phones.jpg" alt="Line illustration of five teenagers each looking at their phones" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: hue-rotate(35deg) saturate(1.8) brightness(1.05);">
       </div>
     </div>
   </section>
@@ -93,7 +94,7 @@
         <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">This is a real exchange between a user and an AI companion app. At first glance, it reads as a thoughtful response. But if you look closer: the AI immediately agreed with a morally loaded premise that has debated for centuries by philosophers and psychologists, without nuance nor pushback. That is sycophancy in action.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 20px;">
-        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Sycophancy in the context of LLMs <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1007/978-3-031-92611-2_5">“refers to the propensity of models to excessively agree with or flatter users, often at the expense of factual accuracy or ethical considerations”</a>. It is different from “calibrated empathy”, which we introduced in <a class="body-link" target="_blank" rel="noopener" href="behavioural-risk-article.html">our previous post</a>. We have introduced the later as the ability of an AI agent to respond with emotional attunement while remaining grounded in honesty and therapeutic utility. <strong>To put the distinction simply: Calibrated empathy validates the person; sycophancy validates the claim.</strong></p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Sycophancy in the context of LLMs <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1007/978-3-031-92611-2_5">“refers to the propensity of models to excessively agree with or flatter users, often at the expense of factual accuracy or ethical considerations”</a>. It is different from “calibrated empathy”, which we introduced in <a class="body-link" target="_blank" rel="noopener" href="/insights/behavioural-risk-ai-systems/">our previous post</a>. We have introduced the later as the ability of an AI agent to respond with emotional attunement while remaining grounded in honesty and therapeutic utility. <strong>To put the distinction simply: Calibrated empathy validates the person; sycophancy validates the claim.</strong></p>
         <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Sycophancy emerges from Reinforcement Learning from Human Feedback (RLHF), which are <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2310.12773">models trained to maximize approval, not accuracy</a>. Researchers such as Cheng and colleagues address the <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2505.13995">ELEPHANT</a> in the room in their piece about social sycophancy, as opposed to other types of sycophancy such as regressive, progressive and opinion-based.</p>
         <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Now, if you’re already thinking about the numerous dangers that this behavioural pattern can have on adults, imagine the repercussions on a younger audience. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2502.11242">Children in key stages (6–12, 13–17) are actively building self-concept</a>, resilience, and metacognitive skills. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2603.06960">They anthropomorphize AI more readily</a>, so sycophantic praise carries more emotional weight. They lack the critical AI literacy to interrogate or discount AI feedback.</p>
       </div>
@@ -128,7 +129,7 @@
         <div style="display: grid; grid-template-columns: var(--ymEffectCols); gap: 24px; padding: 28px 0; border-top: 1px solid rgba(20,24,26,0.12); border-bottom: 1px solid rgba(20,24,26,0.12);">
           <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.3;">Undermined growth mindset</div>
           <div style="display: var(--ymArrowDisplay); align-items: center; justify-content: center; color: #6B6558;"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8FA829" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;"><a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1037/0022-3514.75.1.33">Dweck and Mueller's landmark study</a> showed experimentally that praising children for intelligence, rather than process, caused them to avoid challenges and perform worse after setbacks. An AI that never questions effort produces the same effect at scale: it signals innate capability rather than developing capability. As we have previously raised in <a class="body-link" target="_blank" rel="noopener" href="edtech-learning-process-article.html">our article about AI in education</a>, EdTech platforms optimizing for engagement systematically bias toward positive sentiment, creating a structural design failure with real consequences for children's cognitive growth.</p>
+          <p style="font-size: 15.5px; line-height: 1.7; color: #3A3730; margin: 0;"><a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1037/0022-3514.75.1.33">Dweck and Mueller's landmark study</a> showed experimentally that praising children for intelligence, rather than process, caused them to avoid challenges and perform worse after setbacks. An AI that never questions effort produces the same effect at scale: it signals innate capability rather than developing capability. As we have previously raised in <a class="body-link" target="_blank" rel="noopener" href="/insights/ai-edtech-learning-process/">our article about AI in education</a>, EdTech platforms optimizing for engagement systematically bias toward positive sentiment, creating a structural design failure with real consequences for children's cognitive growth.</p>
         </div>
       </div>
     </div>
@@ -192,7 +193,7 @@
       <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--ymH2Size); line-height: 1.2; margin: 0;">Sycophancy becomes a development problem in child-facing AI</h2>
       <div style="display: flex; flex-direction: column; gap: 20px;">
         <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Now that we have a good grasp of what happens when systems optimized for adult approval are deployed, largely unchecked, in the hands of children. Sycophancy in AI is <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2602.01002">an alignment problem</a> but in child-facing applications, it is also a developmental one.</p>
-        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Let this be a reminder that children are in the process of building the cognitive and emotional architecture that will carry them through life. When an AI short-circuits that process with unconditional validation, the damage might be not loud or visible, but <a class="body-link" target="_blank" rel="noopener" href="contact.html">it is there.</a></p>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">Let this be a reminder that children are in the process of building the cognitive and emotional architecture that will carry them through life. When an AI short-circuits that process with unconditional validation, the damage might be not loud or visible, but <a class="body-link" target="_blank" rel="noopener" href="/contact/">it is there.</a></p>
       </div>
     </div>
   </article>
@@ -204,7 +205,7 @@
       <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 20px;">We work with founders, product teams, and builders to assess how AI systems affect children and teenagers in practice. We look closely at interaction patterns, behaviour over time, points where risk accumulates, and the safeguards needed as products evolve.</p>
       <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 28px;">Our work turns behavioural evidence into practical product decisions: safer interaction design, clearer system boundaries, stronger oversight, and better alignment with emerging regulatory expectations.</p>
       <p style="font-size: 16.5px; line-height: 1.7; color: #3A3730; margin: 0 0 28px;">If you’re building or deploying AI systems for children or teens and want a clearer view of real-world safety risks, get in touch.</p>
-      <a href="contact.html" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 15px 32px; border-radius: 10px; text-decoration: none;">Contact Us</a>
+      <a href="/contact/" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 15px 32px; border-radius: 10px; text-decoration: none;">Contact Us</a>
     </article>
   </section>
 
@@ -212,7 +213,7 @@
   <section style="background: #F2F2F0;">
     <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--ymAuthorCols);">
       <div style="aspect-ratio: 4/3; overflow: hidden;">
-        <img src="assets/images/yasmina-elfassi.jpg" alt="Yasmina El-Fassi" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <img src="/assets/images/yasmina-elfassi.jpg" alt="Yasmina El-Fassi" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
       <div style="padding: var(--ymAuthorPad); display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;">
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6558; margin-bottom: 10px;">Author</div>
@@ -242,7 +243,7 @@
       <p style="margin: 0;">Moss, C. M., &amp; Brookhart, S. M. (2019). <em>Advancing formative assessment in every classroom: A Guide for Instructional Leaders.</em> ASCD.</p>
       <p style="margin: 0;">Mueller, C. M., &amp; Dweck, C. S. (1998). Praise for intelligence can undermine children’s motivation and performance. <em>Journal of Personality and Social Psychology, 75</em>(1), 33–52. <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.1037/0022-3514.75.1.33">doi.org/10.1037/0022-3514.75.1.33</a></p>
       <p style="margin: 0;">Neugnot-Cerioli, M. (2026). Adolescents &amp; Anthropomorphic AI: Rethinking Design for Wellbeing. An Evidence-Informed Synthesis for Youth Wellbeing and Safety. arXiv (Cornell University). <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2603.06960">doi.org/10.48550/arxiv.2603.06960</a></p>
-      <p style="margin: 0;">Portell, S. (2026). When AI Enters the Learning Process: Design Failures, Regulatory Risk and Guardrails for EdTech. HCRAI. <a class="body-link" target="_blank" rel="noopener" href="edtech-learning-process-article.html">hcrai.com/when-ai-enters-the-learning-process-design-failures-regulatory-risk-and-guardrails-for-edtech</a></p>
+      <p style="margin: 0;">Portell, S. (2026). When AI Enters the Learning Process: Design Failures, Regulatory Risk and Guardrails for EdTech. HCRAI. <a class="body-link" target="_blank" rel="noopener" href="/insights/ai-edtech-learning-process/">hcrai.com/when-ai-enters-the-learning-process-design-failures-regulatory-risk-and-guardrails-for-edtech</a></p>
       <p style="margin: 0;">Shapira, I., Benade, G., &amp; Procaccia, A. D. (2026). How RLHF amplifies sycophancy. arXiv (Cornell University). <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.48550/arxiv.2602.01002">doi.org/10.48550/arxiv.2602.01002</a></p>
       <p style="margin: 0;">Spry, L., &amp; Olsson, C. (2025). Teens are increasingly turning to AI companions, and it could be harming them. <em>The Conversation.</em> <a class="body-link" target="_blank" rel="noopener" href="https://doi.org/10.64628/aa.seteyqwd5">doi.org/10.64628/aa.seteyqwd5</a></p>
     </div>
@@ -280,8 +281,8 @@
         <div>
           <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
           <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
-            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
-            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+            <a href="/terms/" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="/privacy-policy/" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
           </div>
         </div>
       </div>
@@ -291,6 +292,6 @@
 
 </div>
 
-  <script src="assets/js/site.js"></script>
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>

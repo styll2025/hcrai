@@ -5,22 +5,25 @@ Static multi-page site for HCRAI. No build step, no framework, no dependencies �
 ## Structure
 
 ```
-index.html                                    Homepage
-about.html                                    About / Team
-research-and-insights.html                    Research & Insights (article grid, all 9 cards now link to real articles)
-behavioural-risk.html                         Behavioural Risk Assessment (live embedded form)
-behavioural-risk-article.html                 Article: The Human Layer (Behavioural Risk findings)
-unomundi-article.html                         Article: Responsible AI in Child-Focused EdTech (Unomundi case study)
-bridging-the-gap-article.html                 Article: Bridging the Gap (practitioner roundtable on AI governance)
-the-yes-machine-article.html                  Article: The Yes Machine (sycophantic AI and developmental risk for children)
-design-system-operational-layer-article.html  Article: The Design System As The Operational Layer for Responsible Human-AI Interaction
-ai-agents-mental-health-article.html          Article: AI Agents For Mental Health (therapeutic styles and outcomes)
-edtech-learning-process-article.html          Article: When AI Enters the Learning Process (EdTech design failures and guardrails)
-mental-health-wellbeing-tools-article.html    Article: Designing AI Mental Health and Wellbeing Tools
-child-centred-ai-framework-article.html       Article: Building AI Responsibly for Children (APEG framework)
-contact.html                                  Contact
-terms.html                                    Terms and Conditions
-privacy-policy.html                           Privacy Policy
+index.html                                    Homepage (/)
+about/index.html                              About (/about/)
+contact/index.html                            Contact (/contact/)
+behavioural-risk/index.html                   Behavioural Risk Assessment (/behavioural-risk/)
+insights/index.html                           Research & Insights (/insights/)
+insights/behavioural-risk-ai-systems/         Article: The Human Layer
+insights/responsible-ai-child-edtech/         Article: Responsible AI in Child-Focused EdTech
+insights/bridging-ai-ethics-practice/         Article: Bridging the Gap
+insights/yes-machine-ai-agency/               Article: The Yes Machine
+insights/design-system-operational-layer/     Article: Design System as Operational Layer
+insights/ai-agents-mental-health/             Article: AI Agents for Mental Health
+insights/ai-edtech-learning-process/          Article: When AI Enters the Learning Process
+insights/mental-health-wellbeing-tools/       Article: AI Mental Health and Wellbeing Tools
+insights/child-centred-ai-framework/          Article: Child-Centred AI Framework
+terms/index.html                              Terms and Conditions (/terms/)
+privacy-policy/index.html                     Privacy Policy (/privacy-policy/)
+_redirects                                    301 redirects from legacy .html URLs to canonical URLs
+sitemap.xml                                   Canonical URL sitemap
+robots.txt                                    Sitemap discovery for crawlers
 assets/
   images/                        photos, illustrations, favicon
   fonts/                         self-hosted Baloo 2 + Inter (woff2)
@@ -28,10 +31,11 @@ assets/
     fonts.css                    @font-face declarations (shared by every page)
     site.css                     layout variables, responsive breakpoints, mobile nav, shared section classes
   js/
-    site.js                      mobile menu, contact form UI, article share/notify-signup (vanilla JS, no dependencies)
+    site.js                      mobile menu, contact form, article share/notify-signup (vanilla JS, no dependencies)
 ```
 
-Every page links the same `assets/css/fonts.css`, `assets/css/site.css`, and `assets/js/site.js`. Add new pages the same way rather than copy-pasting styles inline, so the nav/footer/responsive behavior stays consistent site-wide.
+
+Every page links the same root-relative `/assets/css/fonts.css`, `/assets/css/site.css`, and `/assets/js/site.js`. Add new pages the same way rather than copy-pasting styles inline, so the nav/footer/responsive behavior stays consistent site-wide.
 
 ## Deploy to GitHub Pages
 
@@ -41,9 +45,9 @@ Every page links the same `assets/css/fonts.css`, `assets/css/site.css`, and `as
 
 ## Known gaps
 
-**Contact form submissions go to Google Sheets.** `contact.html` posts name, email, organisation, message, submission time and page URL to the Google Apps Script endpoint configured in `assets/js/site.js`.
+**Contact form submissions go to Google Sheets.** `/contact/` posts name, email, organisation, message, submission time and page URL to the Google Apps Script endpoint configured in `assets/js/site.js`.
 
-**"Notify Me" on the Behavioural Risk article has the same limitation.** The email signup at the bottom of `behavioural-risk-article.html` shows a "Thanks!" confirmation but doesn't actually collect or send the email anywhere — same as in the original design file. Needs a real mailing-list backend (Mailchimp, Buttondown, etc.) if you want it to work.
+**"Notify Me" on the Behavioural Risk article has the same limitation.** The email signup at the bottom of `/insights/behavioural-risk-ai-systems/` shows a "Thanks!" confirmation but doesn't actually collect or send the email anywhere — same as in the original design file. Needs a real mailing-list backend (Mailchimp, Buttondown, etc.) if you want it to work.
 
 **"View Report" opens the white paper PDF.** The homepage and Behavioural Risk page CTAs point to `assets/documents/hcrai-behavioural-ai-risk-white-paper-june-2026.pdf` and open it in a new tab.
 

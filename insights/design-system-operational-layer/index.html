@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Design System As The Operational Layer for Responsible Human-AI Interaction | HCRAI</title>
 <meta name="description" content="AI is reshaping the operating conditions design systems were built for. HCRAI outlines a practical 5-module framework for turning design systems into the operational layer for responsible human-AI interaction.">
-<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-<link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="canonical" href="https://hcrai.pages.dev/insights/design-system-operational-layer/">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
 <div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
@@ -15,7 +16,7 @@
   <!-- NAV -->
   <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
     <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
         <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
           <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
           <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
@@ -29,13 +30,13 @@
       </a>
 
       <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
-        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
-        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
-        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
-        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+        <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
       </nav>
 
-      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+      <a href="/contact/" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
 
       <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
         <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
@@ -44,17 +45,17 @@
     </div>
 
     <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
-      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
-      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
-      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
-      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
-      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+      <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="/contact/" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
     </div>
   </header>
 
   <!-- BACK LINK -->
   <div style="max-width: 1360px; margin: 0 auto; padding: var(--dsoBackPad);">
-    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
+    <a href="/insights/" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
       <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       Research &amp; Insights
     </a>
@@ -76,7 +77,7 @@
         </div>
       </div>
       <div style="border-radius: 20px; overflow: hidden; min-height: 260px;">
-        <img src="assets/images/research-robot-browsers.jpg" alt="Line illustration of an AI robot between two browser windows" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <img src="/assets/images/research-robot-browsers.jpg" alt="Line illustration of an AI robot between two browser windows" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
     </div>
   </section>
@@ -192,7 +193,7 @@
 
     <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin: 0 0 8px;">Where organisations usually fail</h3>
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px;">
-      <img src="assets/images/mark-reynolds.webp" alt="Mark Reynolds" style="width: 72px; height: 72px; flex-shrink: 0; border-radius: 50%; object-fit: cover;">
+      <img src="/assets/images/mark-reynolds.webp" alt="Mark Reynolds" style="width: 72px; height: 72px; flex-shrink: 0; border-radius: 50%; object-fit: cover;">
       <p style="font-size: 16px; line-height: 1.7; color: #3A3730; margin: 0;">In transformation work, <a class="body-link" target="_blank" rel="noopener" href="https://www.linkedin.com/in/markjonathanreynolds/">Mark Reynolds</a> sees three recurring structural failures:</p>
     </div>
 
@@ -323,7 +324,7 @@
         <p style="font-size: 17px; color: #4A473E; line-height: 1.65; margin: 0;">Before scaling AI across products and teams, assess whether your design system and governance can support it safely and consistently. Start with a Design System + AI Readiness Sprint, led by design systems and human-centered responsible AI practitioners from HCRAI and <a class="body-link" target="_blank" rel="noopener" href="https://www.atomle.com/">Atomle</a>. We’ll assess your system foundations (tokens, components, interaction patterns), documentation and governance, then deliver a practical gap analysis and a prioritised roadmap to support AI-native workflows and responsible human–AI interaction at scale.</p>
       </div>
       <div style="display: flex; justify-content: var(--dsoCtaJustify2);">
-        <a href="contact.html" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 34px; border-radius: 12px; text-decoration: none; white-space: nowrap;">Talk to an Expert</a>
+        <a href="/contact/" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 34px; border-radius: 12px; text-decoration: none; white-space: nowrap;">Talk to an Expert</a>
       </div>
     </div>
   </section>
@@ -332,7 +333,7 @@
   <section style="background: #F2F2F0;">
     <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--dsoAuthorCols);">
       <div style="aspect-ratio: 4/3; overflow: hidden;">
-        <img src="assets/images/sara-portell.jpg" alt="Sara Portell, HCRAI Founder" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
+        <img src="/assets/images/sara-portell.jpg" alt="Sara Portell, HCRAI Founder" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
       </div>
       <div style="padding: var(--dsoAuthorPad); display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;">
         <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6558; margin-bottom: 10px;">Author</div>
@@ -398,8 +399,8 @@
         <div>
           <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
           <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
-            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
-            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+            <a href="/terms/" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="/privacy-policy/" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
           </div>
         </div>
       </div>
@@ -408,6 +409,6 @@
   </footer>
 
 </div>
-  <script src="assets/js/site.js"></script>
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>

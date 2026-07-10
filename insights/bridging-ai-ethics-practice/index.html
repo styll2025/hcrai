@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bridging the Gap: When AI Output Becomes Real-World Action | HCRAI</title>
 <meta name="description" content="A practitioner roundtable on AI governance: when AI systems start influencing real-world decisions, where does governance actually sit?">
-<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-<link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="canonical" href="https://hcrai.pages.dev/insights/bridging-ai-ethics-practice/">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
 <div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
@@ -15,7 +16,7 @@
   <!-- NAV -->
   <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
     <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
         <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
           <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
           <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
@@ -29,13 +30,13 @@
       </a>
 
       <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
-        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
-        <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
-        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
-        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+        <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
       </nav>
 
-      <a href="contact.html" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+      <a href="/contact/" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
 
       <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
         <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
@@ -44,17 +45,17 @@
     </div>
 
     <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
-      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
-      <a href="research-and-insights.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
-      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
-      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
-      <a href="contact.html" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+      <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="/contact/" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
     </div>
   </header>
 
   <!-- BACK LINK -->
   <div style="max-width: 1360px; margin: 0 auto; padding: var(--bgBackPad);">
-    <a href="research-and-insights.html" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
+    <a href="/insights/" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 14.5px; font-weight: 600;">
       <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       Research &amp; Insights
     </a>
@@ -76,7 +77,7 @@
         </div>
       </div>
       <div style="border-radius: 20px; overflow: hidden; min-height: 260px; background: #F5F1E8;">
-        <img src="assets/images/research-ai-face-network.png" alt="Line illustration of a face merged with a network of connected nodes" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <img src="/assets/images/research-ai-face-network.png" alt="Line illustration of a face merged with a network of connected nodes" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
     </div>
   </section>
@@ -103,7 +104,7 @@
 
       <div style="display: grid; grid-template-columns: var(--bgPanelCols); gap: 20px;">
         <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
-          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-japmandeep-ahluwalia.webp" alt="Japmandeep (Sunny) Ahluwalia" style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block;"></div>
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="/assets/images/bridging-japmandeep-ahluwalia.webp" alt="Japmandeep (Sunny) Ahluwalia" style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block;"></div>
           <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Japmandeep (Sunny) Ahluwalia (moderator)</div>
           <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">Founder Luxyn Ethics and Governance (LEG) and a seasoned expert in commercial leadership. More recently focusing on translating ethical and governance principles into operational “accountability triggers” once AI starts influencing real decisions.</div>
           <a href="https://www.linkedin.com/in/japmandeep-ahluwalia-a834ab24/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
@@ -112,7 +113,7 @@
         </div>
 
         <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
-          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-silvia-rocha.webp" alt="Sílvia Rocha" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="/assets/images/bridging-silvia-rocha.webp" alt="Sílvia Rocha" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
           <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Sílvia Rocha</div>
           <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">A product veteran with 20+ years of experience building mission-critical products across Manufacturing, Healthcare, Retail, Gaming, and Enterprise Application Development. Now specializing in Ethical, Responsible AI and AI Governance.</div>
           <a href="https://www.linkedin.com/in/rochasilvia/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
@@ -121,7 +122,7 @@
         </div>
 
         <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
-          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-wouter-kleynen.webp" alt="Wouter Kleynen" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="/assets/images/bridging-wouter-kleynen.webp" alt="Wouter Kleynen" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
           <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Wouter Kleynen</div>
           <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">Co-founder of LexFriend, bringing a mathematical and engineering background to the practical application of AI Governance and EU AI Act compliance.</div>
           <a href="https://www.linkedin.com/in/wouterkleynen/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
@@ -130,7 +131,7 @@
         </div>
 
         <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
-          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-lisa-verhoeven.webp" alt="Lisa Verhoeven" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="/assets/images/bridging-lisa-verhoeven.webp" alt="Lisa Verhoeven" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
           <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Lisa Verhoeven</div>
           <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">A specialist in the technical design and integration of compliant AI systems within the legal domain.</div>
           <a href="https://www.linkedin.com/in/be-extraordinary/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
@@ -139,7 +140,7 @@
         </div>
 
         <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
-          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/sara-portell.jpg" alt="Sara Portell" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;"></div>
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="/assets/images/sara-portell.jpg" alt="Sara Portell" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;"></div>
           <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Sara Portell</div>
           <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">Founder of HCRAI, and behavioral scientist with 17+ years of experience in product strategy/UX, research and innovation at global tech companies across enterprise SaaS, eCommerce, travel, fintech, edtech, mental health/ wellbeing and HR/ talent management.</div>
           <a href="https://www.linkedin.com/in/saraportell/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
@@ -148,7 +149,7 @@
         </div>
 
         <div style="background: #fff; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
-          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="assets/images/bridging-danielle-hopkins.webp" alt="Danielle Hopkins" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
+          <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img src="/assets/images/bridging-danielle-hopkins.webp" alt="Danielle Hopkins" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"></div>
           <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15.5px; color: #14181A;">Danielle Hopkins</div>
           <div style="font-size: 13px; line-height: 1.55; color: #4A473E;">An AI governance and digital rights specialist whose work sits at the intersection of technology, harm, and humanity. With +10 years in Data and AI Governance across public sector, civil society, health, social care and global education bodies, she brings a rare blend of regulatory depth, lived‑experience insight and technical fluency.</div>
           <a href="https://www.linkedin.com/in/patdfb/" target="_blank" rel="noopener" style="margin-top: 4px; color: #4A473E; text-decoration: none;" aria-label="LinkedIn">
@@ -317,8 +318,8 @@
         <div>
           <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
           <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
-            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
-            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+            <a href="/terms/" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="/privacy-policy/" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
           </div>
         </div>
       </div>
@@ -327,6 +328,6 @@
   </footer>
 
 </div>
-  <script src="assets/js/site.js"></script>
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>
