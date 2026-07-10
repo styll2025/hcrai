@@ -5,7 +5,7 @@ function closeMobileMenu() {
   document.getElementById('mobile-menu').classList.remove('is-open');
 }
 
-var CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzTUmp4mJC-C-sUV3jFB9vRWTjd04Qd8M5E-14yu7-IHwzZnuMbZsWiU7WH0wv5JRm-8A/exec';
+var CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyQ2JqqZFd00Bhyq3wHTZFSAcCSp7m-hTyRLD9s2prpPb_2BYvt6v8EpYncnkc4hGVdtQ/exec';
 
 // Contact page: send submissions to the Google Sheet via Apps Script.
 function handleContactSubmit(event) {
