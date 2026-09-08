@@ -586,8 +586,42 @@ a.body-link:hover {
   text-decoration-color: #2E63C7;
 }
 
+.wcd-page,
+.wcd-page * {
+  box-sizing: border-box;
+}
+
 .wcd-notify-input::placeholder {
   color: rgba(255, 255, 255, 0.45);
+}
+
+.wcd-hero-grid > * {
+  min-width: 0;
+}
+
+.wcd-hero-art {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 260px;
+  height: 100%;
+  background: #FFFFFF;
+}
+.wcd-hero-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+@media (max-width: 859px) {
+  .wcd-hero-art {
+    aspect-ratio: 16 / 11;
+    height: auto;
+    min-height: 0;
+  }
 }
 
 /* Mobile hamburger menu */
