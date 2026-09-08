@@ -37,12 +37,6 @@
       name: 'Analytics',
       required: false,
       desc: 'Help us understand which pages and research are read, so we can improve them. Not set unless you turn them on.'
-    },
-    {
-      id: 'marketing',
-      name: 'Marketing',
-      required: false,
-      desc: 'Used by optional third-party content such as embedded videos. Not set unless you turn them on.'
     }
   ];
 

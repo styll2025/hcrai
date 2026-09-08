@@ -105,12 +105,12 @@ function handleNotifySignup(event) {
   });
 }
 
-function marketingEmbeds() {
-  return document.querySelectorAll('iframe[data-consent="marketing"]');
+function analyticsEmbeds() {
+  return document.querySelectorAll('iframe[data-consent="analytics"]');
 }
 
-function loadMarketingEmbeds() {
-  marketingEmbeds().forEach(function (iframe) {
+function loadAnalyticsEmbeds() {
+  analyticsEmbeds().forEach(function (iframe) {
     var src = iframe.getAttribute('data-consent-src');
     if (!src) return;
     iframe.setAttribute('src', src);
@@ -122,8 +122,8 @@ function loadMarketingEmbeds() {
   });
 }
 
-function unloadMarketingEmbeds() {
-  marketingEmbeds().forEach(function (iframe) {
+function unloadAnalyticsEmbeds() {
+  analyticsEmbeds().forEach(function (iframe) {
     var wrap = iframe.closest('.consent-embed') || iframe.parentNode;
     if (wrap && !wrap.querySelector('.consent-embed-placeholder')) {
       var placeholder = document.createElement('div');
@@ -144,12 +144,12 @@ function registerConsentedServices() {
   if (!window.HCRAIConsent) return;
   window.HCRAIConsent.register({
     id: 'youtube',
-    category: 'marketing',
-    load: loadMarketingEmbeds,
-    unload: unloadMarketingEmbeds
+    category: 'analytics',
+    load: loadAnalyticsEmbeds,
+    unload: unloadAnalyticsEmbeds
   });
-  if (!window.HCRAIConsent.hasConsent('marketing')) {
-    unloadMarketingEmbeds();
+  if (!window.HCRAIConsent.hasConsent('analytics')) {
+    unloadAnalyticsEmbeds();
   }
 }
 
