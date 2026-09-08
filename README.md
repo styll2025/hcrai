@@ -31,11 +31,12 @@ assets/
     fonts.css                    @font-face declarations (shared by every page)
     site.css                     layout variables, responsive breakpoints, mobile nav, shared section classes
   js/
-    site.js                      mobile menu, contact form, article share/notify-signup (vanilla JS, no dependencies)
+    site.js                      mobile menu, contact form, article share/notify-signup, consent-gated embeds
+    cookie-consent.js            cookie banner web component and HCRAIConsent API
 ```
 
 
-Every page links the same root-relative `/assets/css/fonts.css`, `/assets/css/site.css`, and `/assets/js/site.js`. Add new pages the same way rather than copy-pasting styles inline, so the nav/footer/responsive behavior stays consistent site-wide.
+Every page links the same root-relative `/assets/css/fonts.css`, `/assets/css/site.css`, `/assets/js/cookie-consent.js`, and `/assets/js/site.js`. Add new pages the same way rather than copy-pasting styles inline, so the nav/footer/responsive behavior stays consistent site-wide.
 
 ## Deploy to GitHub Pages
 
@@ -49,7 +50,7 @@ Every page links the same root-relative `/assets/css/fonts.css`, `/assets/css/si
 
 **"Notify Me" on the Behavioural Risk article goes to Google Sheets.** The signup form at the bottom of `/insights/behavioural-risk-ai-systems/` posts name, email, submission time, page URL and source to the Apps Script endpoint configured in `assets/js/site.js`.
 
-**Cookie preferences are stored for 90 days.** A first-party consent cookie (`hcrai_cookie_consent`) plus a matching `localStorage` backup remember accept / reject / custom / dismiss choices. Optional services are registered in `COOKIE_SERVICES` in `assets/js/site.js` and only load after the relevant category is enabled.
+**Cookie preferences are stored for 90 days.** The `<cookie-consent>` web component in `assets/js/cookie-consent.js` stores accept / reject / custom / dismiss choices in a first-party cookie (`hcrai_cookie_consent`) plus a `localStorage` backup. Optional services are registered with `window.HCRAIConsent.register(...)` and only load after the relevant category is enabled.
 
 **"View Report" opens the white paper PDF.** The homepage and Behavioural Risk page CTAs point to `assets/documents/hcrai-behavioural-ai-risk-white-paper-june-2026.pdf` and open it in a new tab.
 
@@ -62,7 +63,7 @@ Everything else is fully built out and cross-linked, with a consistent nav and f
 - The responsive/mobile behavior (hamburger menu, resizing layouts) in the original design files was built using the design tool's own internal preview runtime (a React-like engine with template bindings: `{{ responsive.xxx }}`), which only works inside that tool's bundler — not on a plain static host. Every page here has that reimplemented using standard CSS custom properties + media queries and a small vanilla-JS snippet for the mobile menu, shared via `assets/css/site.css` / `assets/js/site.js`. Each page's layout variables are namespaced (e.g. `--raHeroPad` for the Behavioural Risk article, `--uaTwoCol` for Unomundi, `--bgQaCols` for Bridging the Gap, `--ymEffectCols` for The Yes Machine, `--dsoChecklistCols` for The Design System, `--aamhEffectCols` for AI Agents For Mental Health, `--edtechCaseCols` for the EdTech article, `--mhwtPatternsGridCols` for the Mental Health Wellbeing Tools article, `--ccafPatternCols` for the Child-Centred AI Framework article) so one page's numbers never leak into another's.
 - The Behavioural Risk page embeds a real, already-functioning Google Apps Script form (the BAIRA assessment) via `<iframe>` — that one works as-is, no conversion needed.
 - All eight articles' "Share" buttons use the native Web Share API where available, falling back to copy-link-to-clipboard (with a "Link copied" confirmation on the Behavioural Risk article) — this part is fully functional, no backend needed.
-- "Bridging the Gap" embeds a real YouTube video (the full roundtable recording) via `<iframe>` — works as-is.
+- "Bridging the Gap" embeds a YouTube roundtable recording. The iframe is gated behind marketing cookie consent.
 - CTA copy was made consistent across the site: every "Schedule a Consultation" button is now "Request a Discovery Call".
 - Several articles' body links (citations, external sources) use a shared `.body-link` style defined once in `assets/css/site.css` rather than per-page.
 - "The Yes Machine" article and its Research & Insights card thumbnail both use the `research-teens-phones.jpg` illustration with the same inline CSS hue-rotate/saturation filter, matching the source design.
