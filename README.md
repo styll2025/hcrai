@@ -49,6 +49,8 @@ Every page links the same root-relative `/assets/css/fonts.css`, `/assets/css/si
 
 **"Notify Me" on the Behavioural Risk article goes to Google Sheets.** The signup form at the bottom of `/insights/behavioural-risk-ai-systems/` posts name, email, submission time, page URL and source to the Apps Script endpoint configured in `assets/js/site.js`.
 
+**Cookie preferences are stored for 90 days.** A first-party consent cookie (`hcrai_cookie_consent`) plus a matching `localStorage` backup remember accept / reject / custom / dismiss choices. Optional services are registered in `COOKIE_SERVICES` in `assets/js/site.js` and only load after the relevant category is enabled.
+
 **"View Report" opens the white paper PDF.** The homepage and Behavioural Risk page CTAs point to `assets/documents/hcrai-behavioural-ai-risk-white-paper-june-2026.pdf` and open it in a new tab.
 
 Everything else is fully built out and cross-linked, with a consistent nav and footer across all 16 pages. All 9 Research & Insights cards now link to real article pages, and every LinkedIn icon and byline across the site points to a real profile or the HCRAI company page.
