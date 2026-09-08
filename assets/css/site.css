@@ -173,6 +173,20 @@
   --ymAuthorCols: 340px 1fr;
   --ymAuthorPad: 48px 40px 0;
 
+  /* Article: AI and Women's Career Development ("wcd" prefix) */
+  --wcdBackPad: 28px 40px 24px;
+  --wcdHeroPad: 48px;
+  --wcdHeroCols: 1.1fr 0.9fr;
+  --wcdHeroCardPad: 48px;
+  --wcdH1Size: 34px;
+  --wcdArticleTopPad: 80px;
+  --wcdH2Size: 30px;
+  --wcdH2Size32: 28px;
+  --wcdFindingsCols: repeat(3, minmax(0, 1fr));
+  --wcdFactorPad: 56px 64px;
+  --wcdAssessNotifyCols: minmax(0, 1fr) minmax(0, 1fr);
+  --wcdNotifyFormCols: 1fr 1fr auto;
+
   /* Article: The Design System As The Operational Layer ("dso" prefix) */
   --dsoBackPad: 28px 40px 0;
   --dsoHeroPad: 48px;
@@ -283,6 +297,12 @@
 }
 
 /* Research grid has its own narrow breakpoint at 1100px */
+@media (max-width: 1239px) {
+  :root {
+    --wcdNotifyFormCols: 1fr;
+  }
+}
+
 @media (max-width: 1099px) {
   :root {
     --gridCols: repeat(2, 1fr);
@@ -446,6 +466,19 @@
     --ymAuthorCols: 1fr;
     --ymAuthorPad: 32px 20px 0;
 
+    --wcdBackPad: 20px 20px 20px;
+    --wcdHeroPad: 28px;
+    --wcdHeroCols: 1fr;
+    --wcdHeroCardPad: 28px 24px;
+    --wcdH1Size: 26px;
+    --wcdArticleTopPad: 48px;
+    --wcdH2Size: 24px;
+    --wcdH2Size32: 22px;
+    --wcdFindingsCols: 1fr;
+    --wcdFactorPad: 36px 24px;
+    --wcdAssessNotifyCols: 1fr;
+    --wcdNotifyFormCols: 1fr;
+
     --dsoBackPad: 20px 20px 0;
     --dsoHeroPad: 28px;
     --dsoHeroCols: 1fr;
@@ -551,6 +584,10 @@ a.body-link {
 a.body-link:hover {
   color: #1B4A9E;
   text-decoration-color: #2E63C7;
+}
+
+.wcd-notify-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 /* Mobile hamburger menu */
