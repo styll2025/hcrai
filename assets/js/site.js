@@ -42,24 +42,6 @@ function handleContactSubmit(event) {
   });
 }
 
-// Article pages: native Web Share API with a clipboard-copy fallback.
-// Updates #share-label text temporarily if that element exists on the page.
-function shareArticle(title) {
-  var label = document.getElementById('share-label');
-  var url = window.location.href;
-  if (navigator.share) {
-    navigator.share({ title: title, url: url }).catch(function () {});
-  } else if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(function () {
-      if (label) {
-        var original = label.textContent;
-        label.textContent = 'Link copied';
-        setTimeout(function () { label.textContent = original; }, 2000);
-      }
-    }).catch(function () {});
-  }
-}
-
 // Behavioural Risk article: collect newsletter signups through Apps Script.
 function handleNotifySignup(event) {
   event.preventDefault();

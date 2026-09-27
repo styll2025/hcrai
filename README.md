@@ -32,7 +32,7 @@ assets/
     fonts.css                    @font-face declarations (shared by every page)
     site.css                     layout variables, responsive breakpoints, mobile nav, shared section classes
   js/
-    site.js                      mobile menu, contact form, article share/notify-signup, consent-gated embeds
+    site.js                      mobile menu, contact form, notify-signup, consent-gated embeds
     cookie-consent.js            cookie banner web component and HCRAIConsent API
 ```
 
@@ -63,7 +63,6 @@ Everything else is fully built out and cross-linked, with a consistent nav and f
 - Fonts (Baloo 2, Inter) are self-hosted as woff2 rather than pulled from Google Fonts at runtime — no external font requests on page load.
 - The responsive/mobile behavior (hamburger menu, resizing layouts) in the original design files was built using the design tool's own internal preview runtime (a React-like engine with template bindings: `{{ responsive.xxx }}`), which only works inside that tool's bundler — not on a plain static host. Every page here has that reimplemented using standard CSS custom properties + media queries and a small vanilla-JS snippet for the mobile menu, shared via `assets/css/site.css` / `assets/js/site.js`. Each page's layout variables are namespaced (e.g. `--raHeroPad` for the Behavioural Risk article, `--uaTwoCol` for Unomundi, `--bgQaCols` for Bridging the Gap, `--ymEffectCols` for The Yes Machine, `--dsoChecklistCols` for The Design System, `--aamhEffectCols` for AI Agents For Mental Health, `--edtechCaseCols` for the EdTech article, `--mhwtPatternsGridCols` for the Mental Health Wellbeing Tools article, `--ccafPatternCols` for the Child-Centred AI Framework article, `--wcdFindingsCols` for the Women's Career Development article) so one page's numbers never leak into another's.
 - The Behavioural Risk page embeds a real, already-functioning Google Apps Script form (the BAIRA assessment) via `<iframe>` — that one works as-is, no conversion needed.
-- All ten articles' "Share" buttons use the native Web Share API where available, falling back to copy-link-to-clipboard (with a "Link copied" confirmation on the Behavioural Risk article) — this part is fully functional, no backend needed.
 - "Bridging the Gap" embeds a YouTube roundtable recording. The iframe is gated behind optional analytics cookie consent.
 - CTA copy was made consistent across the site: every "Schedule a Consultation" button is now "Request a Discovery Call".
 - Several articles' body links (citations, external sources) use a shared `.body-link` style defined once in `assets/css/site.css` rather than per-page.
