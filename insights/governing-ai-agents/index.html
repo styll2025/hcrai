@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Should We Govern AI Agents? | HCRAI</title>
+<meta name="description" content="As AI systems move from generating answers to taking actions, an important governance question emerges: how do we assess what an AI agent is capable of doing?">
+<link rel="canonical" href="https://hcrai.pages.dev/insights/governing-ai-agents/">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<div class="gaia-page" style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: var(--containerPad); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric &amp; Responsible AI</div>
+        </div>
+      </a>
+
+      <nav style="display: var(--navDisplay); align-items: center; gap: 36px;">
+        <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">About</a>
+        <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">Research &amp; Insights</a>
+        <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+
+      <a href="/contact/" style="display: var(--navCtaDisplay); background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+
+      <button onclick="toggleMobileMenu()" aria-label="Toggle menu" style="display: var(--hamburgerDisplay); flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" style="flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="/about/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">About</a>
+      <a href="/insights/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="/behavioural-risk/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="/contact/" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="/contact/" onclick="closeMobileMenu()" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- BACK LINK -->
+  <div style="max-width: 1360px; margin: 0 auto; padding: var(--gaiaBackPad);">
+    <a href="/insights/" style="display: inline-flex; align-items: center; gap: 8px; color: #6B6558; text-decoration: none; font-size: 13px; font-weight: 600;">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#6B6558" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Research &amp; Insights
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F2F2F0; padding: var(--gaiaHeroPad) 0;">
+    <div class="gaia-hero-grid" style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad); display: grid; grid-template-columns: var(--gaiaHeroCols); gap: 24px; align-items: stretch;">
+      <div style="background: #fff; border-radius: 20px; padding: var(--gaiaHeroCardPad); display: flex; flex-direction: column; justify-content: center; gap: 24px; min-width: 0;">
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--gaiaH1Size); line-height: 1.15; margin: 0; max-width: 100%; overflow-wrap: break-word;">How Should We Govern AI Agents?</h1>
+        <span style="font-size: 15px; color: #6B6558;">Sara Portell • September 27, 2026</span>
+      </div>
+      <div class="gaia-hero-art">
+        <img src="/assets/images/research-governing-ai-agents.jpg" alt="Line illustration of a friendly robot beneath a workflow diagram linking email, code and web tools">
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <article style="max-width: 860px; margin: 0 auto; padding: var(--gaiaArticleTopPad) var(--sidePad) 0;">
+
+    <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: 16px;">AI GOVERNANCE - AGENTIC SYSTEMS</div>
+
+    <p style="font-size: 20px; line-height: 1.6; margin: 0 0 24px; font-weight: 600;">As AI systems move from generating answers to taking actions, an important governance question emerges: how do we assess what an AI agent is capable of doing?</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 56px;">A recent Nature Perspective by Atoosa Kasirzadeh and Iason Gabriel proposes a useful framework built around four dimensions: autonomy, efficacy, goal complexity and generality. These dimensions create an agentic profile that can help us understand both what an agent can do and what kind of governance it may require.</p>
+
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--gaiaH2Size); line-height: 1.2; margin: 0 0 32px;">Four dimensions of agency</h2>
+
+    <div style="display: grid; grid-template-columns: var(--gaiaFindingsCols); gap: 20px; margin-bottom: 36px;">
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 30px 28px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 14px;">01</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px;">Autonomy</div>
+        <p style="font-size: 15.5px; color: #4A473E; line-height: 1.65; margin: 0;">How independently can the system act without human direction?</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 30px 28px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 14px;">02</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px;">Efficacy</div>
+        <p style="font-size: 15.5px; color: #4A473E; line-height: 1.65; margin: 0;">How much can it causally affect its environment, and how consequential is that environment?</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 30px 28px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 14px;">03</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px;">Goal complexity</div>
+        <p style="font-size: 15.5px; color: #4A473E; line-height: 1.65; margin: 0;">How complex are the objectives it can pursue, including the ability to break them into subgoals and balance competing constraints?</p>
+      </div>
+      <div style="background: #F2F2F0; border-radius: 18px; padding: 30px 28px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; color: #8FA829; margin-bottom: 14px;">04</div>
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px;">Generality</div>
+        <p style="font-size: 15.5px; color: #4A473E; line-height: 1.65; margin: 0;">How broadly can it operate across tasks and domains?</p>
+      </div>
+    </div>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">The framework illustrates these differences through profiles of systems including AlphaGo, ChatGPT-3.5, Claude 3.5 with tool use, and Waymo. The examples show why asking whether a system is agentic is not enough as two agents can have very different combinations of capabilities.</p>
+
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--gaiaH2Size); line-height: 1.2; margin: 40px 0 24px;">Why this means for governance</h2>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">The most interesting implication is that governance should not increase in proportion to how agentic a system appears. What is critical is to distinguish which capabilities it has and how they interact.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">For example, an agent with high autonomy can act without waiting for human intervention, creating the possibility that errors compound before a person can intervene. An agent with high efficacy can have direct and potentially irreversible effects on the physical world. More complex goals can make behaviour harder to predict or verify, while greater generality can allow risks to cross traditional sector boundaries.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">This leads to a more targeted approach to governance: 1) classify the agent, 2) map the risks associated with its particular profile, and 3) apply safeguards proportionate to those risks. Depending on the profile, this might include evaluation and testing, auditability, action logs, permission controls, real-time monitoring, circuit breakers and clear accountability mechanisms.</p>
+
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--gaiaH2Size); line-height: 1.2; margin: 40px 0 24px;">The governance challenge ahead</h2>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">Perhaps the biggest contribution of the framework is that it gives us a vocabulary for discussing AI agents beyond the binary question of agent or not agent. Agentic profiles can change as systems gain tools, memory, reasoning capabilities or access to real-world environments.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">However, the four dimensions still need robust metrics and benchmarks, and questions around liability, accountability and systemic risks.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 56px;">The shift from models that generate outputs to systems that pursue goals and take actions makes this kind of capability-based governance increasingly important. We need to start asking what can it do, where can it act, how independently can it act, and what happens when it gets it wrong?</p>
+
+    <div style="border-top: 1px solid rgba(20,24,26,0.12); padding-top: 28px; margin-bottom: 72px;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.2; margin: 0 0 14px;">References</h2>
+      <p style="font-size: 15px; line-height: 1.7; color: #4A473E; margin: 0;">Kasirzadeh, A., &amp; Gabriel, I. (2026). Agentic profiles for effective AI governance. <em>Nature, 656</em>, 320–327. <a href="https://doi.org/10.1038/s41586-026-10805-z" target="_blank" rel="noopener" style="color: #14181A; word-break: break-word;">https://doi.org/10.1038/s41586-026-10805-z</a></p>
+    </div>
+
+  </article>
+
+  <!-- ASSESS -->
+  <section style="max-width: 1360px; margin: 0 auto 100px; padding: 0 var(--sidePad);">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 24px; align-items: stretch;">
+      <div style="background: #E7E7E4; border-radius: 28px; padding: var(--gaiaFactorPad); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; text-align: center;">
+        <div style="max-width: 720px;">
+          <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--gaiaH2Size32); line-height: 1.15; margin: 0 0 16px;">Deploying AI agents?</h2>
+          <p style="font-size: 16px; color: #4A473E; line-height: 1.65; margin: 0 0 12px;">We help teams <strong style="color: #14181A; font-weight: 700;">assess AI agent risks, implement proportionate controls, and prepare for compliance</strong>.</p>
+          <p style="font-size: 16px; color: #4A473E; line-height: 1.65; margin: 0 0 12px;">Know what your agents can do, control what they're allowed to do, and maintain the evidence to demonstrate responsible deployment.</p>
+          <p style="font-size: 16px; color: #4A473E; line-height: 1.65; margin: 0;">Start with a conversation about your system.</p>
+        </div>
+        <div>
+          <a href="/contact/" style="display: inline-block; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 34px; border-radius: 12px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: var(--footerPad);">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: var(--footerCols); gap: var(--footerGap);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric &amp; Responsible AI</div>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="https://www.linkedin.com/company/hcrai" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="/terms/" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="/privacy-policy/" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+            <a href="#cookie-preferences" class="cookie-prefs-footer" data-cookie-preferences="true">Cookie preferences</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+
+</div>
+
+  <cookie-consent></cookie-consent>
+  <script src="/assets/js/cookie-consent.js"></script>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

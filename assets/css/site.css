@@ -187,6 +187,19 @@
   --wcdAssessNotifyCols: minmax(0, 1fr) minmax(0, 1fr);
   --wcdNotifyFormCols: 1fr 1fr auto;
 
+  /* Article: How Should We Govern AI Agents? ("gaia" prefix) */
+  --gaiaBackPad: 28px 40px 24px;
+  --gaiaHeroPad: 48px;
+  --gaiaHeroCols: 1.1fr 0.9fr;
+  --gaiaHeroCardPad: 48px;
+  --gaiaH1Size: 34px;
+  --gaiaArticleTopPad: 80px;
+  --gaiaH2Size: 30px;
+  --gaiaH2Size32: 28px;
+  --gaiaFindingsCols: repeat(2, minmax(0, 1fr));
+  --gaiaFactorPad: 56px 64px;
+  --gaiaHeroArtPad: 24px 28px;
+
   /* Article: The Design System As The Operational Layer ("dso" prefix) */
   --dsoBackPad: 28px 40px 0;
   --dsoHeroPad: 48px;
@@ -306,6 +319,16 @@
 @media (max-width: 1099px) {
   :root {
     --gridCols: repeat(2, 1fr);
+    --navDisplay: none;
+    --navCtaDisplay: none;
+    --hamburgerDisplay: flex;
+    --gaiaHeroCols: 1fr;
+    --gaiaHeroPad: 36px;
+    --gaiaHeroCardPad: 36px 32px;
+    --gaiaH1Size: 30px;
+    --gaiaArticleTopPad: 64px;
+    --gaiaFactorPad: 44px 40px;
+    --gaiaHeroArtPad: 20px 24px;
   }
 }
 
@@ -479,6 +502,18 @@
     --wcdAssessNotifyCols: 1fr;
     --wcdNotifyFormCols: 1fr;
 
+    --gaiaBackPad: 20px 20px 20px;
+    --gaiaHeroPad: 28px;
+    --gaiaHeroCols: 1fr;
+    --gaiaHeroCardPad: 28px 24px;
+    --gaiaH1Size: 26px;
+    --gaiaArticleTopPad: 48px;
+    --gaiaH2Size: 24px;
+    --gaiaH2Size32: 22px;
+    --gaiaFindingsCols: 1fr;
+    --gaiaFactorPad: 36px 24px;
+    --gaiaHeroArtPad: 16px 16px;
+
     --dsoBackPad: 20px 20px 0;
     --dsoHeroPad: 28px;
     --dsoHeroCols: 1fr;
@@ -587,7 +622,9 @@ a.body-link:hover {
 }
 
 .wcd-page,
-.wcd-page * {
+.wcd-page *,
+.gaia-page,
+.gaia-page * {
   box-sizing: border-box;
 }
 
@@ -595,7 +632,8 @@ a.body-link:hover {
   color: rgba(255, 255, 255, 0.45);
 }
 
-.wcd-hero-grid > * {
+.wcd-hero-grid > *,
+.gaia-hero-grid > * {
   min-width: 0;
 }
 
@@ -624,6 +662,22 @@ a.body-link:hover {
   }
 }
 
+.gaia-hero-art {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #FFFFFF;
+  padding: var(--gaiaHeroArtPad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gaia-hero-art img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
 /* Mobile hamburger menu */
 .mobile-menu {
   display: none;
@@ -631,10 +685,17 @@ a.body-link:hover {
 .mobile-menu.is-open {
   display: flex;
 }
-@media (min-width: 860px) {
+@media (min-width: 1100px) {
   .mobile-menu {
     display: none !important;
   }
+}
+
+header [aria-label="Toggle menu"] {
+  flex-shrink: 0;
+}
+header > div:first-child > a:first-child {
+  min-width: 0;
 }
 
 /* Three-services middle card border swaps side on mobile (homepage) */
