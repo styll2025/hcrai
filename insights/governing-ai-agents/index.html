@@ -116,19 +116,34 @@
 
     <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">For example, an agent with high autonomy can act without waiting for human intervention, creating the possibility that errors compound before a person can intervene. An agent with high efficacy can have direct and potentially irreversible effects on the physical world. More complex goals can make behaviour harder to predict or verify, while greater generality can allow risks to cross traditional sector boundaries.</p>
 
-    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">This leads to a more targeted approach to governance: 1) classify the agent, 2) map the risks associated with its particular profile, and 3) apply safeguards proportionate to those risks. Depending on the profile, this might include evaluation and testing, auditability, action logs, permission controls, real-time monitoring, circuit breakers and clear accountability mechanisms.</p>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">This leads to a more targeted approach to governance: 1) classify the agent, 2) map the risks associated with its particular profile, and 3) apply safeguards proportionate to those risks. Depending on the profile and deployment context, this might include pre-deployment evaluation and testing, permission and identity controls, sandboxing, auditability and action logs, continuous monitoring, behavioural drift detection, intervention mechanisms and clear accountability.</p>
+
+    <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--gaiaH2Size); line-height: 1.2; margin: 40px 0 24px;">From agentic profiles to practical controls</h2>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">Understanding an agent's capabilities is the first step. The next question is how those capabilities translate into technical and organisational controls.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">A useful illustration comes from NVIDIA's recently published Open Agent Safety Platform. Its approach separates the agent from parts of the safety and enforcement layer, using sandboxing, verifiable policies, monitoring and independent enforcement mechanisms to constrain what an agent can access and do.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">This reflects an important principle for agent governance, i.e., controls should not depend on the agent governing itself. As agents become more autonomous, organisations need mechanisms around the agent that can constrain, observe and, where necessary, interrupt its behaviour.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">NVIDIA identifies five principles for its approach: 1) policies should be verifiable; 2) enforcement should operate outside the agent's reach; 3) the path to the model can provide a critical control point; 4) agent authority should be matched to the ability to inspect its behaviour; and 5) responsibility should be distributed across the AI ecosystem.</p>
+
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">These principles complement the agentic profile proposed by Kasirzadeh and Gabriel, pointing towards a more capability-based approach to governance, by understanding the agent's profile, identifying the risks that follow from it, and designing controls that are proportionate to those risks.</p>
 
     <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--gaiaH2Size); line-height: 1.2; margin: 40px 0 24px;">The governance challenge ahead</h2>
 
     <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">Perhaps the biggest contribution of the framework is that it gives us a vocabulary for discussing AI agents beyond the binary question of agent or not agent. Agentic profiles can change as systems gain tools, memory, reasoning capabilities or access to real-world environments.</p>
 
-    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">However, the four dimensions still need robust metrics and benchmarks, and questions around liability, accountability and systemic risks.</p>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 28px;">However, the governance challenge is translating an agent's capabilities into appropriate controls and ensuring that those controls remain effective as the system operates. The emerging focus on runtime monitoring and independent enforcement reinforces this point. For increasingly autonomous systems, governance cannot rely on instructions given to the model or on the agent following its own constraints. Technical controls need to provide boundaries around what the agent can access and do, while monitoring and audit mechanisms provide visibility into what really happens.</p>
 
-    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 56px;">The shift from models that generate outputs to systems that pursue goals and take actions makes this kind of capability-based governance increasingly important. We need to start asking what can it do, where can it act, how independently can it act, and what happens when it gets it wrong?</p>
+    <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0 0 56px;">The shift from models that generate outputs to systems that pursue goals and take actions therefore requires us to ask not only what can this agent do?, but also where can it act, how independently can it act, what controls constrain it, and how would we know if it went wrong? These questions are becoming central to the responsible deployment of AI agents.</p>
 
     <div style="border-top: 1px solid rgba(20,24,26,0.12); padding-top: 28px; margin-bottom: 72px;">
       <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.2; margin: 0 0 14px;">References</h2>
-      <p style="font-size: 15px; line-height: 1.7; color: #4A473E; margin: 0;">Kasirzadeh, A., &amp; Gabriel, I. (2026). Agentic profiles for effective AI governance. <em>Nature, 656</em>, 320–327. <a href="https://doi.org/10.1038/s41586-026-10805-z" target="_blank" rel="noopener" style="color: #14181A; word-break: break-word;">https://doi.org/10.1038/s41586-026-10805-z</a></p>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 15px; line-height: 1.7; color: #4A473E; margin: 0;">Kasirzadeh, A., &amp; Gabriel, I. (2026). Agentic profiles for effective AI governance. <em>Nature, 656</em>, 320–327. <a href="https://doi.org/10.1038/s41586-026-10805-z" target="_blank" rel="noopener" style="color: #14181A; word-break: break-word;">https://doi.org/10.1038/s41586-026-10805-z</a></p>
+        <p style="font-size: 15px; line-height: 1.7; color: #4A473E; margin: 0;">Myers, J., Watson, A., Golshan, A., &amp; Arkin, O. (2026). NVIDIA Open Agent Safety Platform: A reference for continuous in-silicon agent monitoring. <em>NVIDIA Developer Blog</em>. <a href="https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/" target="_blank" rel="noopener" style="color: #14181A; word-break: break-word;">https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/</a></p>
+      </div>
     </div>
 
   </article>
