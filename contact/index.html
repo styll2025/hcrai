@@ -51,15 +51,14 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section style="max-width: 1360px; margin: 0 auto; padding: var(--contactHeroPad);">
-    <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--contactH1Size); line-height: 1.15; margin: 0 0 20px; max-width: 720px;">Let's talk about your AI challenges</h1>
-    <p style="font-size: 18px; color: #4A473E; line-height: 1.6; margin: 0 0 var(--contactHeroPMargin); max-width: 640px;">Whether you're assessing risks, strengthening AI governance or working towards regulatory compliance, we'd like to hear from you.</p>
-  </section>
-
-  <!-- FORM -->
-  <section id="form" style="max-width: 1360px; margin: 0 auto; padding: 0 var(--sidePad) 100px;">
-    <div style="background: #F5F5F4; border-radius: 28px; padding: var(--contactPanelPad);">
+  <!-- INTRO + FORM -->
+  <section id="form" style="max-width: 1360px; margin: 0 auto; padding: var(--contactHeroPad); padding-bottom: 100px;">
+    <div style="display: grid; grid-template-columns: var(--contactFormCols); gap: var(--contactFormGap); align-items: start;">
+      <div>
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: var(--contactH1Size); line-height: 1.15; margin: 0 0 20px;">Let's talk about your AI challenges</h1>
+        <p style="font-size: 18px; color: #4A473E; line-height: 1.6; margin: 0;">Whether you're assessing risks, strengthening AI governance or working towards regulatory compliance, we'd like to hear from you.</p>
+      </div>
+      <div style="background: #F5F5F4; border-radius: 28px; padding: var(--contactPanelPad);">
         <div id="contact-success" class="contact-success" style="flex-direction: column; align-items: flex-start; gap: 16px; padding: 40px 0;">
           <div style="width: 52px; height: 52px; border-radius: 100px; background: #D7E85B; display: flex; align-items: center; justify-content: center;">
             <svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#14181A" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -86,6 +85,7 @@
             </div>
             <button type="submit" style="align-self: flex-start; background: #14181A; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 32px; border-radius: 100px; border: none; cursor: pointer;">Send Message</button>
           </form>
+      </div>
     </div>
   </section>
 
