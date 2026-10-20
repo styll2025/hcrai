@@ -36,7 +36,7 @@
       id: 'analytics',
       name: 'Analytics',
       required: false,
-      desc: 'Help us understand which pages and research are read, so we can improve them. Not set unless you turn them on.'
+      desc: 'Help us understand which pages and research are read, using Google Analytics, so we can improve them. Not set unless you turn them on.'
     }
   ];
 
