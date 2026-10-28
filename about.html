@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#F2F2F0">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#F2F2F0"></rect>
+    <rect x="460" y="300" width="80" height="80" rx="20" transform="rotate(45 500 340)" fill="#14181A"></rect>
+    <rect x="580" y="300" width="80" height="80" rx="20" transform="rotate(45 620 340)" fill="#C7C7C5"></rect>
+    <rect x="460" y="420" width="80" height="80" rx="20" transform="rotate(45 500 460)" fill="#C7C7C5"></rect>
+    <rect x="580" y="420" width="80" height="80" rx="20" transform="rotate(45 620 460)" fill="#14181A"></rect>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    ::selection { background: #D7E85B; color: #14181A; }
+    a { color: #14181A; }
+    a:hover { color: #8FA829; }
+  </style>
+</helmet>
+
+<div style="font-family: 'Inter', sans-serif; background: #FFFFFF; color: #14181A; width: 100%; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,26,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: {{ responsive.containerPad }}; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+        <svg width="34" height="34" viewBox="-3 -6 40 40" style="flex-shrink: 0;">
+          <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+          <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+          <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+          <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+        </svg>
+        <div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; line-height: 1;">HCRAI</div>
+          <div style="font-size: 11px; color: #6B6558; letter-spacing: 0.4px; margin-top: 2px;">Human-Centric. Responsible AI.</div>
+        </div>
+      </a>
+      <nav style="display: {{ responsive.navDisplay }}; align-items: center; gap: 36px;">
+        <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 700; border-bottom: 2px solid #14181A; padding-bottom: 4px;">About</a>
+        <a href="research.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Research &amp; Insights</a>
+        <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Behavioural Risk</a>
+        <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 15px; font-weight: 600;">Contact</a>
+      </nav>
+      <a href="contact.html" style="display: {{ responsive.navCtaDisplay }}; background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;">Request a Discovery Call</a>
+      <button onClick="{{ toggleNav }}" aria-label="Toggle menu" style="display: {{ responsive.hamburgerDisplay }}; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #14181A; background: transparent; cursor: pointer; padding: 0;">
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+        <span style="display: block; width: 18px; height: 2px; background: #14181A;"></span>
+      </button>
+    </div>
+    <div style="display: {{ responsive.mobileMenuDisplay }}; flex-direction: column; gap: 4px; padding: 8px 20px 20px; border-top: 1px solid rgba(20,24,26,0.08);">
+      <a href="about.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 700; padding: 12px 4px;">About</a>
+      <a href="research.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Research &amp; Insights</a>
+      <a href="behavioural-risk.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Behavioural Risk</a>
+      <a href="contact.html" style="color: #14181A; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 4px;">Contact</a>
+      <a href="contact.html" onClick="{{ closeNav }}" style="background: #14181A; color: #D7E85B; font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 100px; text-decoration: none; text-align: center; margin-top: 8px;">Request a Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="max-width: 1360px; margin: 0 auto; padding: {{ responsive.heroPad }};">
+    <div style="display: grid; grid-template-columns: {{ responsive.heroCols }}; gap: {{ responsive.gapLg }}; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829;">About HCRAI</div>
+        <h1 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: {{ responsive.h1Size }}; line-height: 1.05; letter-spacing: -0.5px; margin: 0; text-wrap: balance;">Understanding AI means understanding people</h1>
+        <p style="font-size: 20px; line-height: 1.6; color: #3A3730; margin: 0; max-width: 560px; text-wrap: pretty;">My career has been shaped by a question that has become increasingly important as technology advances: how do the systems we build influence the way people think, behave and make decisions?</p>
+        <div style="display: flex; align-items: center; gap: 14px; margin-top: 8px;">
+          <div>
+            <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.2;">Sara Portell</div>
+            <div style="font-size: 14px; color: #6B6558;">Founder, HCRAI</div>
+          </div>
+          <a href="https://www.linkedin.com/in/saraportell/" target="_blank" rel="noopener" aria-label="Sara Portell on LinkedIn" style="display: inline-flex; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.070-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,0.9fr); grid-template-rows: auto auto; gap: 14px; position: relative;">
+        <div style="grid-row: 1 / span 2; border-radius: 22px; overflow: hidden; align-self: stretch; min-height: 100%;">
+          <img src="images/about-sara-portrait.jpg" alt="Sara Portell, founder of HCRAI" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block;">
+        </div>
+        <div style="border-radius: 22px; overflow: hidden; aspect-ratio: 1 / 1;">
+          <img src="images/about-sara-stage.jpg" alt="Sara Portell speaking at a technology conference" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; display: block;">
+        </div>
+        <div style="border-radius: 22px; overflow: hidden; aspect-ratio: 1 / 1.1; background: #D7E85B;">
+          <img src="images/about-sara-presenting.jpg" alt="Sara Portell presenting to a team" style="width: 100%; height: 100%; object-fit: cover; object-position: 45% 30%; display: block;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section style="max-width: 1360px; margin: 0 auto; padding: 0 {{ responsive.sidePad }} {{ responsive.sectionGap }};">
+    <div style="display: grid; grid-template-columns: {{ responsive.splitCols }}; gap: {{ responsive.gapLg }}; align-items: start;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: {{ responsive.h2Size }}; line-height: 1.15; margin: 0;">17 years inside technology companies</h2>
+      <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0; text-wrap: pretty;">I spent over 17 years working in technology companies, including Shopify, Expedia Group and Unit4, leading international research teams and working across product, engineering and data science. I saw how research can shape digital products, and how the realities of human behaviour and organisational contexts matter just as much as the technology itself.</p>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section style="background: #F2F2F0; padding: {{ responsive.bandPad }};">
+    <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: {{ responsive.splitCols }}; gap: {{ responsive.gapLg }}; align-items: start;">
+      <h2 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: {{ responsive.h2Size }}; line-height: 1.15; margin: 0;">Closing the academic–practitioner gap</h2>
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0; text-wrap: pretty;">This led me to deepen my work in behavioural science, completing an MSc at the London School of Economics, followed by doctoral research in the psychology of emotions and wellbeing at Universidade Católica Portuguesa.</p>
+        <p style="font-size: 17px; line-height: 1.75; color: #3A3730; margin: 0; text-wrap: pretty;">My research now examines human–AI interaction and the psychological effects of AI. Alongside this, through HCRAI, I work on AI evaluation and responsible governance, bringing behavioural and social sciences into the assessment of AI systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY HCRAI -->
+  <section style="max-width: 1360px; margin: 0 auto; padding: {{ responsive.whyPad }};">
+    <div style="background: #14181A; border-radius: 28px; padding: {{ responsive.darkPad }}; display: grid; grid-template-columns: {{ responsive.splitCols }}; gap: {{ responsive.gapLg }};">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: {{ responsive.statementSize }}; line-height: 1.25; color: #FFFFFF; margin: 0; text-wrap: pretty;">AI systems cannot be fully understood through technical performance alone.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 22px;">
+        <p style="font-size: 17px; line-height: 1.75; color: #C7C4B7; margin: 0; text-wrap: pretty;">I founded HCRAI to bring these perspectives together. We also need to examine how people interact with them, how they shape trust and decision-making, and where risks emerge in real-world contexts.</p>
+        <p style="font-size: 17px; line-height: 1.75; color: #FFFFFF; margin: 0; text-wrap: pretty;">HCRAI applies human sciences to AI evaluation, product design and governance, translating evidence into practical recommendations that help organisations develop and deploy trustworthy AI systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- YASMINA -->
+  <section style="max-width: 1360px; margin: 0 auto; padding: 0 {{ responsive.sidePad }} {{ responsive.sectionGap }};">
+    <div style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8FA829; margin-bottom: {{ responsive.gapMd }};">Research collaborator</div>
+    <div style="display: grid; grid-template-columns: {{ responsive.yasCols }}; gap: {{ responsive.gapLg }}; align-items: center;">
+      <div style="background: #EAEAEA; border-radius: 28px; padding: {{ responsive.portraitPad }}; display: flex; justify-content: center;">
+        <div style="width: 100%; max-width: 320px; aspect-ratio: 3/4; border-radius: 12px; overflow: hidden;">
+          <img src="images/whatsapp-image-2025-10-21-at-15-40-31-282-29-c62d1218.png" alt="Yasmina El-Fassi, HCRAI research collaborator" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block;">
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <h3 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.15; margin: 0;">Yasmina El-Fassi</h3>
+        <p style="font-size: 17px; color: #3A3730; line-height: 1.7; margin: 0;">Yasmina is a PhD researcher in the Psychology of Emotions and Wellbeing at Universidade Católica Portuguesa, with a research focus on the psychological impact of empathic AI and human-AI interaction.</p>
+        <p style="font-size: 17px; color: #3A3730; line-height: 1.7; margin: 0;">She holds a master's degree in Statistics and Information Management, bringing together expertise in data analysis, psychology, and user experience. Her research contributes to understanding how AI systems shape emotional experience, trust, and wellbeing in real-world use.</p>
+        <p style="font-size: 17px; color: #3A3730; line-height: 1.7; margin: 0;">Alongside her academic work, Yasmina works as a consultant at a leading AI company focused on customer experience, contributing to the development of intelligent systems that support organisational insight and decision-making. She collaborates with HCRAI on selected research and advisory projects.</p>
+        <a href="https://www.linkedin.com/in/yasminaelfassi/" target="_blank" rel="noopener" aria-label="Yasmina El-Fassi on LinkedIn" style="display: inline-flex; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none; margin-top: 6px;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div style="background: #F5F5F4; padding: {{ responsive.footerPad }};">
+      <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: {{ responsive.footerCols }}; gap: {{ responsive.footerGap }};">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="30" height="30" viewBox="-3 -6 40 40">
+              <rect x="4" y="0" width="12" height="12" rx="3" transform="rotate(45 10 6)" fill="#14181A"></rect>
+              <rect x="18" y="0" width="12" height="12" rx="3" transform="rotate(45 24 6)" fill="#C7C7C5"></rect>
+              <rect x="4" y="14" width="12" height="12" rx="3" transform="rotate(45 10 20)" fill="#C7C7C5"></rect>
+              <rect x="18" y="14" width="12" height="12" rx="3" transform="rotate(45 24 20)" fill="#14181A"></rect>
+            </svg>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px;">HCRAI</span>
+          </div>
+          <div style="font-size: 13px; color: #6B6558;">Human-Centric. Responsible AI.</div>
+        </div>
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3A3730;">
+            <span>Tel: +351 915 679 908</span>
+            <span>Tel: +44 79 38 52 1514</span>
+            <a href="mailto:contact@hcrai.com" style="color: #3A3730; text-decoration: none;">contact@hcrai.com</a>
+          </div>
+          <a href="https://www.linkedin.com/company/hcrai" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 18px; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #14181A; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#14181A" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.25 8.25h4.32v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.62-.03-3.69-2.25-3.69-2.25 0-2.6 1.76-2.6 3.57V23h-4.49V8.25z"></path></svg>
+          </a>
+        </div>
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 16px;">Terms &amp; Policies</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="terms.html" style="color: #3A3730; text-decoration: none;">Terms &amp; Conditions</a>
+            <a href="privacy-policy.html" style="color: #3A3730; text-decoration: none;">Privacy Policy</a>
+            <a href="#cookie-preferences" data-cookie-preferences="true" style="color: #3A3730; text-decoration: none;">Cookie preferences</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #14181A; color: #C7C4B7; text-align: center; padding: 20px; font-size: 13.5px;">© 2026 All Rights Reserved | HCRAI</div>
+  </footer>
+  <x-import component-from-global-scope="cookie-consent" from="./cookie-consent.js" hint-size="0px,0px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { width: typeof window !== 'undefined' ? window.innerWidth : 1400, navOpen: false };
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ width: window.innerWidth });
+    window.addEventListener('resize', this._onResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+
+  renderVals() {
+    const w = this.state.width;
+    const m = w < 860;
+    const narrow = w < 1200;
+    const navOpen = this.state.navOpen;
+    const responsive = {
+      containerPad: m ? '18px 20px' : '18px 40px',
+      navDisplay: m ? 'none' : 'flex',
+      navCtaDisplay: m ? 'none' : 'inline-block',
+      hamburgerDisplay: m ? 'flex' : 'none',
+      mobileMenuDisplay: (m && navOpen) ? 'flex' : 'none',
+      sidePad: m ? '20px' : '40px',
+      heroPad: m ? '32px 20px 56px' : '72px 40px 100px',
+      heroCols: m ? '1fr' : 'minmax(0,1.15fr) minmax(0,0.85fr)',
+      portraitPad: m ? '28px' : '48px',
+      collageOffset: m ? '0px' : '40px',
+      h1Size: m ? '36px' : (narrow ? '48px' : '60px'),
+      h2Size: m ? '26px' : '36px',
+      statementSize: m ? '26px' : '34px',
+      gapLg: m ? '32px' : '72px',
+      gapMd: m ? '28px' : '48px',
+      sectionGap: m ? '64px' : '110px',
+      wideRatio: m ? '4 / 3' : '21 / 9',
+      splitCols: m ? '1fr' : 'minmax(0,0.8fr) minmax(0,1.2fr)',
+      researchCols: m ? '1fr' : 'minmax(0,1fr) minmax(0,1fr)',
+      yasCols: m ? '1fr' : 'minmax(0,0.8fr) minmax(0,1.2fr)',
+      bandPad: m ? '56px 20px' : '100px 40px',
+      whyPad: m ? '64px 20px' : '110px 40px',
+      darkPad: m ? '36px 24px' : '72px 64px',
+      footerCols: m ? '1fr' : '1.4fr 1fr 1fr',
+      footerPad: m ? '48px 20px' : '72px 40px',
+      footerGap: m ? '32px' : '40px',
+    };
+    return {
+      responsive,
+      toggleNav: () => this.setState(s => ({ navOpen: !s.navOpen })),
+      closeNav: () => this.setState({ navOpen: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>
