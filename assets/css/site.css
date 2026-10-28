@@ -63,7 +63,20 @@
   --footerMarginTop: 80px;
 
   /* About page */
-  --aboutH1Size: 42px;
+  --aboutHeroPad: 72px 40px 100px;
+  --aboutHeroCols: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  --aboutH1Size: 60px;
+  --aboutH2Size: 36px;
+  --aboutStatementSize: 34px;
+  --aboutGapLg: 72px;
+  --aboutGapMd: 48px;
+  --aboutSectionGap: 110px;
+  --aboutSplitCols: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  --aboutYasCols: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  --aboutBandPad: 100px 40px;
+  --aboutWhyPad: 110px 40px;
+  --aboutDarkPad: 72px 64px;
+  --aboutPortraitPad: 48px;
   --teamLabelMargin: 64px;
   --teamCols1: 1.15fr 1fr;
   --teamCols2: 1fr 1.15fr;
@@ -305,7 +318,7 @@
   :root {
     --h1Size: 40px;
     --approachCols: 1fr 1fr;
-    --aboutH1Size: 36px;
+    --aboutH1Size: 48px;
   }
 }
 
@@ -387,7 +400,20 @@
     --affiliationsMargin: 56px auto 0;
     --footerMarginTop: 48px;
 
-    --aboutH1Size: 30px;
+    --aboutHeroPad: 32px 20px 56px;
+    --aboutHeroCols: 1fr;
+    --aboutH1Size: 36px;
+    --aboutH2Size: 26px;
+    --aboutStatementSize: 26px;
+    --aboutGapLg: 32px;
+    --aboutGapMd: 28px;
+    --aboutSectionGap: 64px;
+    --aboutSplitCols: 1fr;
+    --aboutYasCols: 1fr;
+    --aboutBandPad: 56px 20px;
+    --aboutWhyPad: 64px 20px;
+    --aboutDarkPad: 36px 24px;
+    --aboutPortraitPad: 28px;
     --teamLabelMargin: 32px;
     --teamCols1: 1fr;
     --teamCols2: 1fr;
