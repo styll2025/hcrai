@@ -122,6 +122,51 @@ function unloadAnalyticsEmbeds() {
   });
 }
 
+var GA_MEASUREMENT_ID = 'G-GRV4JVV439';
+
+function loadGoogleAnalytics() {
+  window['ga-disable-' + GA_MEASUREMENT_ID] = false;
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== 'function') {
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+  }
+  window.gtag('js', new Date());
+  window.gtag('config', GA_MEASUREMENT_ID);
+  if (!document.querySelector('script[data-hcrai-ga="gtag"]')) {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    script.setAttribute('data-hcrai-ga', 'gtag');
+    document.head.appendChild(script);
+  }
+}
+
+function clearGoogleAnalyticsCookies() {
+  var names = [];
+  document.cookie.split(';').forEach(function (part) {
+    var name = part.split('=')[0].trim();
+    if (name === '_ga' || name.indexOf('_ga_') === 0 || name === '_gid' || name === '_gat') {
+      names.push(name);
+    }
+  });
+  names.forEach(function (name) {
+    document.cookie = name + '=;path=/;max-age=0';
+    var host = location.hostname;
+    document.cookie = name + '=;path=/;max-age=0;domain=' + host;
+    if (host.indexOf('.') !== -1) {
+      document.cookie = name + '=;path=/;max-age=0;domain=.' + host;
+    }
+  });
+}
+
+function unloadGoogleAnalytics() {
+  window['ga-disable-' + GA_MEASUREMENT_ID] = true;
+  if (typeof window.gtag === 'function') {
+    window.gtag('consent', 'update', { analytics_storage: 'denied' });
+  }
+  clearGoogleAnalyticsCookies();
+}
+
 function registerConsentedServices() {
   if (!window.HCRAIConsent) return;
   window.HCRAIConsent.register({
@@ -129,6 +174,12 @@ function registerConsentedServices() {
     category: 'analytics',
     load: loadAnalyticsEmbeds,
     unload: unloadAnalyticsEmbeds
+  });
+  window.HCRAIConsent.register({
+    id: 'ga4',
+    category: 'analytics',
+    load: loadGoogleAnalytics,
+    unload: unloadGoogleAnalytics
   });
   if (!window.HCRAIConsent.hasConsent('analytics')) {
     unloadAnalyticsEmbeds();
